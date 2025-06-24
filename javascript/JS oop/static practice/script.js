@@ -2,7 +2,8 @@ class BankAccount {
     customerName;
     balance = 0;
     accountNumber;
-
+    static id = 1;
+    
     
     constructor(customerName, balance = 0){
         this.customerName = customerName;
@@ -10,6 +11,8 @@ class BankAccount {
         this.balance = balance;
         
         this.accountNumber = Date.now();
+
+        this.id = BankAccount.id++;
     };
     
     static account (customerName, balance){
