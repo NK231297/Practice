@@ -19,6 +19,10 @@ class BankAccount {
         return new BankAccount(customerName, balance);
     };
 
+    static sortByBalance (a, b){
+        return a.balance - b.balance
+    };
+
 };
 
 // let acc1 = new BankAccount(`Nikhil K`, 1000);
