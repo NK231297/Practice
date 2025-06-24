@@ -5,7 +5,7 @@ class BankAccount {
     static id = 1;
     
     
-    constructor(customerName, balance = 0){
+    constructor(customerName, balance = 0, age){
         this.customerName = customerName;
         
         this.balance = balance;
@@ -13,10 +13,12 @@ class BankAccount {
         this.accountNumber = Date.now();
 
         this.id = BankAccount.id++;
+
+        this.age = age;
     };
     
-    static account (customerName, balance){
-        return new BankAccount(customerName, balance);
+    static account (customerName, balance, age){
+        return new BankAccount(customerName, balance, age);
     };
 
     static sortByBalance (a, b){
@@ -31,16 +33,16 @@ class BankAccount {
 
 let accounts = [];
 
-accounts.push(BankAccount.account(`Vibhuti`, 1500))
-accounts.push(BankAccount.account(`Manmohan`, 2000))
-accounts.push(BankAccount.account(`Happu`, 2000))
-accounts.push(BankAccount.account(`Prem`, 2000))
-accounts.push(BankAccount.account(`Tika`, 100))
-accounts.push(BankAccount.account(`Malkhan`, 150))
-accounts.push(BankAccount.account(`Tillu`, 250))
-accounts.push(BankAccount.account(`Master`, 650))
-accounts.push(BankAccount.account(`Doctor`, 250))
-accounts.push(BankAccount.account(`Chacha`, 2500))
+accounts.push(BankAccount.account(`Vibhuti`, 1500, 30))
+accounts.push(BankAccount.account(`Manmohan`, 2000, 32))
+accounts.push(BankAccount.account(`Happu`, 2000, 35))
+accounts.push(BankAccount.account(`Prem`, 2000, 31))
+accounts.push(BankAccount.account(`Tika`, 100, 29))
+accounts.push(BankAccount.account(`Malkhan`, 150, 28))
+accounts.push(BankAccount.account(`Tillu`, 250, 30))
+accounts.push(BankAccount.account(`Master`, 650, 32))
+accounts.push(BankAccount.account(`Doctor`, 250, 33))
+accounts.push(BankAccount.account(`Chacha`, 2500, 50))
 
 accounts.sort(BankAccount.sortByBalance);
 
