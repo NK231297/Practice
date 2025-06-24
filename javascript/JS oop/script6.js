@@ -28,7 +28,9 @@ const user3 = new user(`Manmohan`, 32, 50000);
 
 const user4 = new user( `Gulfam Kali`, 30, 20000 );
 
-const users = [user1, user2, user3, user4]
+const user5 = new user( `Prem Choudhari`, 100000 );
+
+const users = [user1, user2, user3, user4, user5]
 
 // users.sort( (a, b)=> a.age - b.age );
 
