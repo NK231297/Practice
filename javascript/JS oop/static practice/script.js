@@ -42,4 +42,6 @@ accounts.push(BankAccount.account(`Master`, 650))
 accounts.push(BankAccount.account(`Doctor`, 250))
 accounts.push(BankAccount.account(`Chacha`, 2500))
 
+accounts.sort(BankAccount.sortByBalance);
+
 console.log(accounts)
