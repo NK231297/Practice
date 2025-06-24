@@ -22,6 +22,3 @@ class BankAccount {
 
 // console.log(acc1);
 
-let acc1 = BankAccount.account(`nikhil k`, 1000);
-
-console.log(acc1);
