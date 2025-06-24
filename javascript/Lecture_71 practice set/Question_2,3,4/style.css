@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    height: 500px;
+    min-width: 200px;
+    width: 350px;
+    max-width: 800px;
+    border: 2px solid black;
+    display: flex;
+    
+    background-color: lightblue;
+    position: relative;
+
+}
+
+#new_note{
+    height: 50px;
+    width: 50px;
+    border: 2px solid grey;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+}
+
+#new_notebt{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+} */
+
+.deleteButton{
+    height: 50px;
+    width: 50px;
+    border: 2px solid rgba(0, 0, 0, 0.301);
+}
+
+#deletebt{
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    border: none;
+    border-radius: none;
+
+}

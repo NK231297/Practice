@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    height: 500px;
+    width: 350px;
+    /* border: 3px solid lightcoral; */
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    position: relative;
+}
+
+#heading{
+    height: 10%;
+    width: 100%;
+    border: 2px solid black;
+    margin-bottom: 5px;
+
+}
+
+#content_box{
+    height: 900px;
+    overflow-y: auto;
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    gap: 5px;
+
+}
+
+#button_box{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    width: 100px;
+    /* border: 2px solid black; */
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: flex;
+    gap: 5px;
+
+}
+
+button{
+    border: none;
+    border-radius: none;
+    height: 100%;
+    width: 50%;
+    font-size: 1.6rem;
+}
+
+#add_bt{
+    background-color: lightgreen;
+}
+
+.content_item{
+    border: 2px solid grey;
+    display:flex ;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+/* .content_item h3{
+    text-decoration: rgba(88, 86, 86, 0.616) underline 2px;
+
+} */
+
+.content_item p{
+    font-size: 1.2rem;
+    font-weight: 590;
+    padding: 3px;
+}

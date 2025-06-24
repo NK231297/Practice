@@ -1,0 +1,84 @@
+body {
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.calculator {
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 280px;
+}
+
+.display {
+  height: 80px;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+
+#expression {
+  text-align: right;
+  color: #fff;
+}
+
+#live-result {
+  text-align: right;
+  color: #0f0;
+  font-weight: bold;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #777;
+}
+
+.row-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.backspace-btn {
+  height: 50px;
+  width: calc(50% - 5px); /* Twice the normal button width minus gap */
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.backspace-btn:hover {
+  background: #777;
+}

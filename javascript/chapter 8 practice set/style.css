@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    border: 3px dashed grey;
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container button{
+    background-color: white;
+    border: 3px solid rgba(75, 75, 75, 0.466);
+    border-radius: 0px;
+    padding: 5px;
+}
+
+button:hover{
+    border-top: 5px solid rgba(75, 75, 75, 0.466);
+    border-bottom: 5px solid rgba(75, 75, 75, 0.466);
+}
+
+.bulb_container{
+    border: 3px dashed grey;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bulb_on{
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+    border-radius: 50%;
+    border: none;
+}
+
+.bulb_off{
+    height: 200px;
+    width: 200px;
+    /* background-color: yellow; */
+    border-radius: 50%;
+    border: 3px solid rgba(78, 78, 78, 0.452);
+}
