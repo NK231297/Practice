@@ -22,3 +22,8 @@ class BankAccount {
 
 // console.log(acc1);
 
+let accounts = [];
+
+accounts.push(BankAccount.account(`Mahesh Dalle`, 2000))
+
+console.log(accounts)
