@@ -4,7 +4,7 @@ class BankAccount {
     accountNumber;
 
     static account (){
-        console.log(acc1)
+        return new BankAccount(customerName, balance);
     };
 
     constructor(customerName, balance = 0){
@@ -21,3 +21,5 @@ class BankAccount {
 // let acc1 = new BankAccount(`Nikhil K`, 1000);
 
 // console.log(acc1);
+
+let acc1 = BankAccount.account
