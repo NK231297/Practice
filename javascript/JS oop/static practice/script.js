@@ -12,7 +12,7 @@ class BankAccount {
         this.accountNumber = Date.now();
     };
     
-    static account (){
+    static account (customerName, balance){
         return new BankAccount(customerName, balance);
     };
 
