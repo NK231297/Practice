@@ -37,7 +37,7 @@ class bankAccount{
     }
 
     get balance(){
-        return this.balance
+        return this.#balance
     }
 
 };
@@ -123,9 +123,9 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-let acc1 = new savingsAC(`prem`, 10000);
+let acc1 = new currentAC(`prem`);
 
-
+acc1.balance = `hello ji`
 
 console.log(acc1)
 
