@@ -33,7 +33,15 @@ class bankAccount{
     };
 
     set balance(amount){
-        this.#balance = amount;
+
+        if( typeof amount != `number` || amount < 0 ){
+            throw new Error("Balance Input is invalid");
+        }
+        else{
+
+            this.#balance = amount;
+        }
+
     };
 
     get balance(){
