@@ -134,3 +134,12 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
+let sortBT = document.getElementById(`sort`);
+
+sortBT.addEventListener( `click`, function(e){
+    e.preventDefault();
+
+    accounts.sort(bankAccount.sortByBalance);
+
+    console.log(accounts);
+} )
