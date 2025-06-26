@@ -9,10 +9,12 @@ class bankAccount{
         this.customerName = customerName;
 
         if( typeof balance != `number` || balance < 0 ){
-            throw new Error("Input Balance in Invalid")
+            console.log(new Error("Input Balance in Invalid"))
+        }else{
+            this.balance = balance;
+
         }
 
-        this.balance = balance;
 
         this.accountNumber = Date.now();
     };
