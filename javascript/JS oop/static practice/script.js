@@ -130,4 +130,3 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-hello ji
