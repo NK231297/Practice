@@ -6,9 +6,20 @@ class bankAccount{
     accountNumebr;
 
     constructor(customerName, balance = 0){
+        
+        if( new.target === bankAccount ){
+            throw new Error("Invalid Account Type")
+        }
+
         this.customerName = customerName;
 
-        this.balance = balance;
+        if( typeof balance != `number` || balance < 0 ){
+            throw new Error(`Invalid Account Balance`);
+        }
+        else{
+            this.balance = balance;
+        }
+
 
         this.accountNumebr = Date.now()
     };
@@ -73,3 +84,4 @@ withdrawBT.addEventListener( `click`, function(e){
 
     console.log(accounts);
 } )
+
