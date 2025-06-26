@@ -49,6 +49,23 @@ class bankAccount{
     };
 };
 
+class savingsAC extends bankAccount{
+    accountType = `Savings Account`
+    transactionLimit = 10000;
+    constructor(customerName, balance){
+        super(customerName, balance)
+    }
+}
+
+class currentAC extends bankAccount{
+    accountType = `Current Account`
+    transactionType = 50000;
+
+    constructor(customerName, balance){
+        super(customerName, balance)
+    }
+}
+
 let customerName = document.getElementById("name");
 let balance = document.getElementById("balance");
 let savingsBT = document.getElementById("savings");
@@ -59,7 +76,7 @@ let accounts = [];
 savingsBT.addEventListener( `click`, function(e){
     e.preventDefault()
 
-    let account = new bankAccount(customerName.value, +balance.value);
+    let account = new savingsAC(customerName.value, +balance.value);
 
     accounts.push(account);
 
@@ -69,7 +86,7 @@ savingsBT.addEventListener( `click`, function(e){
 currentBT.addEventListener( `click`, function(e){
     e.preventDefault()
 
-    let account = new bankAccount(customerName.value, +balance.value);
+    let account = new currentAC(customerName.value, +balance.value);
 
     accounts.push(account);
 
