@@ -31,6 +31,15 @@ class bankAccount{
     withdraw(amount){
         this.#balance -= amount;
     };
+
+    set balance(amount){
+        this.#balance = amount;
+    }
+
+    get balance(){
+        return this.balance
+    }
+
 };
 
 let customerName = document.getElementById("name");
@@ -85,5 +94,7 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
+let acc1 = new savings(`prem`, 10000);
 
+console.log(acc1)
 
