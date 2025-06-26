@@ -45,7 +45,7 @@ class bankAccount{
         return this.#balance
     }
 
-    static createAccount(type, customerName, balance){
+    static createAccount(type, customerName, balance = 0){
         if( type === "s" ){
             return new savingsAC(customerName, balance)
         }
