@@ -134,4 +134,4 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-accounts.sortByBalance
+accounts.sort(accounts.sortByBalance);
