@@ -96,7 +96,7 @@ savings.addEventListener(`click`, function(e){
 current.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new bankAccount(customerName.value, +balance.value);
+    let acc = new currentAC(customerName.value, +balance.value);
 
     accounts.push(acc);
 
@@ -128,14 +128,14 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-let acc1 = new currentAC(`prem`);
-let acc2 = new currentAC(`Manmohan`);
-let acc3 = new currentAC(`Vibhuti`);
-let acc4 = new currentAC(`Happu`);
+// let acc1 = new currentAC(`prem`);
+// let acc2 = new currentAC(`Manmohan`);
+// let acc3 = new currentAC(`Vibhuti`);
+// let acc4 = new currentAC(`Happu`);
 
-accounts.push(acc1, acc2, acc3, acc4)
+// accounts.push(acc1, acc2, acc3, acc4)
 
-acc1.balance = `hello ji`
+// acc1.balance = `hello ji`
 
-console.log(accounts)
+// console.log(accounts)
 
