@@ -46,10 +46,10 @@ class bankAccount{
     }
 
     static createAccount(type){
-        if( type === "savings" ){
-            return new savingsAC()
+        if( type === "s" ){
+            return new savingsAC(customerName, balance)
         }
-        else if( type === `current` ){
+        else if( type === `c` ){
             return new currentAC()
         }
         else{
@@ -140,14 +140,6 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-// let acc1 = new currentAC(`prem`);
-// let acc2 = new currentAC(`Manmohan`);
-// let acc3 = new currentAC(`Vibhuti`);
-// let acc4 = new currentAC(`Happu`);
+let acc1 = bankAccount.createAccount(`s`, `prem`, 1000)
 
-// accounts.push(acc1, acc2, acc3, acc4)
-
-// acc1.balance = `hello ji`
-
-// console.log(accounts)
-
+console.log(acc1)
