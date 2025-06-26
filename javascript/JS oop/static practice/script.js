@@ -47,6 +47,18 @@ class bankAccount{
     get balance(){
         return this.#balance;
     };
+
+    static createAccount(type, customerName, balance){
+        if( type === `savings` ){
+            return new savingsAC(customerName, balance)
+        }
+        else if( type === `current` ){
+            return new currentAC(customerName, balance)
+        }
+        else{
+            return `invalid account`
+        }
+    }
 };
 
 class savingsAC extends bankAccount{
