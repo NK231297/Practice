@@ -4,7 +4,7 @@ class bankAccount{
     customerName;
     #balance = 0;
     accountNumber;
-    
+    hello;
 
     constructor(customerName, balance = 0){
 
@@ -75,18 +75,6 @@ class currentAC extends bankAccount{
         super(customerName, balance)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 let customerName = document.getElementById("name");
