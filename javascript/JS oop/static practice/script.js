@@ -100,7 +100,7 @@ let accounts = [];
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = bankAccount.createAccount("saving", customerName, +balance.value);
+    let acc = bankAccount.createAccount("saving", customerName.value, +balance.value);
 
     accounts.push(acc);
 
@@ -110,7 +110,7 @@ savings.addEventListener(`click`, function(e){
 current.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new currentAC(customerName.value, +balance.value);
+    let acc = new currentAC("current", customerName.value, +balance.value);
 
     accounts.push(acc);
 
