@@ -33,6 +33,7 @@ class bankAccount{
     };
 
     set balance(amount){
+        if( typeof amount != `number` || amount < 0 )
         this.#balance = amount;
     }
 
