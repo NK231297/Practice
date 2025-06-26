@@ -88,7 +88,7 @@ let accounts = [];
 savingsBT.addEventListener( `click`, function(e){
     e.preventDefault()
 
-    let account = new savingsAC(customerName.value, +balance.value);
+    let account = bankAccount.createAccount(`savings`, customerName.value, +balance.value);
 
     accounts.push(account);
 
@@ -98,7 +98,7 @@ savingsBT.addEventListener( `click`, function(e){
 currentBT.addEventListener( `click`, function(e){
     e.preventDefault()
 
-    let account = new currentAC(customerName.value, +balance.value);
+    let account = bankAccount.createAccount(`current`, customerName.value, +balance.value);
 
     accounts.push(account);
 
