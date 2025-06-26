@@ -9,7 +9,7 @@ class bankAccount{
         this.customerName = customerName;
 
         if( typeof balance != `number` || balance < 0 ){
-            this.balance = `Invalid Input`
+            throw new Error("Input Balance in Invalid")
         }
 
         this.balance = balance;
@@ -54,6 +54,6 @@ current.addEventListener(`click`, function(e){
 });
 
 let acc2 = new bankAccount(`hello ji`, `balance`)
-acc2.balance = `hello ji`
+// acc2.balance = `hello ji`
 console.log(acc2)
 
