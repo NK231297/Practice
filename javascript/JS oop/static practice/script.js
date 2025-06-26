@@ -5,7 +5,7 @@ class bankAccount{
     balance = 0;
     accountNumber;
 
-    constructor(customerName, balance = 0){
+    constructor(customerName, balance){
         this.customerName = customerName;
 
         this.balance = balance;
@@ -32,7 +32,7 @@ let accounts = [];
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new bankAccount(customerName.value, +balance.value);
+    let acc = new bankAccount(customerName.value, balance.value);
 
     accounts.push(acc);
 
@@ -42,7 +42,7 @@ savings.addEventListener(`click`, function(e){
 current.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new bankAccount(customerName.value, +balance.value);
+    let acc = new bankAccount(customerName.value, balance.value);
 
     accounts.push(acc);
 
