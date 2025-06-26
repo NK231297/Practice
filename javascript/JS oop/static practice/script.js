@@ -2,16 +2,16 @@
 
 class bankAccount{
     customerName;
-    balance = 0;
+    #balance = 0;
     accountNumber;
 
-    constructor(customerName, balance){
+    constructor(customerName, balance = 0){
         this.customerName = customerName;
 
         if( typeof balance != `number` || balance < 0 ){
-            console.log(new Error("Input Balance in Invalid"))
+            console.log(new Error("Input Balance in Invalid Balance Not updated"))
         }else{
-            this.balance = balance;
+            this.#balance = balance;
 
         }
 
@@ -20,11 +20,11 @@ class bankAccount{
     };
 
     deposit(amount){
-        this.balance += amount;
+        this.#balance += amount;
     };
 
     withdraw(amount){
-        this.balance -= amount;
+        this.#balance -= amount;
     };
 };
 
@@ -38,7 +38,7 @@ let accounts = [];
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new bankAccount(customerName.value, balance.value);
+    let acc = new bankAccount(customerName.value, +balance.value);
 
     accounts.push(acc);
 
@@ -48,14 +48,10 @@ savings.addEventListener(`click`, function(e){
 current.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new bankAccount(customerName.value, balance.value);
+    let acc = new bankAccount(customerName.value, +balance.value);
 
     accounts.push(acc);
 
     console.log(accounts);
 });
-
-let acc2 = new bankAccount(`hello ji`, `balance`)
-// acc2.balance = `hello ji`
-console.log(acc2)
 
