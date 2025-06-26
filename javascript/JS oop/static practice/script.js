@@ -55,3 +55,18 @@ current.addEventListener(`click`, function(e){
     console.log(accounts);
 });
 
+let accNo = document.getElementById(`account`);
+let amount = document.getElementById(`amount`);
+let depositBT = document.getElementById(`deposit`);
+let withdrawBT = document.getElementById(`withdraw`);
+
+depositBT.addEventListener( `click`, function(e){
+    e.preventDefault();
+    
+    let account = accounts.find( (account)=> +account.accountNumber === +accNo.value)
+
+    account.deposit(+amount.value);
+
+    console.log(accounts);
+} )
+
