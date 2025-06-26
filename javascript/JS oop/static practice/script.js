@@ -34,9 +34,11 @@ class bankAccount{
 
     set balance(amount){
         if( typeof amount != `number` || amount < 0 ){
-            throw new Error(`Setting Invalid balance in A/C no. ${this.accountNumber}`)
+            console.log(new Error(`Setting Invalid balance in A/C no. ${this.accountNumber}`))
+        }else{
+
+            this.#balance = amount;
         }
-        this.#balance = amount;
     }
 
     get balance(){
@@ -131,7 +133,9 @@ let acc2 = new currentAC(`Manmohan`);
 let acc3 = new currentAC(`Vibhuti`);
 let acc4 = new currentAC(`Happu`);
 
+accounts.push(acc1, acc2, acc3, acc4)
+
 acc1.balance = `hello ji`
 
-console.log(acc1)
+console.log(accounts)
 
