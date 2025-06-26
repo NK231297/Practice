@@ -92,13 +92,14 @@ let customerName = document.getElementById("name");
 let balance = document.getElementById("balance");
 let savings = document.getElementById("savings");
 let current = document.getElementById("current");
+let s = "savings";
 
 let accounts = [];
 
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = bankAccount.createAccount(s, customerName.value, +balance.value);
+    let acc = bankAccount.createAccount(s, customerName, +balance.value);
 
     accounts.push(acc);
 
