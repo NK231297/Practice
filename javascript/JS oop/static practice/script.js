@@ -87,25 +87,24 @@ let balance = document.getElementById("balance");
 let savingsBT = document.getElementById("savings");
 let currentBT = document.getElementById("current");
 
-let accounts = [];
 
 savingsBT.addEventListener( `click`, function(e){
     e.preventDefault()
-
+    
     let account = bankAccount.createAccount(`savings`, customerName.value, +balance.value);
-
+    
     accounts.push(account);
-
+    
     console.log(accounts);
 } )
 
 currentBT.addEventListener( `click`, function(e){
     e.preventDefault()
-
+    
     let account = bankAccount.createAccount(`current`, customerName.value, +balance.value);
-
+    
     accounts.push(account);
-
+    
     console.log(accounts);
 } )
 
@@ -116,22 +115,23 @@ let withdrawBT = document.getElementById(`withdraw`);
 
 depositBT.addEventListener( `click`, function(e){
     e.preventDefault()
-
+    
     let account = accounts.find( (account)=>account.accountNumebr === +accNo.value )
-
+    
     account.deposit(+amount.value);
-
+    
     console.log(accounts);
 } )
 
 withdrawBT.addEventListener( `click`, function(e){
     e.preventDefault()
-
+    
     let account = accounts.find( (account)=>account.accountNumebr === +accNo.value )
-
+    
     account.withdraw(+amount.value);
-
+    
     console.log(accounts);
 } )
+let accounts = [];
 
 accounts.sort(accounts.sortByBalance);
