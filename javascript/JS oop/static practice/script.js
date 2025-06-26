@@ -33,7 +33,9 @@ class bankAccount{
     };
 
     set balance(amount){
-        if( typeof amount != `number` || amount < 0 )
+        if( typeof amount != `number` || amount < 0 ){
+            throw new Error(`Setting Invalid balance in A/C no. ${this.accountNumber}`)
+        }
         this.#balance = amount;
     }
 
@@ -125,6 +127,9 @@ withdrawBT.addEventListener( `click`, function(e){
 } )
 
 let acc1 = new currentAC(`prem`);
+let acc2 = new currentAC(`Manmohan`);
+let acc3 = new currentAC(`Vibhuti`);
+let acc4 = new currentAC(`Happu`);
 
 acc1.balance = `hello ji`
 
