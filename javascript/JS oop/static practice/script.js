@@ -1,6 +1,18 @@
 //Main Logic
 
+class bankAccount{
+    customerName;
+    balance = 0;
+    accountNumebr;
 
+    constructor(customerName, balance = 0){
+        this.customerName = customerName;
+
+        this.balance = balance;
+
+        this.accountNumebr = Date.now()
+    };
+};
 
 
 
