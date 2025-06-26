@@ -4,10 +4,12 @@ class bankAccount{
     customerName;
     #balance = 0;
     accountNumebr;
-    id = 1;
 
-    constructor(customerName, balance = 0, +id){
-        this.id = id++
+    static id = NK001;
+    
+    constructor(customerName, balance = 0){
+
+        this.id = bankAccount.id++
 
         if( new.target === bankAccount ){
             throw new Error("Invalid Account Type")
