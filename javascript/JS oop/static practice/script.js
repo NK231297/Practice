@@ -87,6 +87,7 @@ let balance = document.getElementById("balance");
 let savingsBT = document.getElementById("savings");
 let currentBT = document.getElementById("current");
 
+let accounts = [];
 
 savingsBT.addEventListener( `click`, function(e){
     e.preventDefault()
@@ -132,6 +133,5 @@ withdrawBT.addEventListener( `click`, function(e){
     
     console.log(accounts);
 } )
-let accounts = [];
 
-accounts.sort(accounts.sortByBalance);
+accounts.sort(bankAccount.sortByBalance);
