@@ -8,6 +8,10 @@ class bankAccount{
     constructor(customerName, balance){
         this.customerName = customerName;
 
+        if( typeof balance != `number` || balance < 0 ){
+            this.balance = `Invalid Input`
+        }
+
         this.balance = balance;
 
         this.accountNumber = Date.now();
