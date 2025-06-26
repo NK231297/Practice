@@ -49,3 +49,7 @@ current.addEventListener(`click`, function(e){
     console.log(accounts);
 });
 
+let acc2 = new bankAccount(`hello ji`, `balance`)
+
+console.log(acc2)
+
