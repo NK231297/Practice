@@ -4,9 +4,11 @@ class bankAccount{
     customerName;
     #balance = 0;
     accountNumebr;
+    id = 1;
 
     constructor(customerName, balance = 0){
-        
+        id++
+
         if( new.target === bankAccount ){
             throw new Error("Invalid Account Type")
         }
