@@ -4,6 +4,7 @@ class bankAccount{
     customerName;
     #balance = 0;
     accountNumber;
+    
 
     constructor(customerName, balance = 0){
 
@@ -92,7 +93,7 @@ let customerName = document.getElementById("name");
 let balance = document.getElementById("balance");
 let savings = document.getElementById("savings");
 let current = document.getElementById("current");
-let s = "savings";
+
 
 let accounts = [];
 
