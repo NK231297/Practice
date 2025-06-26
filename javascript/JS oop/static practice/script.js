@@ -42,6 +42,35 @@ class bankAccount{
 
 };
 
+class savingsAC extends bankAccount{
+    TransactionLimit = 10000;
+    AccountType = `Savings Account`
+    constructor(customerName, balance = 0){
+        super(customerName, balance)
+    }
+}
+
+class currentAC extends bankAccount{
+    TransactionLimit = 50000;
+    AccountType = `Current Account`
+    constructor(customerName, balance = 0){
+        super(customerName, balance)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let customerName = document.getElementById("name");
 let balance = document.getElementById("balance");
 let savings = document.getElementById("savings");
@@ -94,7 +123,9 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-let acc1 = new savings(`prem`, 10000);
+let acc1 = new savingsAC(`prem`, 10000);
+
+
 
 console.log(acc1)
 
