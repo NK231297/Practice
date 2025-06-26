@@ -6,6 +6,11 @@ class bankAccount{
     accountNumber;
 
     constructor(customerName, balance = 0){
+
+        if( new.target === bankAccount ){
+            throw new Error("Invalid Account Type")
+        }
+
         this.customerName = customerName;
 
         if( typeof balance != `number` || balance < 0 ){
@@ -79,4 +84,6 @@ withdrawBT.addEventListener( `click`, function(e){
 
     console.log(accounts);
 } )
+
+
 
