@@ -50,6 +50,6 @@ current.addEventListener(`click`, function(e){
 });
 
 let acc2 = new bankAccount(`hello ji`, `balance`)
-
+acc2.balance = `hello ji`
 console.log(acc2)
 
