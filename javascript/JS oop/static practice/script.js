@@ -62,8 +62,8 @@ class bankAccount{
 class savingsAC extends bankAccount{
     TransactionLimit = 10000;
     AccountType = `Savings Account`
-    constructor(customerName, balance = 0){
-        super(customerName, balance)
+    constructor(s, customerName, balance = 0){
+        super(s, customerName, balance)
     }
 }
 
