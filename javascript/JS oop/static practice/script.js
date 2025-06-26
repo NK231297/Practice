@@ -140,6 +140,3 @@ withdrawBT.addEventListener( `click`, function(e){
     console.log(accounts);
 } )
 
-let acc1 = bankAccount.createAccount(`s`, `prem`, 1000)
-
-console.log(acc1)
