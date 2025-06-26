@@ -129,12 +129,3 @@ withdrawBT.addEventListener( `click`, function(e){
 
     console.log(accounts);
 } )
-
-let acc1 = bankAccount.createAccount( `landing`, `Mukesh`, 1000 );
-let acc2 = bankAccount.createAccount( `savings`, `Hari bhai`, 1000 );
-let acc3 = bankAccount.createAccount( `current`, `Bulla`, 1000 );
-let acc4 = bankAccount.createAccount( `current`, `Kachra`, 1000 );
-
-accounts.push(acc1, acc2, acc3, acc4);
-
-console.log(accounts);
