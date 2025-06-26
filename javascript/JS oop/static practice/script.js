@@ -37,4 +37,15 @@ savings.addEventListener(`click`, function(e){
     accounts.push(acc);
 
     console.log(accounts);
-})
+});
+
+current.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    let acc = new bankAccount(customerName.value, +balance.value);
+
+    accounts.push(acc);
+
+    console.log(accounts);
+});
+
