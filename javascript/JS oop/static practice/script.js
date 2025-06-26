@@ -47,10 +47,10 @@ class bankAccount{
 
     static createAccount(type, customerName, balance = 0){
         if( type === "s" ){
-            return new savingsAC(customerName, balance)
+            return new savingsAC(s, customerName, balance)
         }
         else if( type === `c` ){
-            return new currentAC(customerName, balance)
+            return new currentAC(c, customerName, balance)
         }
         else{
             return "Invalid Account"
@@ -62,8 +62,8 @@ class bankAccount{
 class savingsAC extends bankAccount{
     TransactionLimit = 10000;
     AccountType = `Savings Account`
-    constructor(s, customerName, balance = 0){
-        super(s, customerName, balance)
+    constructor(customerName, balance = 0){
+        super(customerName, balance)
     }
 }
 
