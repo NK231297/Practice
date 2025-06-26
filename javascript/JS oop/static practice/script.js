@@ -86,7 +86,7 @@ let accounts = [];
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new bankAccount(customerName.value, +balance.value);
+    let acc = new savingsAC(customerName.value, +balance.value);
 
     accounts.push(acc);
 
