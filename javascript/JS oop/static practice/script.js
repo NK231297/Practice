@@ -45,6 +45,18 @@ class bankAccount{
         return this.#balance
     }
 
+    static createAccount(type){
+        if( type === "savings" ){
+            return new savingsAC()
+        }
+        else if( type === `current` ){
+            return new currentAC()
+        }
+        else{
+            return "Invalid Account"
+        }
+    };
+
 };
 
 class savingsAC extends bankAccount{
