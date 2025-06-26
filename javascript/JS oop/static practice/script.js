@@ -50,7 +50,7 @@ class bankAccount{
             return new savingsAC(customerName, balance)
         }
         else if( type === `c` ){
-            return new currentAC()
+            return new currentAC(customerName, balance)
         }
         else{
             return "Invalid Account"
@@ -88,7 +88,7 @@ class currentAC extends bankAccount{
 
 
 
-// let customerName = document.getElementById("name");
+let customerName = document.getElementById("name");
 let balance = document.getElementById("balance");
 let savings = document.getElementById("savings");
 let current = document.getElementById("current");
@@ -98,7 +98,7 @@ let accounts = [];
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = new savingsAC(customerName.value, +balance.value);
+    let acc = bankAccount.createAccount(customerName.value, +balance.value);
 
     accounts.push(acc);
 
