@@ -63,3 +63,13 @@ depositBT.addEventListener( `click`, function(e){
 
     console.log(accounts);
 } )
+
+withdrawBT.addEventListener( `click`, function(e){
+    e.preventDefault()
+
+    let account = accounts.find( (account)=>account.accountNumebr === +accNo.value )
+
+    account.withdraw(+amount.value);
+
+    console.log(accounts);
+} )
