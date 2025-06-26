@@ -2,7 +2,7 @@
 
 class bankAccount{
     customerName;
-    balance = 0;
+    #balance = 0;
     accountNumebr;
 
     constructor(customerName, balance = 0){
@@ -17,7 +17,7 @@ class bankAccount{
             throw new Error(`Invalid Account Balance`);
         }
         else{
-            this.balance = balance;
+            this.#balance = balance;
         }
 
 
@@ -25,11 +25,19 @@ class bankAccount{
     };
 
     deposit(amount){
-        this.balance += amount;
+        this.#balance += amount;
     };
 
     withdraw(amount){
-        this.balance -= amount;
+        this.#balance -= amount;
+    };
+
+    set balance(amount){
+        this.#balance = amount;
+    };
+
+    get balance(){
+        return this.#balance;
     };
 };
 
