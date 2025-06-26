@@ -59,6 +59,10 @@ class bankAccount{
             return `invalid account`
         }
     }
+
+    static sortByBalance(a, b){
+        return a.balance - b.balance
+    }
 };
 
 class savingsAC extends bankAccount{
@@ -129,3 +133,5 @@ withdrawBT.addEventListener( `click`, function(e){
 
     console.log(accounts);
 } )
+
+accounts.sortByBalance
