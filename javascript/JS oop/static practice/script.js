@@ -47,10 +47,10 @@ class bankAccount{
     }
 
     static createAccount(type, customerName, balance = 0){
-        if( type === "s" ){
+        if( type === "saving" ){
             return new savingsAC(customerName, balance)
         }
-        else if( type === `c` ){
+        else if( type === `current` ){
             return new currentAC(c, customerName, balance)
         }
         else{
@@ -100,7 +100,7 @@ let accounts = [];
 savings.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let acc = bankAccount.createAccount(s, customerName, +balance.value);
+    let acc = bankAccount.createAccount("saving", customerName, +balance.value);
 
     accounts.push(acc);
 
