@@ -45,7 +45,7 @@ class bankAccount{
         return this.#balance
     }
 
-    static createAccount(type){
+    static createAccount(type, customerName, balance){
         if( type === "s" ){
             return new savingsAC(customerName, balance)
         }
@@ -88,7 +88,7 @@ class currentAC extends bankAccount{
 
 
 
-let customerName = document.getElementById("name");
+// let customerName = document.getElementById("name");
 let balance = document.getElementById("balance");
 let savings = document.getElementById("savings");
 let current = document.getElementById("current");
