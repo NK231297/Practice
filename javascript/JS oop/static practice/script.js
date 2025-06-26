@@ -6,8 +6,8 @@ class bankAccount{
     accountNumebr;
     id = 1;
 
-    constructor(customerName, balance = 0){
-        id++
+    constructor(customerName, balance = 0, +id){
+        this.id = id++
 
         if( new.target === bankAccount ){
             throw new Error("Invalid Account Type")
