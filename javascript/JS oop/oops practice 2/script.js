@@ -1,6 +1,6 @@
 //Main logic
 
-class shopping{
+class product{
     itemName;
     itemPrice;
     category;
@@ -9,14 +9,14 @@ class shopping{
     constructor(itemName, itemPrice, category, id){
         this.itemName = itemName;
         this.itemPrice = itemPrice;
-        this.category = category;
-        this.id = shopping.id++;
+        // this.category = category;
+        this.id = product.id++;
     };
 };
 
 let items = [];
 
-let itt1 = new shopping(`Soap`, 20, `TnW`);
+let itt1 = new product(`Soap`, 20);
 
 items.push(itt1);
 
