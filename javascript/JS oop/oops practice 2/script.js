@@ -20,8 +20,15 @@ let food = document.getElementById("food")
 let beverages = document.getElementById("beverages")
 let createBT = document.getElementById("create")
 
+let items = [];
+
 createBT.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let Item = new product(itemName.value, +itemPrice.value, )
+    let Item = new product(ItemName.value, +ItemPrice.value, category.value)
+
+    items.push(Item);
+
+    console.log(items);
+
 })
