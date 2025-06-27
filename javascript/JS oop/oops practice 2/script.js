@@ -14,6 +14,14 @@ class product{
 
 let ItemName = document.getElementById("name")
 let ItemPrice = document.getElementById("price")
+let category = document.getElementById("category")
 let stationary = document.getElementById("stationary")
 let food = document.getElementById("food")
 let beverages = document.getElementById("beverages")
+let createBT = document.getElementById("create")
+
+createBT.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    let Item = new product(itemName.value, +itemPrice.value, )
+})
