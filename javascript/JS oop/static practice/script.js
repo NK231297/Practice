@@ -5,7 +5,7 @@ class bankAccount{
     #balance = 0;
     accountNumebr;
 
-    static id = 001;
+    static id = 1;
     
     constructor(customerName, balance = 0){
 
