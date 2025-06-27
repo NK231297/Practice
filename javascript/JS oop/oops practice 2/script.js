@@ -10,7 +10,7 @@ class shopping{
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.category = category;
-        this.id = id++;
+        this.id = shopping.id++;
     };
 };
 
