@@ -1,13 +1,13 @@
-class complex{
+class complexN{
     realN;
-    compN;
+    ImagenaryN;
 
-    constructor(realN, compN){
+    constructor(realN, imagenaryN){
         this.realN = realN;
-        this.compN = compN;
+        this.imagenaryN = imagenaryN;
     };
 };
 
-let num1 = new complex(2, 4);
+let num1 = new complexN(2, 4);
 
-console.log(num1);
+console.log(num1.value);
