@@ -15,4 +15,6 @@ class complexN{
 
 let num1 = new complexN(2, 4);
 
-num1.add
+num1.add(1);
+
+console.log(num1);
