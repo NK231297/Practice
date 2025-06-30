@@ -15,7 +15,7 @@ let saveBT = document.getElementById(`save`);
 saveBT.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    let newTask = new todo(this.id, discInput.value);
+    let newTask = new todo(id, discInput.value);
 
-    localStorage.setItem(this.id, newTask.value);
+    localStorage.setItem(id, newTask.value);
 });
