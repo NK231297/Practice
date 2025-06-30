@@ -13,7 +13,7 @@ let saveBT = document.getElementById(`save`);
 
 
 saveBT.addEventListener(`click`, function(e){
-    e.preventDefault();
+    // e.preventDefault();
 
     let newTask = new todo(discInput.value);
 
