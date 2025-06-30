@@ -10,4 +10,4 @@ class complexN{
 
 let num1 = new complexN(2, 4);
 
-console.log(num1.value);
+console.log(num1.realN + num1.imagenaryN);
