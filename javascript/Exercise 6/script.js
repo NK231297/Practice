@@ -2,7 +2,7 @@ class todo{
     static id = 1;
     discription;
 
-    constructor(discription){
+    constructor(id, discription){
         this.id = todo.id++;
         this.discription = discription;
     }
