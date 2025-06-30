@@ -1,20 +1,16 @@
-class complexN{
-    realN;
-    ImagenaryN;
+class kanche{
+    nikkuKeKanche;
+    rakuKeKanche;
 
-    constructor(realN, imagenaryN){
-        this.realN = realN;
-        this.imagenaryN = imagenaryN;
-    };
+    constructor(nikkuKeKanche, rakuKeKanche){
+        this.nikkuKeKanche = nikkuKeKanche;
+        this.rakuKeKanche = rakuKeKanche;
 
-    add(num){
-        this.realN += num;
-        this.ImagenaryN += num;
     };
 };
 
-let num1 = new complexN(2, 4);
+let kancheBT = document.getElementById("kancheBT");
 
-num1.add(1);
-
-console.log(num1);
+kancheBT.addEventListener(`click`, function(e){
+    e.preventDefault();
+})
