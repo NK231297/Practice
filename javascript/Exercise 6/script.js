@@ -17,5 +17,6 @@ saveBT.addEventListener(`click`, function(e){
 
     let newTask = new todo(discInput.value);
 
-    console.log(newTask)
+    localStorage.setItem(newTask.id, discInput.value)
 });
+
