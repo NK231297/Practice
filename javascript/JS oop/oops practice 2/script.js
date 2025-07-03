@@ -1,1 +1,5 @@
-class BankAccount{}
+class BankAccount{
+    name;
+    balance;
+    accountNumber;
+}
