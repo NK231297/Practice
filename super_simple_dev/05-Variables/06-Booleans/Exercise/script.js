@@ -11,7 +11,7 @@ let hour = Timehour >= 6 && Timehour <= 12 ? 'Good Morning' :
 
 console.log(hour, Name);
 */
-const agebt = document.getElementById("age");
+// const agebt = document.getElementById("age");
 // let age;
 // let day;
 // let date = new Date();
@@ -19,7 +19,7 @@ const agebt = document.getElementById("age");
 // let day = date.getDay();
 
 
-
+/*
 agebt.addEventListener(`click`, function(e){
 
     e.preventDefault();
@@ -27,9 +27,6 @@ agebt.addEventListener(`click`, function(e){
     age = prompt("Please enter your age.");
 
     age = parseInt(age);
-
-    //here 0 = sunday, 1 = monday, 2 = tuesday, 3 = wednesday, 4 = thursday, 5 = friday, 6 = saturday
-
     
     day = prompt("Enter day number");
     
@@ -42,3 +39,62 @@ agebt.addEventListener(`click`, function(e){
     console.log(`You are ${result}`);
 });
 
+*/
+/*
+let randomNumber = Math.floor(Math.random() * 10) + 1;
+
+let guess = prompt("Please enter your guess!");
+
+
+let result = randomNumber < 5 ? "Heads" : "Tails";
+
+let guessResult = result === guess ? "You win!" : "You lose!";
+
+console.log(result);
+console.log(guessResult);
+*/
+
+const showCart = document.getElementById("show");
+const AddToCart = document.getElementById("add");
+const AddTwo = document.getElementById("add2");
+const AddThree = document.getElementById("add3");
+const Reset = document.getElementById("reset");
+
+let Cart = 0;
+
+showCart.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    console.log(Cart);
+});
+
+AddToCart.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    Cart++;
+
+    console.log("1pc entered in Cart");
+});
+
+AddTwo.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    Cart += 2;
+
+    console.log("2pc entered in Cart");
+});
+
+AddThree.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    Cart += 3;
+
+    console.log("3pc entered in Cart");
+});
+
+Reset.addEventListener(`click`, function(e){
+    e.preventDefault();
+    Cart = 0;
+    console.log("Cart is reset");
+    console.log(Cart);
+});
