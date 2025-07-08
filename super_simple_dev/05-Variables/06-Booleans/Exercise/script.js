@@ -55,9 +55,14 @@ console.log(guessResult);
 */
 
 const showCart = document.getElementById("show");
+
 const AddToCart = document.getElementById("add");
 const AddTwo = document.getElementById("add2");
 const AddThree = document.getElementById("add3");
+
+const remove2 = document.getElementById("remove2");
+const remove3 = document.getElementById("remove3");
+
 const Reset = document.getElementById("reset");
 
 let Cart = 0;
@@ -69,28 +74,57 @@ showCart.addEventListener(`click`, function(e){
 });
 
 AddToCart.addEventListener(`click`, function(e){
-    e.preventDefault();
-
-    Cart++;
-
-    console.log("1pc entered in Cart");
+        e.preventDefault();
+        Cart < 10 ? ( Cart++, console.log("1pc entered") ) : console.log("Cart is full")
 });
-
+    
 AddTwo.addEventListener(`click`, function(e){
-    e.preventDefault();
+        e.preventDefault();
+    
+        let spaceLeft = 10 - Cart;
 
-    Cart += 2;
+        let add = Math.min(2, spaceLeft);
 
-    console.log("2pc entered in Cart");
+        Cart < 10 ? (Cart += add, console.log(`Added ${add}pc`)) : console.log("Full");
+        
 });
-
+    
 AddThree.addEventListener(`click`, function(e){
+        e.preventDefault();
+        
+        let spaceLeft = 10 - Cart;
+
+        let add = Math.min(3, spaceLeft);
+        
+        Cart < 10 ? (Cart += add, console.log(`Added ${add}pc`)) : console.log("Full")
+
+        console.log(Cart);
+
+});
+
+remove2.addEventListener(`click`, function(e){
+    e.preventDefault();
+    // let remainingItem = 10 - Cart;
+    
+    let remove = Math.min(2, Cart);
+
+    Cart > 0 ? (Cart -= remove, console.log(`removed ${remove}pc`)) : console.log("Cart is Empty")
+    
+    console.log(Cart);
+})
+
+remove3.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    Cart += 3;
+    let remove = Math.min(3, Cart);
 
-    console.log("3pc entered in Cart");
-});
+    Cart > 0 ? (Cart -= remove, console.log(`removed ${remove}pc`)) : console.log("Cart Empty.");
+
+    console.log(Cart);
+
+})
+
+
 
 Reset.addEventListener(`click`, function(e){
     e.preventDefault();
