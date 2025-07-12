@@ -9,9 +9,48 @@ const reset = document.getElementById("reset");
 
 let cart = 0;
 
-function updateCart(num){
-    return cart += num;
+function addCart (num){
+    if(cart < 10){
+        let abcd = 10 - cart;
+    
+        let efgh = Math.min(num, abcd);
+        
+
+        cart += efgh;
+    
+        console.log(`Added ${efgh}pc`);
+        // return;
+    }
+    else{
+        console.log("Cart is full");
+    }
+    
+
+    console.log(`Cart: ${cart}`);
 };
+
+function removeCart(num){
+    let abcd = 10 - cart;
+    
+    let ijkl = 10 - abcd;
+
+    let mnop = Math.min(num, ijkl);
+    
+    if(cart > 9){
+        cart -= num;
+
+        console.log(`Removed: ${num}pc`);
+    }
+    else if(cart > 0){
+        cart -= mnop;
+
+        console.log(`Removed: ${mnop}pc`);
+    }
+    else{
+        console.log("Cart is empty");
+    }
+    console.log(`Cart: ${cart}`);
+}
 
 view.addEventListener(`click`, function(e)      {
     e.preventDefault();
@@ -22,58 +61,34 @@ view.addEventListener(`click`, function(e)      {
 add.addEventListener(`click`, function(e)       {
     e.preventDefault();
 
-    cart++
-
-    console.log(`Cart Quantity: ${cart}`);
+    addCart(1);
 });
 
 remove.addEventListener(`click`, function(e)    {
     e.preventDefault();
 
-    if(cart > 0){
-        cart--;
-    }
-    else{
-        console.log("Cart is empty now");
-        // console.log(cart);
-    }
+    removeCart(1);
 
-    console.log(`Cart Quantity: ${cart}`);
 });
 
 add2.addEventListener(`click`, function(e)      {
     e.preventDefault();
-
-    cart += 2;
-
-    console.log(`Cart Quantity: ${cart}`);
+    
+    addCart(2);
+    
 });
 
 add3.addEventListener(`click`, function(e)      {
     e.preventDefault();
     
-    cart += 3;
-    
-    console.log(`Cart Quantity: ${cart}`);
+    addCart(3);
     
 });
 
 remove2.addEventListener(`click`, function(e)   {
     e.preventDefault();
     
-    if(cart > 1){
-        console.log("removing 2")
-        cart -= 2;
-    }
-    else if(cart === 1){
-        console.log("removing 1")
-        cart -= 1;
-    }
-    else{
-        console.log("Cart is empty now");
-    }
-    
-    console.log(`Cart Quantity: ${cart}`);
+    removeCart(2);
 
 });
 
@@ -81,23 +96,7 @@ remove2.addEventListener(`click`, function(e)   {
 remove3.addEventListener(`click`, function(e)   {
     e.preventDefault();
 
-    if(cart > 2){
-        console.log("removing 3")
-        cart -= 3;
-    }
-    else if(cart === 2){
-        console.log("removing 2")
-        cart -= 2;
-    }
-    else if(cart === 1){
-        console.log("removing 1")
-        cart--;
-    }
-    else{
-        console.log("cart is empty now.");
-        // console.log(`Cart quantity: ${cart}`);
-    }
-    console.log(`Cart quantity: ${cart}`);
+    removeCart(3);
 });
 
 reset.addEventListener(`click`, function(e)     {
