@@ -1,0 +1,19 @@
+function comparePrice (product1, product2){
+    if(product1['price ($)'] < product2['price ($)']){
+        return product1;
+    }
+    else{
+        return product2;
+    };
+}
+
+
+const product1 = {
+    name: 'Basketball',
+    'price ($)': 2095 / 100
+};
+
+const product2 = {
+    name: 'Cricket bat',
+    'price ($)': 4499 / 100
+};
