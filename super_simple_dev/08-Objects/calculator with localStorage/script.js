@@ -20,15 +20,24 @@ const equations = {
 };
 
 const essential = {
-    clear: document.getElementById('clear')
+    clear: document.getElementById('clear'),
+    clearHis: document.getElementById('clearHis'),
+    lastResult: document.getElementById('getLastResult')
 };
 
 let calculation = '';
 
 function num (num){
-    calculation += num;
+    calculation += `${num}`;
     console.log(calculation);
 };
+
+function equation (sign){
+    calculation += sign;
+    console.log(calculation);
+};
+
+
 
 numpad.num1.addEventListener('click', function(e){
     e.preventDefault();
@@ -83,36 +92,32 @@ numpad.num0.addEventListener('click', function(e){
 equations.plus.addEventListener('click', function(e){
     e.preventDefault();
 
-    calculation += ' + ';
-    console.log(calculation);
+    equation(' + ');
 });
 
 equations.minus.addEventListener('click', function(e){
     e.preventDefault();
-
-    calculation += ' - ';
-    console.log(calculation);
+    equation(' - ');
 });
 
 equations.multiply.addEventListener('click', function(e){
     e.preventDefault();
-
-    calculation += ' * ';
-    console.log(calculation);
+    equation(' * ');
 });
 
 equations.divide.addEventListener('click', function(e){
     e.preventDefault();
 
-    calculation += ' / ';
-    console.log(calculation);
+    equation(' / ');
 })
 
 equations.equal.addEventListener('click', function(e){
     e.preventDefault();
-
+    
     calculation = eval(calculation)
+    localStorage.setItem('Last calculation result', calculation);
     console.log(calculation);
+    calculation = '';
 });
 
 essential.clear.addEventListener('click', function(e){
@@ -120,4 +125,17 @@ essential.clear.addEventListener('click', function(e){
 
     calculation = ''
     console.log(`Calculation cleared ${calculation}`);
+});
+
+essential.clearHis.addEventListener('click', function(e){
+    e.preventDefault();
+
+    localStorage.removeItem('Last calculation result');
+    console.log('Calculator history cleared');
+});
+
+essential.lastResult.addEventListener('click', function(e){
+    e.preventDefault();
+
+    console.log(localStorage.getItem('Last calculation result'));
 });
