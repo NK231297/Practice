@@ -1,12 +1,32 @@
-const flip = document.getElementById('flip');
-const heads = document.getElementById('heads');
-const tails = document.getElementById('tails');
-const score = document.getElementById('score');
+const tossBT = {
+    flip: document.getElementById('flip'),
+    heads: document.getElementById('heads'),
+    tails: document.getElementById('tails'),
+    scoreBT: document.getElementById('score'),
+    resetBT: document.getElementById('reset')
+};
 
-let win = 0;
-let lose = 0;
+const score = {
+    win: 0,
+    lose: 0
+};
 
-flip.addEventListener(`click`, function(e){
+function tossLogic (num){
+    const userSide = num;
+
+    let tossSide = Math.floor(Math.random() * 2) + 1;
+
+    let result = userSide === tossSide ? (score.win++, 'Win') : (score.lose++, 'Lose');
+
+    userSide === 1 ? console.log(`User choice: Heads`) : console.log(`User choice: Tails`);
+    console.log(tossSide === 1 ? 'Heads' : 'Tails');
+    console.log(result);
+
+    localStorage.setItem('Toss', JSON.stringify(score));
+};
+
+
+tossBT.flip.addEventListener(`click`, function(e){
     e.preventDefault();
     const randomNumber = Math.floor(Math.random() * 2) + 1;
     
@@ -16,32 +36,28 @@ flip.addEventListener(`click`, function(e){
 
 });
 
-heads.addEventListener(`click`, function(e){
+tossBT.heads.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    const userSide = 1;
-
-    let tossSide = Math.floor(Math.random() * 2) + 1;
-
-    let result = userSide === tossSide ? (win++, 'Win') : (lose++, 'Lose');
-
-    console.log(`User choice: Heads`);
-    console.log(tossSide === 1 ? 'Heads' : 'Tails');
-    console.log(result);
-
-
+    tossLogic(1);
 });
 
-tails.addEventListener(`click`, function(e){
+tossBT.tails.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    const userSide = 2;
-
+    tossLogic(2);
 });
 
-score.addEventListener(`click`, function(e){
+tossBT.scoreBT.addEventListener(`click`, function(e){
+    e.preventDefault();
+    
+    let scoreLogs =  JSON.parse(localStorage.getItem('Toss'));
+    console.log(scoreLogs);
+})
+
+tossBT.resetBT.addEventListener(`click`, function(e){
     e.preventDefault();
 
-    console.log(`Win: ${win}`);
-    console.log(`Lose: ${lose}`)
+    localStorage.removeItem('Toss');
+    console.log('Toss data cleared.');
 })
