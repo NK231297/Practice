@@ -4,17 +4,15 @@ const moves = {
     scissor: document.querySelector('#scissor'),
 };
 const essential = {
-    reset: document.querySelector('reset')
+    reset: document.querySelector('#reset')
 };
 
-const score = {
-    win: 0,
-    lose: 0,
-    draw: 0
+const DOMText = {
+    scoreDOM: document.querySelector('#score'),
+    moveDOM: document.querySelector('#move'),
+    desicionDOM: document.querySelector('#desicion')
 };
 
-let scoreDOM = document.querySelector('#score');
-let moveDOM = document.querySelector('#move');
 
 const move = {
     youMove: '',
@@ -22,7 +20,15 @@ const move = {
 };
 
 
+
 function function1(num){
+    
+    const score = JSON.parse(localStorage.getItem('Index 1')) || {
+        win: 0,
+        lose: 0,
+        draw: 0
+    }
+
     let humanMove = num;
     let compumove = Math.floor(Math.random() * 3) + 1;
 
@@ -33,6 +39,7 @@ function function1(num){
         console.log('lose')
         move.youMove = 'Rock'
         move.comMove = 'Paper'
+        DOMText.desicionDOM.innerHTML = `You lose !`
     }//lose
     else if( humanMove === 1 && compumove === 3 ){
         score.win++;
@@ -41,6 +48,7 @@ function function1(num){
         console.log('win');
         move.youMove = 'Rock';
         move.comMove = 'Scissor';
+        DOMText.desicionDOM.innerHTML = `You win !`
     }//win
     else if( humanMove === 2 && compumove === 1 ){
         score.win++;
@@ -49,6 +57,7 @@ function function1(num){
         console.log('win')
         move.youMove = 'Paper'
         move.comMove = 'Rock'
+        DOMText.desicionDOM.innerHTML = `You win !`
     }//win
     else if( humanMove === 2 && compumove === 3 ){
         score.lose++;
@@ -57,6 +66,7 @@ function function1(num){
         console.log('lose')
         move.youMove = 'Paper'
         move.comMove = 'Scissor'
+        DOMText.desicionDOM.innerHTML = `You lose !`
     }//lose
     else if( humanMove === 3 && compumove === 1 ){
         score.lose++;
@@ -65,6 +75,7 @@ function function1(num){
         console.log('lose')
         move.youMove = 'Scissor'
         move.comMove = 'Rock'
+        DOMText.desicionDOM.innerHTML = `You lose !`
         
     }//lose
     else if( humanMove === 3 && compumove === 2 ){
@@ -74,10 +85,12 @@ function function1(num){
         console.log('win')
         move.youMove = 'Scissor'
         move.comMove = 'Paper'
+        DOMText.desicionDOM.innerHTML = `You win !`
     }//win
     else{
         score.draw++;
         console.log('Draw!');
+        DOMText.desicionDOM.innerHTML = `Game draw !`
         if(humanMove === 1 && compumove === 1){
             move.youMove = 'Rock'
             move.comMove = 'Rock'
@@ -95,8 +108,15 @@ function function1(num){
         }
     }//draw
 
-    scoreDOM.innerText = `Win: ${score.win} | Lose: ${score.lose} | Draw: ${score.draw}`
-    moveDOM.innerText = `You: ${move.youMove} | Computer: ${move.comMove}`
+
+    localStorage.setItem('Index 1', JSON.stringify(score));
+    
+    
+
+    
+
+    DOMText.scoreDOM.innerText = `Win: ${score.win} | Lose: ${score.lose} | Draw: ${score.draw}`
+    DOMText.moveDOM.innerText = `You: ${move.youMove} | Computer: ${move.comMove}`
 
 }
 
@@ -108,16 +128,25 @@ e.preventDefault();
 function1(1)
 // console.log('Rock');
 })
+
 moves.paper.addEventListener(`click`, function(e){
 e.preventDefault();
 function1(2)
 // console.log('Paper');
 })
+
 moves.scissor.addEventListener(`click`, function(e){
 e.preventDefault();
 function1(3)
 // console.log('Scissor');
 })
 
+essential.reset.addEventListener(`click`, function(e){
+    e.preventDefault;
 
+    localStorage.removeItem('Index 1');
+    DOMText.moveDOM.innerHTML = `Moves cleared`;
+    DOMText.scoreDOM.innerHTML = `Score Cleared Permanently`;
+    DOMText.desicionDOM.innerHTML = `Desicion cleared.`;
+})
 
