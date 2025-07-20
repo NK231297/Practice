@@ -110,17 +110,10 @@ function function1(num){
 
 
     localStorage.setItem('Index 1', JSON.stringify(score));
-    
-    
-
-    
 
     DOMText.scoreDOM.innerText = `Win: ${score.win} | Lose: ${score.lose} | Draw: ${score.draw}`
     DOMText.moveDOM.innerText = `You: ${move.youMove} | Computer: ${move.comMove}`
-
 }
-
-
 
 
 moves.rock.addEventListener(`click`, function(e){
