@@ -13,15 +13,38 @@ subscribe.addEventListener('click', function(e){
 
 const essential = {
     input: document.querySelector('#amount'),
-    calculateBT: document.querySelector('#amountSB')
+    calculateBT: document.querySelector('#amountSB'),
+    total: document.querySelector('#total')
 };
 
-function sum (cost){
-    if(cost <= 40){
-        return cost + 10 + '$';
+function sum (){
+
+    let input123 = essential.input.value;
+
+    if(+input123 <= 40){
+        let abc = +input123 + 10;
+
+        essential.total.innerText = `$${abc}`
     }
     else{
-        return cost
+        let bcd = +input123
+        essential.total.innerText = `$${bcd}`
     }
 }
 
+essential.calculateBT.addEventListener(`click`, function(e){
+    e.preventDefault();
+
+    sum();
+
+    // console.log(Event)
+})
+
+essential.input.addEventListener('keydown', function(e){
+    
+
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        sum();
+    }
+})
