@@ -69,7 +69,7 @@ function function3(button){
         printData.innerText = `Cart quantity: ${cart}`
     }
     else if(button === 2){
-        if(cart < 10){
+        if(cart < buyLimit){
             cart++;
             printData.innerText = 'Added 1pc'
         }
@@ -79,21 +79,44 @@ function function3(button){
         }
     }
     else if(button === 3){
-        
-        cart += 2;
-        printData.innerText = 'Added 2pc'
+        if(cart < buyLimit){
+            let abc = Math.min(2, emptySlot)
+            cart += abc;
+            printData.innerText = `Added ${abc}pc`
+        }
+        else{
+            printData.innerText = 'Buy limit full for this item.'
+        }
     }
     else if(button === 4){
-        cart += 3;
-        printData.innerText = 'Added 3pc'
+        if(cart < buyLimit){
+            let abc = Math.min(3, emptySlot);
+            cart += abc;
+            printData.innerText = `Added ${abc}pc`
+        }
+        else{
+            printData.innerText = 'Buy limit full for this item.'
+        }
     }
     else if(button === 5){
-        cart += 4;
-        printData.innerText = 'Added 4pc'
+        if(cart < buyLimit){
+            let abc = Math.min(4, emptySlot);
+            cart += abc;
+            printData.innerText = `Added ${abc}pc`
+        }
+        else{
+            printData.innerText = 'Buy limit full for this item.'
+        }
     }
     else if(button === 6){
-        cart += 5;
-        printData.innerText = 'Added 5pc'
+        if(cart < buyLimit){
+            let abc = Math.min(5, emptySlot);
+            cart += abc;
+            printData.innerText = `Added ${abc}pc`
+        }
+        else{
+            printData.innerText = 'Buy limit full for this item.'
+        }
     }
     else if(button === 7){
         if(cart > 0){
