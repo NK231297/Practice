@@ -4,11 +4,22 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(25, 25, 25);
+}
+
+h1{
+    color: white;
+}
+
 .div1{
-    border: 2px solid black;
+    border: 2px dashed rgb(255, 255, 255);
     /* height: 200px; */
     /* width: 350px; */
     display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
 }
 
 .div1 .div1-I{
@@ -24,16 +35,16 @@
 }
 
 .div1-I button{
-    height: 100px;
-    width: 100px;
-    margin: 10px 0px;
+    height: 200px;
+    width: 200px;
+    margin: 10px 10px;
     border-radius: 50%;
-    font-size: 2rem;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(240, 248, 255, 0);
-    border: 2.5px solid rgba(80, 79, 79, 0.555);
+    border: 2.5px solid rgba(216, 212, 212, 0.801);
 }
 
 .div1-I button:active{
@@ -41,32 +52,36 @@
 }
 
 .div2{
-    border: 2px solid black;
+    border: 2px dashed rgb(255, 255, 255);
     margin-top: 10px;
-    width: 324px;
-    height: 120px;
+    margin-left: 10px;
+    width: 684px;
+    height: 156px;
     display: flex;
     flex-direction: column;
     padding: 0px 10px;
+    color: white;
 
 }
 
 .div2 .div2-I{
     /* border: 2px solid black; */
-    height: 40px;
+    height: 52px;
     /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 .div2 .div2-II{
     /* border: 2px solid black; */
-    height: 40px;
+    height: 52px;
     /* width: 100%; */
     display: flex;
     /* justify-content: center; */
     align-items: center;
+    font-size: 1.5rem;
 }
 
 .div2 .div2-II p{
@@ -80,11 +95,12 @@
 
 .div2 .div2-III{
     /* border: 2px solid black; */
-    height: 40px;
+    height: 52px;
     /* width: 100%; */
     display: flex;
     /* justify-content: center; */
     align-items: center;
+    font-size: 1.5rem;
 }
 
 .div2 .div2-III p{
@@ -99,5 +115,8 @@
 
 #reset{
     border-radius: 0px;
-    padding: 3px 5px;
+    padding: 13px 23px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 1.05rem;
 }
