@@ -8,7 +8,8 @@ const numpad = {
     num7: document.getElementById('num7'),
     num8: document.getElementById('num8'),
     num9: document.getElementById('num9'),
-    num0: document.getElementById('num0')
+    num0: document.getElementById('num0'),
+    numdot: document.getElementById('numDot')
 };
 
 const equations = {
@@ -67,6 +68,10 @@ function function1(input){
     }
     else if(input === 10){
         calculation += 0;
+        essential.resultPrint.innerText = calculation;
+    }
+    else if(input === 19){
+        calculation += '.';
         essential.resultPrint.innerText = calculation;
     }
     else if(input === 11){
@@ -154,6 +159,11 @@ numpad.num9.addEventListener('click', function(e){
 numpad.num0.addEventListener('click', function(e){
     e.preventDefault();
     function1(10);
+});
+
+numpad.numdot.addEventListener('click', function(e){
+    e.preventDefault();
+    function1(19);
 });
 
 equations.plus.addEventListener('click', function(e){
