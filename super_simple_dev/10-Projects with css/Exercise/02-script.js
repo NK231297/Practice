@@ -49,9 +49,74 @@ uber2.addEventListener('click', function(){
     
 })
 
+const c1 = document.querySelector('#c1');
+const c2 = document.querySelector('#c2');
+const c3 = document.querySelector('#c3');
 
-const gaming = document.querySelector('.jsButton');
+function buttonOnOff(input){
+    if(input === 1){
+        if(!c1.classList.contains('isToggel1')){
+            c1.classList.add('isToggel1')
+            c2.classList.remove('isToggel2')
+            c3.classList.remove('isToggel3')
+        }
+        else{
+            c1.classList.remove('isToggel1');
+        }
+    }
+    else if(input === 2){
+        if(!c2.classList.contains('isToggel2')){
+            c2.classList.add('isToggel2');
+            c1.classList.remove('isToggel1');
+            c3.classList.remove('isToggel3');
+        }
+        else{
+            c2.classList.remove('isToggel2')
+        };
+    }
+    else if(input === 3){
+        if(!c3.classList.contains('isToggel3')){
+            c3.classList.add('isToggel3')
+            c1.classList.remove('isToggel1')
+            c2.classList.remove('isToggel2')
+        }
+        else{
+            c3.classList.remove('isToggel3')
+        }
+    }
+    else{
+        console.log(1);
+    }
+}
 
-gaming.addEventListener('click', function(){
+
+c1.addEventListener('click', function(){
+    buttonOnOff(1);
+});
+
+c2.addEventListener('click', function(){
+    buttonOnOff(2)
+});
+
+c3.addEventListener('click', function(){
+    buttonOnOff(3);
+});
+
+const cost = document.querySelector('#cost');
+const costSubmit = document.querySelector('#costSubmit');
+const totalElement = document.querySelector('#total');
+
+costSubmit.addEventListener('click', function(){
     
+    if(+cost.value < 0){
+        totalElement.innerText = 'Cost could not be below 1$'
+        totalElement.style.color = 'red'
+    }
+    else if(cost.value < 40){
+        let total = +cost.value + 10;
+        totalElement.innerText = total;
+    } 
+    else{
+        totalElement.innerText = cost.value;
+    }
 })

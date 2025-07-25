@@ -30,7 +30,7 @@
     color: black;
 }
 
-.toggelButton{
+#c1, #c2, #c3{
     /* padding: 7px 10px;  */
     height: 25px;
     border: none;
@@ -39,7 +39,9 @@
     width: 60px;
 }
 
-.isToggel{
+.isToggel1, .isToggel2, .isToggel3{
     background-color: black;
     color: white;
 }
+
+
