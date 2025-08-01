@@ -70,3 +70,58 @@ function function3(arr){
     }
     return arr2;
 }
+
+function function4(arr, num){
+    let arr2 = [];
+
+    for(let i = 0; i < arr.length; i++){
+        arr2.push(arr[i] + num);
+    }
+
+    return arr2;
+};
+
+function function5(arr1, arr2){
+    const arr3 = [];
+
+    for(let i = 0; i < arr1.length; i++){
+        arr3.push(arr1[i] + arr2[i]);
+    }
+
+    return arr3;
+}
+
+function function6(arr){
+    let positiveValues = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] > 0){
+            positiveValues++;
+        }
+    }
+    return positiveValues;
+}
+
+function function7(arr){
+    let smallest = arr[0];
+    let biggest = arr[0];
+    
+    if(arr.length === 0){
+        return null;
+    }
+    else if(arr.length === 1){
+        console.log(`Smallest: ${smallest}`, `Biggest: ${biggest}`)
+    }
+    else{
+    for(let i = 0; i < arr.length; i++){
+        let arrItem = arr[i]
+        if(smallest > arrItem){
+            smallest = arrItem;
+        }
+        else if(biggest < arrItem){
+            biggest = arrItem;
+        }
+    }
+
+    console.log(`Smallest: ${smallest}`, `Biggest: ${biggest}` );
+    }
+}
