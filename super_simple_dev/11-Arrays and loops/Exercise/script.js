@@ -125,3 +125,19 @@ function function7(arr){
     console.log(`Smallest: ${smallest}`, `Biggest: ${biggest}` );
     }
 }
+
+function function8(arr){
+    const result = {};
+
+    for(let i = 0; i < arr.length; i++){
+        let word = arr[i];
+
+        if(result[word]){
+            result[word] += 1;
+        }
+        else{
+            result[word] = 1
+        }
+    };
+    return result;
+};

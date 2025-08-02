@@ -1,41 +1,42 @@
-const inputField = document.querySelector('#todoInput');
-const todo = document.querySelector('#todo');
-const todoSubmit = document.querySelector('#todoSubmit');
+const todoInput     = document.querySelector('#todoInput');
+const addBT         = document.querySelector('#addBT');
+const deleteBT      = document.querySelector('#deleteBT');
+const todoRender    = document.querySelector('#todoRender');
 
-const todoList = [];
+const todoArray = [];
 
-function rendertodo(){
-    let todoListHTML = '';
-    for(let i = 0; i < todoList.length; i++){
-        let todoItem = todoList[i];
 
-        let html = `<p>${todoItem}</p>`
+let todoHTML = ''; 
 
-        todoListHTML += html;
 
-    }
-    todo.innerHTML = todoListHTML;
-}
+addBT.addEventListener('click', function(){
+    let todoValue = todoInput.value;
 
-function todoArray(){
-    let todoValue = inputField.value;
+    todoArray.push(todoValue);
     
-    todoList.push(todoValue);
-    
-    console.log(todoList);
-    
-    inputField.value = '';
-};
+    todoInput.value = '';
 
-todoSubmit.addEventListener('click', function(){
-    todoArray();
-    rendertodo();
+    let html = `<p>
+                    ${todoValue} 
+                    <button id = "deleteBT">
+                        delete 
+                    </button> 
+                </p>`
+                
+    todoHTML += html;
     
+    for(let i = 0; i < todoArray.length; i++){
+        
+        todoRender.innerHTML = todoHTML;
+    };
+    
+    console.log(todoArray);
 })
 
-inputField.addEventListener('keydown', function(e){
-    if(e.key === 'Enter'){
-        todoArray();
-        rendertodo();
+
+deleteBT.addEventListener('click', function(){
+    for(let i = 0; i < todoArray.length; i++){
+
+        todoArray.splice(i, 1);
     }
 })
