@@ -3,40 +3,35 @@ const addBT         = document.querySelector('#addBT');
 const deleteBT      = document.querySelector('#deleteBT');
 const todoRender    = document.querySelector('#todoRender');
 
+
 const todoArray = [];
 
+function function1(){
+    todoArray.push(todoInput.value);
+    todoInput.value = '';
+    
+}
 
-let todoHTML = ''; 
+function function2(){
+    todoRender.innerHTML = ``;
 
+    for(let i = 0; i < todoArray.length; i++){
+    let html = `<p>${todoArray[i]} <button onclick="function3(${i})">Delete</button> </p>`
+    
+        todoRender.innerHTML += html;
+    }
+    
+}
+
+function function3(index){
+    todoArray.splice(index, 1);
+    function2();
+}
 
 addBT.addEventListener('click', function(){
-    let todoValue = todoInput.value;
 
-    todoArray.push(todoValue);
+function1();
+function2();
+
     
-    todoInput.value = '';
-
-    let html = `<p>
-                    ${todoValue} 
-                    <button id = "deleteBT">
-                        delete 
-                    </button> 
-                </p>`
-                
-    todoHTML += html;
-    
-    for(let i = 0; i < todoArray.length; i++){
-        
-        todoRender.innerHTML = todoHTML;
-    };
-    
-    console.log(todoArray);
-})
-
-
-deleteBT.addEventListener('click', function(){
-    for(let i = 0; i < todoArray.length; i++){
-
-        todoArray.splice(i, 1);
-    }
 })
