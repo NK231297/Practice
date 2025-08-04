@@ -187,20 +187,3 @@ function findIndex(arr, word){
     }
 }
 
-function removeEgg(foods){
-    const result = [];
-    let removedEggs = 0;
-    for(let i = 0; i < foods.length; i++){
-        if(foods[i] === 'eggs'){
-            removedEggs++;
-            continue;
-        }
-        else if(removedEggs === 2){
-            
-        }
-        else if(foods[i] != 'eggs'){
-            result.push(foods[i]);
-        }
-    }
-    return result;
-}
