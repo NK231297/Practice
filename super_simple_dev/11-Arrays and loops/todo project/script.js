@@ -14,6 +14,7 @@ function function1(){
         date: dueDate.value
     });
     todoInput.value = '';
+    dueDate.value = '';
     
 }
 

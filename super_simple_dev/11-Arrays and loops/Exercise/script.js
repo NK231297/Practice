@@ -141,3 +141,66 @@ function function8(arr){
     };
     return result;
 };
+
+function doubleArray(arr){
+    const result = [];
+    for(let i = 0; i < arr.length; i++){
+        result.push(arr[i] * 2)
+    }
+    return result;
+};
+/*
+for(let i = 0; i <= 10; i++){
+    
+    if(i % 3 === 1){
+        continue;
+    }
+
+    console.log(i);
+};
+*/
+
+/*
+const array1 = ['search','hello', 'world', 'good'];
+
+let result = 0;
+
+for(let i = 0; i < array1.length; i++){
+    
+    if(array1[i] === 'search'){
+        result = i;
+        console.log(result);
+        break;
+    }
+
+}
+*/
+
+function findIndex(arr, word){
+    let index = -1;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === word){
+            index = i;
+            return index;
+            
+        }
+    }
+}
+
+function removeEgg(foods){
+    const result = [];
+    let removedEggs = 0;
+    for(let i = 0; i < foods.length; i++){
+        if(foods[i] === 'eggs'){
+            removedEggs++;
+            continue;
+        }
+        else if(removedEggs === 2){
+            
+        }
+        else if(foods[i] != 'eggs'){
+            result.push(foods[i]);
+        }
+    }
+    return result;
+}
