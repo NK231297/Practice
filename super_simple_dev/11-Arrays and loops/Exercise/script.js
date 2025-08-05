@@ -187,3 +187,20 @@ function findIndex(arr, word){
     }
 }
 
+function removeEggs(arr){
+    const result = [];
+    let eggs = 0;
+
+    const reversedArr = arr.slice().reverse();
+    for(let i = 0; i < arr.length; i++){
+        
+        if(reversedArr[i] === 'eggs' && eggs < 2){
+            eggs++;
+            continue;
+        }
+        else{
+            result.push(reversedArr[i]);
+        }
+    }
+    return result.reverse();
+}
