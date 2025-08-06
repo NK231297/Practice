@@ -204,3 +204,53 @@ function removeEggs(arr){
     }
     return result.reverse();
 }
+
+//Challange Exercise:-
+/*
+for(let i = 1; i <= 20; i++){
+    
+    let remainderFor3 = i % 3;
+    let remainderFor5 = i % 5;
+    
+    if(remainderFor3 === 0 && remainderFor5 === 0){
+        console.log('FizzBuzz');
+        continue;
+    }
+    else if(remainderFor3 === 0){
+        console.log('Fizz')
+        continue;
+    }
+    else if(remainderFor5 === 0){
+        console.log('Buzz');
+        continue;
+    }
+    else{
+        console.log(i);
+    }
+}
+*/
+
+function findIndex(arr, word){
+    for(let i = 0; i < arr.length; i++){
+        if(word === arr[i]){
+            return i;
+        }
+    }
+    return -1;
+};
+
+function uniqueArray(arr){
+    const result = [];
+    
+    for(let i = 0; i < arr.length; i++){
+        
+        let word = arr[i];
+        
+        if(findIndex(result, word) === -1){
+        
+            result.push(arr[i]);
+        
+        }
+    }
+    return result;
+}
