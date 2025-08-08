@@ -1,13 +1,13 @@
 const todoInput     = document.querySelector('#todoInput');
 const addBT         = document.querySelector('#addBT');
-// const deleteBT      = document.querySelector('#deleteBT');
+const deleteBT      = document.querySelector('#deleteBT');
 const todoRender    = document.querySelector('#todoRender');
 const dueDate       = document.querySelector('#dueDate');
 
 const todoArray = [];
 
 function createTodo(){
-    const todo = {
+    const todoObj = {
         todo: todoInput.value,
         date: dueDate.value
     }
@@ -15,26 +15,35 @@ function createTodo(){
     todoInput.value = '';
     dueDate.value = '';
 
-    todoArray.push(todo);
-    localStorage.setItem('todoData' ,JSON.stringify(todo));
+    return todoObj;
+}
+
+function addTodoToArr(){
+    let result = createTodo();
+
+    todoArray.push(result);
+
     console.log(todoArray);
 }
 
-function renderData(){
-    for(let i = 0; i < todoArray.length; i++){
-        let html =
-        `
-        <p>
-            <span id = "todo"> ${todoArray[i].todo} </span>
-            <span id = "date"> ${todoArray[i].date} </span>
-            <button id = "deleteBT"> Delete </button>
-        </p>
-        `
-        todoRender.innerHTML += html;
-    }
+function saveTodo(){
+    localStorage.setItem('todoData', JSON.stringify(todoArray));
 };
 
+function deleteTodo(){
+    let abc = todoArray.length - 1;
+    todoArray.splice(abc, 1);
+    localStorage.setItem('todoData', JSON.stringify(todoArray));
+    console.log(todoArray);
+}
+
 addBT.addEventListener('click', function(){
-    createTodo();
-    renderData();
+    // createTodo();
+    addTodoToArr();
+    saveTodo();
 })
+
+deleteBT.addEventListener('click', function(){
+    deleteTodo();
+})
+
