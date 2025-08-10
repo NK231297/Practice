@@ -1,62 +1,48 @@
-const todoInput     = document.querySelector('#todoInput');
-const addBT         = document.querySelector('#addBT');
-const deleteBT      = document.querySelector('#deleteBT');
-const todoRender    = document.querySelector('#todoRender');
-const dueDate       = document.querySelector('#dueDate');
+const todoInput = document.querySelector('#todoInput');
+const dateInput = document.querySelector('#dateInput');
+const addBT = document.querySelector('#addBT');
+const renderElement = document.querySelector('#render');
 
-const todoArray = [];
-
-/*This function only creates and return todo object outside of function and nothing else like adding that object in array or something.*/
-
-function createTodo(){
-    const todoObj = {
-        todo: todoInput.value,
-        date: dueDate.value
-    }
-
+function addTodo(){
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    
+    todos.push({todo: todoInput.value, date: dateInput.value});
+    
+    localStorage.setItem('todos', JSON.stringify(todos));
+    
     todoInput.value = '';
-    dueDate.value = '';
+    dateInput.value = '';
 
-    return todoObj;
-}
-
-/*This function only catch and save value that returns from function todoObject and put that into the array.*/
-
-function addTodoToArr(){
-    let result = createTodo();
-
-    todoArray.push(result);
-
-    console.log(todoArray);
-}
-
-/*This function only saves todo array to the local storage*/
-
-function saveTodo(){
-    localStorage.setItem('todoData', JSON.stringify(todoArray));
+    console.log(todos);
 };
 
-/*This function deletes last item of array and then save main array to the storage.*/
+function renderTodo(){
+    let todos = JSON.parse(localStorage.getItem('todos'));
 
-function deleteTodo(){
-    let abc = todoArray.length - 1;
-    let def = JSON.parse(localStorage.getItem('todoData'));
+    renderElement.innerHTML = '';
 
-    def.splice(abc, 1);
+    for(let i = 0; i < todos.length; i++){
+        let html = 
+        `
+        <p>${i + 1}. <span id = "todo"> ${todos[i].todo} </span> <span id = "date"> ${todos[i].date} </span> <button onclick = "deleteTodo(${i})"> Delete </button> </p>
+        `
+        renderElement.innerHTML += html;
+    }
+};
 
-    localStorage.setItem('todoData', JSON.stringify(def));
-    console.log(JSON.parse(localStorage.getItem('todoData')));
-}
+function deleteTodo(index){
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
+    todos.splice(index, 1);
 
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    renderTodo();
+};
 
 addBT.addEventListener('click', function(){
-    // createTodo();
-    addTodoToArr();
-    saveTodo();
+    addTodo();
+    renderTodo();
 })
 
-deleteBT.addEventListener('click', function(){
-    deleteTodo();
-})
-
+renderTodo();

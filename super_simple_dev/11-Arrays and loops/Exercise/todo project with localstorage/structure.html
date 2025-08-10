@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Todo List</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Doc</title>
 </head>
 <body>
     <div class="container">
-        <p id="heading">To-do list programe</p>
-    
-        <input type="text" name="todo" id="todoInput" placeholder="Type todo here">
-        <input type="date" name="dueDate" id="dueDate">
-        <button id="addBT">Add</button>
-        <button id="deleteBT">Delete</button>
-        <div id="todoRender"></div>
+        <div class="todo">
+            <input type="text" name="todo" id="todoInput" placeholder="Enter text here">
+            <input type="date" name="date" id="dateInput">
+            <button id="addBT">Add</button>
+        </div>
+        <div id ="render"></div>
     </div>
-
-    
-    
-
     <script src="script.js"></script>
 </body>
 </html>
