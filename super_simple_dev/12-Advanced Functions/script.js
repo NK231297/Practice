@@ -1,3 +1,4 @@
+/*
 const function2 = function(){
     console.log("apple")
 }
@@ -8,6 +9,7 @@ const object1 = {
         console.log('Banana');
     }
 }
+*/
 /*
 function run(param){
     param()
@@ -18,7 +20,7 @@ run(function(){
     console.log('Hello world!')
 })
 */
-
+/*
 function function1(){
     console.log('setTimeOut');
 }
@@ -26,8 +28,21 @@ function function1(){
 setTimeout(function(){
     console.log('setTimeOut')
 }, 3000);
+*/
 /*
 setInterval(function(){
     console.log('setInterval')
 }, 1000)
+*/
+/*
+[
+    'make dinner',
+    'wash dishes',
+    'watch youtube'
+].forEach(function(value, index){
+    if(value === 'wash dishes'){
+        return;
+    }
+    console.log(value, index);
+})
 */
