@@ -59,15 +59,34 @@ add.addEventListener('click', function(){
 })
 
 remove.addEventListener('click', function(){
-    messages--;
+    if(!messages === 0){
+        messages--;
+    }
     
 })
 
+
+
 setInterval(function(){
-    if(document.title === 'App'){
+    if(messages < 1){
+        document.title = 'App'
+    }
+    else if(document.title === 'App'){
         document.title = `(${messages}) New messages`
     }
     else{
         document.title = 'App'
     }
 }, 1000)
+
+const oneParam = param =>{
+    return param + 2;
+}
+
+const oneLine = () => 2 + 3;
+
+const object1 = {
+    method1: () =>{},
+    
+    method2(){}
+}
