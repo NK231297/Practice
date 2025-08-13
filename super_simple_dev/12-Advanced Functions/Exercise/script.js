@@ -1,3 +1,4 @@
+/*
 const add = function(){
     console.log(2 + 3);
 }
@@ -34,12 +35,39 @@ bt.addEventListener('click', function(){
     
 })
 
+
+let timeoutID;
 addBT.addEventListener('click', function(){
     cartText.innerHTML = 
     `
     <p> Added to cart </p>
     `
-    setTimeout(function(){
+    clearTimeout(timeoutID)
+    timeoutID = setTimeout(function(){
         cartText.innerHTML = '';
     }, 2000)
 })
+*/
+const add = document.querySelector('.add');
+const remove = document.querySelector('.remove');
+
+let messages = 0;
+
+add.addEventListener('click', function(){
+    messages++;
+    
+})
+
+remove.addEventListener('click', function(){
+    messages--;
+    
+})
+
+setInterval(function(){
+    if(document.title === 'App'){
+        document.title = `(${messages}) New messages`
+    }
+    else{
+        document.title = 'App'
+    }
+}, 1000)
