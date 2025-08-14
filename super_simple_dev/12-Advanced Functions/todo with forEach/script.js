@@ -1,6 +1,7 @@
 const todoInput = document.querySelector('#todoInput');
 const dateInput = document.querySelector('#dateInput');
 const addBT = document.querySelector('#addBT');
+// const deleteBT = document.querySelector('.js-delete-todo-button');
 const renderElement = document.querySelector('#render');
 
 // const todoArray = JSON.parse(localStorage.getItem('todos')) || [];
@@ -26,31 +27,17 @@ function renderTodo(){
     todos.forEach(function(value, index){
         let html = 
         `
-        <p>${index + 1}. <span id = "todo"> ${value.todo} </span> <span id = "date"> ${value.date} </span> <button onclick = "deleteTodo(${index})"> Delete </button> </p>
+        <p>${index + 1}. <span id = "todo"> ${value.todo} </span> <span id = "date"> ${value.date} </span> <button class = "js-delete-todo-button"> Delete </button> </p>
         `
         renderElement.innerHTML += html;
     })
     
-    /*
-    for(let i = 0; i < todos.length; i++){
-        let html = 
-        `
-        <p>${i + 1}. <span id = "todo"> ${todos[i].todo} </span> <span id = "date"> ${todos[i].date} </span> <button onclick = "deleteTodo(${i})"> Delete </button> </p>
-        `
-        renderElement.innerHTML += html;
-    }
-    */
+
+    document.querySelectorAll('.js-delete-todo-button').forEach((individualBT, index)=>{
+        indi
+    })
 };
 
-function deleteTodo(index){
-    let todos = JSON.parse(localStorage.getItem('todos')) || [];
-
-    todos.splice(index, 1);
-
-    localStorage.setItem('todos', JSON.stringify(todos));
-
-    renderTodo();
-};
 
 addBT.addEventListener('click', function(){
     addTodo();

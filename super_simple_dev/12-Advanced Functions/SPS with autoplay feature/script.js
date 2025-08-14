@@ -147,6 +147,23 @@ function1(1)
 // console.log('Rock');
 })
 
+document.body.addEventListener('keydown', (e)=>{
+    
+    if(e.key === 'r' || e.key === 'R'){
+        function1(1)
+    }
+    else if(e.key === 'p' || e.key === 'P'){
+        function1(2)
+    }
+    else if(e.key === 's' || e.key === 'S'){
+        function1(3)
+    }
+    else{
+        alert('Valid keys to play the game are r/R, p/P, s/S')
+    }
+    
+});
+
 moves.paper.addEventListener(`click`, function(e){
 e.preventDefault();
 function1(2)
