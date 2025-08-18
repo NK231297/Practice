@@ -34,7 +34,13 @@ function renderTodo(){
     
 
     document.querySelectorAll('.js-delete-todo-button').forEach((individualBT, index)=>{
-        indi
+        individualBT.addEventListener('click', ()=>{
+            todos.splice(index, 1)
+
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            renderTodo();
+        })
     })
 };
 

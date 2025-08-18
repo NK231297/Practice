@@ -48,6 +48,7 @@ addBT.addEventListener('click', function(){
     }, 2000)
 })
 */
+/*
 const add = document.querySelector('.add');
 const remove = document.querySelector('.remove');
 
@@ -90,3 +91,43 @@ const object1 = {
     
     method2(){}
 }
+*/
+
+const multiply = (param1, param2)=>param1 * param2
+
+const countPositive = (nums)=>{
+    let positiveNum = 0;
+
+    nums.forEach((num)=>{
+        if(num > 0){
+            positiveNum++;
+        }
+
+    })
+
+    return positiveNum
+}
+// countPositive([1, -3, 5, -7, 9])
+
+const addNum = (arr, num)=>{
+    console.log(arr.map(value=>value + num));
+}
+
+const removeEggs = (arr)=>{
+    let removedEgg = 0;
+    
+    return arr.filter((value, index)=>{
+        if(value === 'eggs' && removedEgg < 2){
+            removedEgg++
+            return false
+        }
+        else{
+            return true
+        }
+
+        
+        
+    })
+}
+
+removeEggs(['apple', 'banana', 'eggs', 'tomato', 'eggs'])
