@@ -8,25 +8,25 @@ const runTwice = function(param){
     param();
     param();
 };
-
+*/
 
 const bt = document.querySelector('.bt');
 const addBT = document.querySelector('.add');
+
 const cartText = document.querySelector('.cartText');
 
 
-
-bt.addEventListener('click', function(){
+bt.addEventListener('click', ()=>{
     if(bt.innerText === 'Start'){
         bt.innerText = 'Loading...'
 
-        setTimeout(function(){
+        setTimeout(()=>{
             bt.innerText = 'Finished!';
         }, 1000);
     }
     else if(bt.innerText === 'Finished!'){
 
-        setTimeout(function(){
+        setTimeout(()=>{
             bt.innerText = 'Start'
         }, 1000);
 
@@ -37,17 +37,16 @@ bt.addEventListener('click', function(){
 
 
 let timeoutID;
-addBT.addEventListener('click', function(){
+addBT.addEventListener('click', ()=>{
     cartText.innerHTML = 
     `
     <p> Added to cart </p>
     `
     clearTimeout(timeoutID)
-    timeoutID = setTimeout(function(){
+    timeoutID = setTimeout(()=>{
         cartText.innerHTML = '';
     }, 2000)
 })
-*/
 /*
 const add = document.querySelector('.add');
 const remove = document.querySelector('.remove');
@@ -113,21 +112,15 @@ const addNum = (arr, num)=>{
     console.log(arr.map(value=>value + num));
 }
 
-const removeEggs = (arr)=>{
-    let removedEgg = 0;
-    
+const removeEgg = (arr)=>{
+    let eggs = 0;
     return arr.filter((value, index)=>{
-        if(value === 'eggs' && removedEgg < 2){
-            removedEgg++
+        if(eggs < 2 && value === 'eggs'){
+            eggs++;
             return false
         }
         else{
             return true
         }
-
-        
-        
     })
 }
-
-removeEggs(['apple', 'banana', 'eggs', 'tomato', 'eggs'])
