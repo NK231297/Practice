@@ -1,6 +1,4 @@
-const productGridElem = document.querySelector('.products-grid');
-const cartQuantityElem = document.querySelector('.cart-quantity');
-
+const productGrid = document.querySelector('.products-grid');
 let html = ``;
 productsInfo.forEach((product)=>{
   html += `
@@ -26,7 +24,7 @@ productsInfo.forEach((product)=>{
             $${(product.priceCents / 100).toFixed(2)}
           </div>
 
-          <div class="product-quantity-container" >
+          <div class="product-quantity-container">
             <select class = "js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
@@ -43,89 +41,51 @@ productsInfo.forEach((product)=>{
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart add-to-cart-${product.id}">
+          <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-name = "${product.name}" data-product-id = "${product.id}">
+          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id = "${product.id}" data-product-name = "${product.name}">
             Add to Cart
           </button>
         </div>
   `
 })
+productGrid.innerHTML += html
 
-productGridElem.innerHTML = html;
-
-const timeoutIdObj = {};
 
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-  
   button.addEventListener('click', ()=>{
-
-    let productName = button.dataset.productName;
-
-    let productId = button.dataset.productId;
     
-    let quantitySelector = +document.querySelector(`.js-quantity-selector-${productId}`).value;
-    
-    let matchingItem;
+    const {productId} = button.dataset
+    const {productName} = button.dataset
 
-    let cartQuantity = 0;
+    const selectedQuantity = +document.querySelector(`.js-quantity-selector-${productId}`).value
+    
+        
+
+
+    let matchingProduct;
 
     cart.forEach((item)=>{
       if(item.productId === productId){
-        matchingItem = item;
+        matchingProduct = item
       }
-
     })
 
-    if(matchingItem){
-      matchingItem.quantity += quantitySelector;
+    if(matchingProduct){
+      matchingProduct.quantity += selectedQuantity;
     }
     else{
       cart.push({
-  
+        productId,
         productName,
-        quantity: quantitySelector,
-        productId
-  
+        quantity: selectedQuantity
       })
     }
-
-    cart.forEach((item)=>{
-      cartQuantity += item.quantity
-    })
     
-
-    cartQuantityElem.innerText = cartQuantity
-    
-
-    
-    
-    const addedText = document.querySelector(`.add-to-cart-${productId}`)
-    
-    addedText.classList.add('added-to-cart-visible')
-    
-    const previousTimeoutId = timeoutIdObj[productId]
-
-    if(previousTimeoutId){
-      clearTimeout(previousTimeoutId)
-
-    }
-
-    let timeoutId = setTimeout(()=>{
-      addedText.classList.remove('added-to-cart-visible')
-    }, 2000)
-
-    timeoutIdObj[productId] = timeoutId
-
-    console.log(cart)
-  
-    console.log(timeoutIdObj)
-    
-
+   console.log(cart)
 
   })
-
 })
