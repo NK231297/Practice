@@ -26,8 +26,8 @@ productsInfo.forEach((product)=>{
             $${(product.priceCents / 100).toFixed(2)}
           </div>
 
-          <div class="product-quantity-container">
-            <select class = "js-quantity-selector" data-quantity-selector = "${product.id}">
+          <div class="product-quantity-container" >
+            <select class = "js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -43,7 +43,7 @@ productsInfo.forEach((product)=>{
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart add-to-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -57,24 +57,24 @@ productsInfo.forEach((product)=>{
 
 productGridElem.innerHTML = html;
 
-document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+const timeoutIdObj = {};
 
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+  
   button.addEventListener('click', ()=>{
 
-    let itemName = button.dataset.productName;
+    let productName = button.dataset.productName;
 
-    let itemId = button.dataset.productId;
-
-    // let quantitySelector = document.querySelectorAll('.js-quantity-selector').value;
-
-    // let selectedQuantity = quantitySelector.value;
-    /*
+    let productId = button.dataset.productId;
+    
+    let quantitySelector = +document.querySelector(`.js-quantity-selector-${productId}`).value;
+    
     let matchingItem;
 
     let cartQuantity = 0;
 
     cart.forEach((item)=>{
-      if(item.itemId === itemId){
+      if(item.productId === productId){
         matchingItem = item;
       }
 
@@ -86,9 +86,9 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
     else{
       cart.push({
   
-        itemName,
+        productName,
         quantity: quantitySelector,
-        itemId
+        productId
   
       })
     }
@@ -101,23 +101,29 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
     cartQuantityElem.innerText = cartQuantity
     
 
+    
+    
+    const addedText = document.querySelector(`.add-to-cart-${productId}`)
+    
+    addedText.classList.add('added-to-cart-visible')
+    
+    const previousTimeoutId = timeoutIdObj[productId]
 
+    if(previousTimeoutId){
+      clearTimeout(previousTimeoutId)
 
+    }
+
+    let timeoutId = setTimeout(()=>{
+      addedText.classList.remove('added-to-cart-visible')
+    }, 2000)
+
+    timeoutIdObj[productId] = timeoutId
 
     console.log(cart)
-  */
+  
+    console.log(timeoutIdObj)
     
-
-    let a = ``;
-
-    document.querySelectorAll('.js-quantity-selector').forEach((item)=>{
-      
-
-      a = item.dataset.productId
-    })
-
-    console.log(a.value)
-
 
 
   })
