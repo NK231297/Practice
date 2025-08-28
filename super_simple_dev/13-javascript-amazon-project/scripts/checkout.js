@@ -1,5 +1,8 @@
-import {cart} from './cart.js';
-import {productsInfo} from '../data/products.js'
+import {cart, deleteFromCart} from './cart.js';
+import {productsInfo} from '../data/products.js';
+import {formatMoney} from './utils/money.js';
+
+let html = ``;
 
 cart.forEach((cartItem)=>{
 
@@ -13,33 +16,33 @@ cart.forEach((cartItem)=>{
         }
     })
 
-    console.log(matchingItem)
-
-    `
-    <div class="cart-item-container">
+    // console.log(matchingItem);
+    
+    html += `
+    <div class="cart-item-container js-cart-item-${cartItem.productId}">
         <div class="delivery-date">
         Delivery date: Tuesday, June 21
         </div>
 
         <div class="cart-item-details-grid">
         <img class="product-image"
-            src="images/products/athletic-cotton-socks-6-pairs.jpg">
+            src="${matchingItem.image}">
 
         <div class="cart-item-details">
             <div class="product-name">
-            Black and Gray Athletic Cotton Socks - 6 Pairs
+            ${matchingItem.name}
             </div>
             <div class="product-price">
-            $10.90
+            $${formatMoney(matchingItem.priceCents)}
             </div>
             <div class="product-quantity">
             <span>
-                Quantity: <span class="quantity-label">2</span>
+                Quantity: <span class="quantity-label">${cartItem.quantity}</span>
             </span>
             <span class="update-quantity-link link-primary">
                 Update
             </span>
-            <span class="delete-quantity-link link-primary">
+            <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${matchingItem.id}">
                 Delete
             </span>
             </div>
@@ -52,7 +55,7 @@ cart.forEach((cartItem)=>{
             <div class="delivery-option">
             <input type="radio" checked
                 class="delivery-option-input"
-                name="delivery-option-1">
+                name="delivery-option-${matchingItem.id}">
             <div>
                 <div class="delivery-option-date">
                 Tuesday, June 21
@@ -65,7 +68,7 @@ cart.forEach((cartItem)=>{
             <div class="delivery-option">
             <input type="radio"
                 class="delivery-option-input"
-                name="delivery-option-1">
+                name="delivery-option-${matchingItem.id}">
             <div>
                 <div class="delivery-option-date">
                 Wednesday, June 15
@@ -78,7 +81,7 @@ cart.forEach((cartItem)=>{
             <div class="delivery-option">
             <input type="radio"
                 class="delivery-option-input"
-                name="delivery-option-1">
+                name="delivery-option-${matchingItem.id}">
             <div>
                 <div class="delivery-option-date">
                 Monday, June 13
@@ -93,3 +96,22 @@ cart.forEach((cartItem)=>{
     </div>
     `
 })
+
+// console.log(html);
+
+document.querySelector('.js-order-summary').innerHTML = html;
+
+document.querySelectorAll('.js-delete-link')
+    .forEach((link)=>{
+        link.addEventListener('click', ()=>{
+            const productId = link.dataset.productId;
+            // console.log('delete')
+            // console.log(link.dataset.productId)
+            deleteFromCart(productId)
+
+            const itemElement = document.querySelector(`.js-cart-item-${productId}`);
+
+            itemElement.remove();
+            // console.log(itemElement);
+        })
+    })
