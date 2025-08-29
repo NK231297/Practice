@@ -1,6 +1,7 @@
 import {cart, addToCart} from "../scripts/cart.js";
 import {productsInfo} from '../data/products.js';
 import {formatMoney} from './utils/money.js';
+import {updateCart} from './utils/updateQuantityOnUI.js';
 
 const productGrid = document.querySelector('.products-grid');
 
@@ -59,20 +60,27 @@ productsInfo.forEach((product)=>{
         </div>
   `
 })
-productGrid.innerHTML += html
+productGrid.innerHTML += html;
 
 const timeoutIdObj = {};
 /*
-const updateCart = ()=>{
-  let cartQuantity = 0;
+export const updateCart = ()=>{
+  let quantity = 0;
+
+  let abc = JSON.parse(localStorage.getItem('cart'))
     
-    cart.forEach((item)=>{
-      cartQuantity += item.quantity;
+    abc.forEach((item)=>{
+      quantity += item.quantity;
     })
 
-    cartQuantityElem.innerText = cartQuantity
+    // cartQuantityElem.innerText = quantity
+
+    return quantity;
 }
 */
+
+cartQuantityElem.innerHTML = updateCart();
+
 const addedText = (productId)=>{
     const addedTextElem = document.querySelector(`.js-added-to-cart-${productId}`);
 
@@ -99,15 +107,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
     addToCart(productId);
 
-    // updateCart();
-
-    JSON.parse(localStorage.getItem('cart')).forEach((item)=>{
-      let cartQuantity = 0;
-
-      cartQuantity += item.quantity;
-    })
-    
-    cartQuantityElem.innerText = 
+    cartQuantityElem.innerHTML = updateCart();
 
     addedText(productId);
 

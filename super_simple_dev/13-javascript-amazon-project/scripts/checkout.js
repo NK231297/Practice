@@ -1,6 +1,7 @@
 import {cart, deleteFromCart} from './cart.js';
 import {productsInfo} from '../data/products.js';
 import {formatMoney} from './utils/money.js';
+import {updateCart} from './utils/updateQuantityOnUI.js';
 
 let html = ``;
 
@@ -101,10 +102,31 @@ cart.forEach((cartItem)=>{
 
 document.querySelector('.js-order-summary').innerHTML = html;
 
+// const checkoutQuantityElem = document.querySelector('.js-checkout-quantity');
+
+
+// checkoutQuantityElem.innerText = `${updateCart} items`
+/*
+const updateCart = ()=>{
+    let quantity = 0;
+
+    let abc = JSON.parse(localStorage.getItem('cart'));
+    abc.forEach((item)=>{
+        quantity += item.quantity;
+    })
+
+    return quantity;
+}
+*/
+const checkoutElem = document.querySelector('.js-checkout-quantity');
+
+checkoutElem.innerHTML = `${updateCart()} items`;
+
+
 document.querySelectorAll('.js-delete-link')
-    .forEach((link)=>{
-        link.addEventListener('click', ()=>{
-            const productId = link.dataset.productId;
+.forEach((link)=>{
+    link.addEventListener('click', ()=>{
+        const productId = link.dataset.productId;
             // console.log('delete')
             // console.log(link.dataset.productId)
             deleteFromCart(productId)
@@ -113,5 +135,6 @@ document.querySelectorAll('.js-delete-link')
 
             itemElement.remove();
             // console.log(itemElement);
+            checkoutElem.innerHTML = `${updateCart()} items`;
         })
     })
