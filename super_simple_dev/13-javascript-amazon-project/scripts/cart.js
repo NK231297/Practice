@@ -51,3 +51,51 @@ export const deleteFromCart = (productId)=>{
 
   console.log(cart)
 }
+
+export const updateCartQuantity = (productId, inputedQuantity)=>{
+
+  let matchingItem;
+  
+  cart.forEach((item)=>{
+      if(item.productId === productId){
+          matchingItem = item
+      }
+  })
+  
+  let maxPcs = 10;
+  let remainingPcs = maxPcs - matchingItem.quantity;
+
+  if(inputedQuantity < 0){
+      console.log('please enter valid quantity')
+      // matchingItem.quantity += 0;
+  }
+  else if(matchingItem.quantity === 10 && inputedQuantity < 10){
+
+      let newQuantity = inputedQuantity;
+      
+      matchingItem.quantity = newQuantity;
+      
+      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
+  }
+  else if(matchingItem.quantity < 10 && inputedQuantity > 10){
+
+      matchingItem.quantity += remainingPcs;
+
+      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
+  }
+  else if(matchingItem.quantity < 10){
+      let newQuantity = inputedQuantity;
+      
+      matchingItem.quantity = newQuantity;
+      
+      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
+  }
+
+  else if(matchingItem.quantity === 10){
+      console.log('Max quantity reached')
+      matchingItem.quantity += 0;
+
+  }
+
+  saveToStorage();
+}
