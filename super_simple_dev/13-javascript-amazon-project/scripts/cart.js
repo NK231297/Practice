@@ -61,14 +61,34 @@ export const updateCartQuantity = (productId, inputedQuantity)=>{
           matchingItem = item
       }
   })
-  
+  /*
   let maxPcs = 10;
   let remainingPcs = maxPcs - matchingItem.quantity;
-
+  */
   if(inputedQuantity < 0){
-      console.log('please enter valid quantity')
-      // matchingItem.quantity += 0;
+      console.log('please enter valid quantity');
+      return;
   }
+
+  /*
+  else if(matchingItem.quantity < 10 && inputedQuantity > 10){
+
+      matchingItem.quantity += remainingPcs;
+
+      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
+
+      console.log(`${remainingPcs} Added`)
+      console.log(`Max limit reached.`)
+  }
+  */
+
+// This code is short alternative of adding remaining pcs to quantity to the maximum limit
+  if(inputedQuantity > 10){
+    console.log('Max limit reached, setting to 10pc')
+    matchingItem.quantity = 10;
+  }
+  /*
+  // Decrease from max.
   else if(matchingItem.quantity === 10 && inputedQuantity < 10){
 
       let newQuantity = inputedQuantity;
@@ -77,25 +97,25 @@ export const updateCartQuantity = (productId, inputedQuantity)=>{
       
       document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
   }
-  else if(matchingItem.quantity < 10 && inputedQuantity > 10){
+  */
 
-      matchingItem.quantity += remainingPcs;
-
-      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
-  }
-  else if(matchingItem.quantity < 10){
-      let newQuantity = inputedQuantity;
-      
-      matchingItem.quantity = newQuantity;
-      
-      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
+  // Alternate of Decrease from max code:
+  if(matchingItem === 10 && inputedQuantity < 10){
+    matchingItem.quantity = inputedQuantity;
   }
 
-  else if(matchingItem.quantity === 10){
-      console.log('Max quantity reached')
-      matchingItem.quantity += 0;
+  // Normal update
+  else if(matchingItem.quantity < 10){      
 
+      matchingItem.quantity = inputedQuantity;
+  
   }
+  // already max    
+  else{
+    console.log('Max quantity reached')
+    
+  }
+  document.querySelector(`.js-quantity-label-${productId}`).innerHTML = matchingItem.quantity;
 
   saveToStorage();
 }
