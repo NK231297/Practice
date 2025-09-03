@@ -1,8 +1,29 @@
-//theise are imported things from other files of there respected work.
-import { productsInfo } from '../data/products.js';
+/*--- Imports ---*/
+import { productsInfo } from '../data/products.js'; //theise are imported things from other files of there respected work.
+import { addToCartArrFunc, updateCartNumFunc, cart } from './cart.js';
 
-//this is an container which will contains all the products
-const productGrideElem = document.querySelector('.products-grid');
+/*--- DOM variables ---*/
+const productGrideElem = document.querySelector('.products-grid'); //this is an container which will contains all the products
+
+/*--- Functions ---*/
+let timeOutIdObj = {};
+const addedTextFunc = (productId)=>{
+    const addedTextElem = document.querySelector(`.js-added-text-${productId}`);
+
+    addedTextElem.classList.add('js-visible');
+    
+    let existingTimeout = timeOutIdObj[productId];
+
+    if(existingTimeout){
+      clearTimeout(existingTimeout);
+    }
+
+    let timeoutId = setTimeout(()=>{
+      addedTextElem.classList.remove('js-visible');
+    }, 2000);
+
+    timeOutIdObj[productId] = timeoutId;
+}
 
 //now we will get array which contains all the items and will apply forEach formula on that so that our formulae will generate html code for every item in the array.
 
@@ -60,30 +81,19 @@ productsInfo.forEach((product)=>{
   </div>
   `
 })
-
 productGrideElem.innerHTML = html;
 
-let timeOutIdObj = {};
 
-let timeoutId;
-
+/*Interactive elements*/
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
   button.addEventListener('click', ()=>{
     const {productId} = button.dataset;
 
-    const addedTextElem = document.querySelector(`.js-added-text-${productId}`);
+    addedTextFunc(productId);
 
-    addedTextElem.classList.add('js-visible');
-    
-    clearTimeout(timeoutId);
-    
-    timeoutId = setTimeout(()=>{
-      addedTextElem.classList.remove('js-visible');
-    }, 2000);
+    addToCartArrFunc(productId);
 
-    timeOutIdObj[productId] = timeoutId
+    updateCartNumFunc();
 
-
-    
   })
 })
