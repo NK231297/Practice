@@ -61,3 +61,45 @@ export const deleteFromCart = (productId)=>{
 
         console.log(cart);
 }
+
+export const updateItemQuantity = (productId, newQuantity)=>{
+        
+    cart.forEach((item)=>{
+
+    let remainingSpace = 10 - item.quantity;
+
+    if(item.productId === productId){
+
+      if(item.quantity === 10 && newQuantity > 10){
+        console.log('Max quantity reached')
+        // item.quantity = 10;
+        return
+        
+      }
+
+      if(newQuantity < 0){
+        console.log('please enter valid input.');
+        item.quantity += 0;
+      }
+
+      if(item.quantity <= 10 && newQuantity <= 10){
+        item.quantity = newQuantity;
+      }
+      else if(item.quantity < 10 && newQuantity > 10){
+        console.log('Max limit is 10pc, setting 10pc.')
+
+        item.quantity = 10;
+        
+      }
+
+    }
+
+})
+
+        
+
+        
+saveToStorage();
+
+        
+}

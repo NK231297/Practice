@@ -1,5 +1,5 @@
 /*--- Imports ---*/
-import { cart, updateCartNumFunc, deleteFromCart } from './cart.js';
+import { cart, updateCartNumFunc, deleteFromCart, updateItemQuantity } from './cart.js';
 import { productsInfo } from '../data/products.js';
 
 const productContainer = document.querySelector('.js-order-summary');
@@ -37,14 +37,14 @@ const renderItemsFunc = ()=>{
                 </div>
                 <div class="product-quantity">
                     <span>
-                    Quantity: <span class="quantity-label">${item.quantity}</span>
+                    Quantity: <span class="quantity-label js-item-quantity-${item.productId}">${item.quantity}</span>
                     </span>
                     <span class="update-quantity-link link-primary js-update-link" data-product-id = "${item.productId}">
                     Update
                     </span>
 
-                    <input type="number" name="update-quantity" class = "quantity-input">
-                    <span class="save-quantity-link link-primary">
+                    <input type="number" name="update-quantity" class = "quantity-input js-input-quantity-${item.productId}">
+                    <span class="save-quantity-link link-primary js-save-link" data-product-id = "${item.productId}">
                     Save
                     </span>
 
@@ -135,5 +135,34 @@ document.querySelectorAll('.js-update-link').forEach((link)=>{
         const itemContainer = document.querySelector(`.js-item-container-${productId}`)
 
         itemContainer.classList.add('is-editing-quantity');
+    })
+})
+
+document.querySelectorAll(`.js-save-link`).forEach((link)=>{
+    link.addEventListener('click', ()=>{
+        
+        const productId = link.dataset.productId;
+
+        const itemContainer = document.querySelector(`.js-item-container-${productId}`);
+
+        itemContainer.classList.remove('is-editing-quantity');
+
+        const newQuantity = +document.querySelector(`.js-input-quantity-${productId}`).value;
+
+        updateItemQuantity(productId, newQuantity);
+
+        const itemQuantity = document.querySelector(`.js-item-quantity-${productId}`);
+
+        let abcd = 0;
+
+        cart.forEach((item)=>{
+            if(item.productId === productId){
+                abcd = item.quantity;
+            }
+        })
+
+        itemQuantity.innerText = abcd;
+        checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+
     })
 })
