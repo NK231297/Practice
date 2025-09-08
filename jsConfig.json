@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES6",
     "lib": ["ES6", "DOM"],
-    "checkJs": true
+    "checkJs": false
   },
   "include": ["**/*"]
 }

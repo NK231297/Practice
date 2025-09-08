@@ -19,7 +19,7 @@ const renderItemsFunc = ()=>{
         })
     
         html += `
-        <div class="cart-item-container js-item-container-${item.productId}">
+        <div class="cart-item-container js-item-container-${item.productId}" >
             <div class="delivery-date">
                 Delivery date: Tuesday, June 21
             </div>
@@ -39,9 +39,15 @@ const renderItemsFunc = ()=>{
                     <span>
                     Quantity: <span class="quantity-label">${item.quantity}</span>
                     </span>
-                    <span class="update-quantity-link link-primary">
+                    <span class="update-quantity-link link-primary js-update-link" data-product-id = "${item.productId}">
                     Update
                     </span>
+
+                    <input type="number" name="update-quantity" class = "quantity-input">
+                    <span class="save-quantity-link link-primary">
+                    Save
+                    </span>
+
                     <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${item.productId}">
                     Delete
                     </span>
@@ -101,38 +107,33 @@ const renderItemsFunc = ()=>{
 }
 
 renderItemsFunc();
+// @ts-ignore
 checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
 
 document.querySelectorAll('.js-delete-link').forEach((link)=>{
     link.addEventListener('click', ()=>{
+
         const productId = link.dataset.productId;
 
         // console.log(productId);
 
-        // deleteFromCart(productId);
-        //first way
-        /*
-        let newCart = [];
-
-        cart.forEach((item)=>{
-            if(item.productId !== productId){
-                newCart.push(item)
-            }
-        })
-        
-        cart = newCart;
-
-        saveToStorage();
-
-        console.log(cart);
-        */
+        deleteFromCart(productId);
        
-       // const itemContainer = document.querySelector(`.js-item-container-${productId}`);
+        const itemContainer = document.querySelector(`.js-item-container-${productId}`);
 
-       // itemContainer.remove();
+        itemContainer.remove();
 
         checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
 
     })
 })
 
+document.querySelectorAll('.js-update-link').forEach((link)=>{
+    link.addEventListener('click', ()=>{
+        const productId = link.dataset.productId;
+
+        const itemContainer = document.querySelector(`.js-item-container-${productId}`)
+
+        itemContainer.classList.add('is-editing-quantity');
+    })
+})
