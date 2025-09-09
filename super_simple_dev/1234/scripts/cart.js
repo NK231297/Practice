@@ -70,36 +70,27 @@ export const updateItemQuantity = (productId, newQuantity)=>{
 
     if(item.productId === productId){
 
-      if(item.quantity === 10 && newQuantity > 10){
-        console.log('Max quantity reached')
-        // item.quantity = 10;
-        return
-        
-      }
-
       if(newQuantity < 0){
-        console.log('please enter valid input.');
-        item.quantity += 0;
+        console.log('invalid input')
+        return
       }
 
-      if(item.quantity <= 10 && newQuantity <= 10){
+      if(item.quantity <= 10 && newQuantity > 10){
+        item.quantity = 10;
+
+        console.log('setting to 10')
+      }
+      else if(item.quantity < 10 && newQuantity <= 10){
         item.quantity = newQuantity;
       }
-      else if(item.quantity < 10 && newQuantity > 10){
-        console.log('Max limit is 10pc, setting 10pc.')
-
-        item.quantity = 10;
-        
+      else if(item.quantity === 10 && newQuantity < 10){
+        item.quantity = newQuantity;
       }
 
     }
 
 })
 
-        
-
-        
 saveToStorage();
 
-        
 }

@@ -43,7 +43,7 @@ const renderItemsFunc = ()=>{
                     Update
                     </span>
 
-                    <input type="number" name="update-quantity" class = "quantity-input js-input-quantity-${item.productId}">
+                    <input type="number" name="update-quantity" class = "quantity-input js-input-quantity js-input-quantity-${item.productId}" data-product-id = "${item.productId}">
                     <span class="save-quantity-link link-primary js-save-link" data-product-id = "${item.productId}">
                     Save
                     </span>
@@ -106,16 +106,37 @@ const renderItemsFunc = ()=>{
     productContainer.innerHTML = html;
 }
 
+const checkoutQuantityUpdate = (productId)=>{
+    const itemContainer = document.querySelector(`.js-item-container-${productId}`);
+
+    itemContainer.classList.remove('is-editing-quantity');
+
+    const newQuantity = +document.querySelector(`.js-input-quantity-${productId}`).value;
+
+    updateItemQuantity(productId, newQuantity);
+
+    const itemQuantity = document.querySelector(`.js-item-quantity-${productId}`);
+
+    let abcd = 0;
+
+    cart.forEach((item)=>{
+        if(item.productId === productId){
+            abcd = item.quantity;
+        }
+    })
+
+    itemQuantity.innerText = abcd;
+    checkoutNumElem.innerText = `${updateCartNumFunc()} Items`;
+}
+
 renderItemsFunc();
-// @ts-ignore
+
 checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
 
 document.querySelectorAll('.js-delete-link').forEach((link)=>{
     link.addEventListener('click', ()=>{
 
         const productId = link.dataset.productId;
-
-        // console.log(productId);
 
         deleteFromCart(productId);
        
@@ -143,26 +164,20 @@ document.querySelectorAll(`.js-save-link`).forEach((link)=>{
         
         const productId = link.dataset.productId;
 
-        const itemContainer = document.querySelector(`.js-item-container-${productId}`);
-
-        itemContainer.classList.remove('is-editing-quantity');
-
-        const newQuantity = +document.querySelector(`.js-input-quantity-${productId}`).value;
-
-        updateItemQuantity(productId, newQuantity);
-
-        const itemQuantity = document.querySelector(`.js-item-quantity-${productId}`);
-
-        let abcd = 0;
-
-        cart.forEach((item)=>{
-            if(item.productId === productId){
-                abcd = item.quantity;
-            }
-        })
-
-        itemQuantity.innerText = abcd;
-        checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+        checkoutQuantityUpdate(productId);
 
     })
+})
+
+document.querySelectorAll('.js-input-quantity').forEach((link)=>{
+    link.addEventListener('keydown', (e)=>{
+        const productId = link.dataset.productId;
+
+        if(e.key === 'Enter'){
+            checkoutQuantityUpdate(productId);
+        }
+
+    })
+
+
 })
