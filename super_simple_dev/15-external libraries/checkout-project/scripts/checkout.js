@@ -1,40 +1,38 @@
 /*--- Imports ---*/
 import { cart, updateCartNumFunc, deleteFromCart, updateItemQuantity } from './cart.js';
 import { productsInfo } from '../data/products.js';
-import { deliveryOptions } from '../data/deliveryOptions.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { deliveryOptions } from '../data/deliveryOptions.js';
+import { priceFormat } from './utils/priceFormat.js';
 
 const productContainer = document.querySelector('.js-order-summary');
 const checkoutNumElem = document.querySelector('.js-checkout-quantity');
 
-const deliveryOptionsHTML = (productId, item)=>{
-
-    let html = ``;
-
-    deliveryOptions.forEach((option)=>{
+const deliveryOptionHTML = (item)=>{
+    let html = ''; 
+    deliveryOptions.forEach((deliveryOption)=>{
+    //For date
         const today = dayjs();
+        const deliveryDate = today.add(deliveryOption.days, 'days');
+        const dateString = deliveryDate.format('dddd, MMMM D');
+    
+    //For delivery charge
+        const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${priceFormat(deliveryOption.priceCents)}`;
 
-        const deliveryDate = today.add(option.deliveryDays, 'days');
-
-        const deliveryDateSring = deliveryDate.format('dddd, MMMM D');
-
-        const deliveryPrice = option.priceCents === 0 ? 'FREE' : (option.priceCents / 100).toFixed(2);
-
-        const isChecked = option.id === item.deliveryOptionId
+    
+    //For Auto selected delivery option
+        const selectedOption = deliveryOption.id === item.deliveryOptionId;
+    
 
         html += `
-        
         <div class="delivery-option">
-            <input type="radio"
-            ${isChecked ? 'checked' : ''}
-            class="delivery-option-input"
-            name="${productId}">
+            <input type="radio" ${selectedOption ? 'checked' : ''} class="delivery-option-input" name="${item.productId}">
             <div>
                 <div class="delivery-option-date">
-                    ${deliveryDateSring}
+                    ${dateString}
                 </div>
                 <div class="delivery-option-price">
-                    $${deliveryPrice} - Shipping
+                    ${priceString} - Shipping
                 </div>
             </div>
         </div>
@@ -42,6 +40,8 @@ const deliveryOptionsHTML = (productId, item)=>{
     })
     return html;
 }
+
+
 
 let html = ``;
 cart.forEach((item)=>{
@@ -88,7 +88,7 @@ cart.forEach((item)=>{
                     Choose a delivery option:
                 </div>
                 
-                ${deliveryOptionsHTML(productId, item)}
+                ${deliveryOptionHTML(item)}
 
             </div>
         </div>
@@ -97,6 +97,17 @@ cart.forEach((item)=>{
 })
 
 productContainer.innerHTML = html;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
