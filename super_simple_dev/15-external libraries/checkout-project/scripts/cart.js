@@ -107,3 +107,17 @@ export const updateItemQuantity = (productId, newQuantity)=>{
 saveToStorage();
 
 }
+
+export const updateDeliveryOption = (productId, deliveryOptionId)=>{
+  let matchingProduct;
+  
+  cart.forEach((item)=>{
+    if(item.productId === productId){
+      matchingProduct = item
+    }
+  })
+
+  matchingProduct.deliveryOptionId = deliveryOptionId;
+
+  saveToStorage();
+}
