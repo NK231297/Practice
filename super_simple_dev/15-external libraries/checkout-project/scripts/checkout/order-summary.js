@@ -4,6 +4,7 @@ import { productsInfo } from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
 import { priceFormat } from '../utils/priceFormat.js';
+import { renderPaymentSummary } from './payment-summary.js';
 
 export const renderOrderSummary = ()=>{
 
@@ -173,6 +174,8 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
 
         checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
 
+        renderPaymentSummary();
+
     })
 })
 
@@ -193,6 +196,8 @@ document.querySelectorAll(`.js-save-link`).forEach((link)=>{
 
         checkoutQuantityUpdate(productId);
 
+        renderPaymentSummary();
+
     })
 })
 
@@ -202,6 +207,7 @@ document.querySelectorAll('.js-input-quantity').forEach((link)=>{
 
         if(e.key === 'Enter'){
             checkoutQuantityUpdate(productId);
+            renderPaymentSummary();
         }
 
     })
@@ -215,6 +221,7 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
         updateDeliveryOption(productId, deliveryOptionId);
 
         renderOrderSummary();
+        renderPaymentSummary();
     })
 })
 

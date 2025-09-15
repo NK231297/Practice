@@ -1,3 +1,3 @@
 export const priceFormat = (input)=>{
-    return (input / 100).toFixed(2);
+    return (Math.round(input) / 100).toFixed(2);
 }

@@ -2,15 +2,12 @@ import { cart } from '../cart.js';
 import { productsInfo } from '../../data/products.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
 import { updateCartNumFunc } from '../cart.js';
+import { priceFormat } from '../utils/priceFormat.js';
+import { formatMoney } from '../../../../13-javascript-amazon-project/scripts/utils/money.js';
 
 
 export const renderPaymentSummary = ()=>{
-    const elem1o1 = document.querySelector('.js-total-items');
-    const elem1o2 = document.querySelector('.js-total-item-price');
-
-    const elem2 = document.querySelector('.js-total-shipping-charges');
-    const elem3 = document.querySelector('.js-total-before-taxes');
-    const elem4 = document.querySelector('.js-estimated-taxes');
+    const paymentSummaryElem = document.querySelector('.js-payment-summary');
 
     let totalItemPrice = 0;
     let totalShippingPrice = 0;
@@ -27,7 +24,7 @@ export const renderPaymentSummary = ()=>{
             }
         })
 
-        totalItemPrice += cartItemQuantity * ((matchedItem.priceCents / 100).toFixed(2));
+        totalItemPrice += cartItemQuantity * matchedItem.priceCents;
 
         let deliveryOption;
 
@@ -37,72 +34,48 @@ export const renderPaymentSummary = ()=>{
             }
         })
 
-        totalShippingPrice += deliveryOption.priceCents / 100
-
+        totalShippingPrice += deliveryOption.priceCents;
 
     })
-
-    elem1o1.innerText = updateCartNumFunc();
-    elem1o2.innerText = (`$${totalItemPrice}`);
-    elem2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    console.log(totalItemPrice);
-    console.log(totalShippingPrice);
-
+    
     const totalBeforTaxes = totalItemPrice + totalShippingPrice;
-
-    console.log(totalBeforTaxes);
-
-    const taxes = +((((totalBeforTaxes * 100) * 0.1) / 100).toFixed(2));
-
-    console.log(taxes);
-
+    const taxes = totalBeforTaxes * 0.1;
     const orderTotal = totalBeforTaxes + taxes;
+    
+    const paymentSummaryHTML = `
+       <div class="payment-summary-title">
+        Order Summary
+        </div>
 
-    console.log(orderTotal);
+        <div class="payment-summary-row">
+        <div>Items: (${updateCartNumFunc()})</div>
+        <div class="payment-summary-money">$${priceFormat(totalItemPrice)}</div>
+        </div>
 
+        <div class="payment-summary-row">
+        <div>Shipping &amp; handling:</div>
+        <div class="payment-summary-money">$${priceFormat(totalShippingPrice)}</div>
+        </div>
+
+        <div class="payment-summary-row subtotal-row">
+        <div>Total before tax:</div>
+        <div class="payment-summary-money">$${priceFormat(totalBeforTaxes)}</div>
+        </div>
+
+        <div class="payment-summary-row">
+        <div>Estimated tax (10%):</div>
+        <div class="payment-summary-money">$${priceFormat(taxes)}</div>
+        </div>
+
+        <div class="payment-summary-row total-row">
+        <div>Order total:</div>
+        <div class="payment-summary-money">$${priceFormat(orderTotal)}</div>
+        </div>
+
+        <button class="place-order-button button-primary">
+        Place your order
+        </button>
+    `
+
+    paymentSummaryElem.innerHTML = paymentSummaryHTML;
 }
