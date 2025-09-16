@@ -10,4 +10,14 @@ export const deliveryOptions = [{
     id: '3',
     priceCents: 999,
     days: 1
-}]
+}];
+
+export const calculateDeliveryDate = (deliveryOption)=>{
+    const today = dayjs();
+
+    const deliveryDate = today.add(deliveryOption.days, 'days');
+
+    const dateString = deliveryDate.format('dddd, MMMM D');
+
+    return dateString;
+}

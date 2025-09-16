@@ -2,22 +2,21 @@
 import { cart, updateCartNumFunc, deleteFromCart, updateItemQuantity, updateDeliveryOption } from '../cart.js';
 import { productsInfo } from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions, calculateDeliveryDate } from '../../data/deliveryOptions.js';
 import { priceFormat } from '../utils/priceFormat.js';
 import { renderPaymentSummary } from './payment-summary.js';
+import renderCheckoutHeader from './checkoutHeader.js';
 
 export const renderOrderSummary = ()=>{
 
 const productContainer = document.querySelector('.js-order-summary');
-const checkoutNumElem = document.querySelector('.js-checkout-quantity');
+// const checkoutNumElem = document.querySelector('.js-checkout-quantity');
 
 const deliveryOptionHTML = (matchingItem, cartItem)=>{
     let html = ''; 
     deliveryOptions.forEach((deliveryOption)=>{
     //For date
-        const today = dayjs();
-        const deliveryDate = today.add(deliveryOption.days, 'days');
-        const dateString = deliveryDate.format('dddd, MMMM D');
+        calculateDeliveryDate(deliveryOption);
     
     //For delivery charge
         const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${priceFormat(deliveryOption.priceCents)}`;
@@ -70,11 +69,7 @@ cart.forEach((item)=>{
         }
     })
 
-    const today = dayjs();
-
-    const deliveryDate = today.add(deliveryOption.days, 'days');
-
-    const dateString = deliveryDate.format('dddd, MMMM D');
+    calculateDeliveryDate(deliveryOption);
 
     html += `
     <div class="cart-item-container js-item-container-${item.productId}" >
@@ -154,12 +149,13 @@ const checkoutQuantityUpdate = (productId)=>{
     })
 
     itemQuantity.innerText = abcd;
-    checkoutNumElem.innerText = `${updateCartNumFunc()} Items`;
+    // checkoutNumElem.innerText = `${updateCartNumFunc()} Items`;
+    renderCheckoutHeader();
 }
 
 
 
-checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+
 
 document.querySelectorAll('.js-delete-link').forEach((link)=>{
     link.addEventListener('click', ()=>{
@@ -170,9 +166,11 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
        
         const itemContainer = document.querySelector(`.js-item-container-${productId}`);
 
-        itemContainer.remove();
+        // itemContainer.remove();
+        renderOrderSummary();
 
-        checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+        // checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+        renderCheckoutHeader();
 
         renderPaymentSummary();
 
