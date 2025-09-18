@@ -16,7 +16,7 @@ const deliveryOptionHTML = (matchingItem, cartItem)=>{
     let html = ''; 
     deliveryOptions.forEach((deliveryOption)=>{
     //For date
-        calculateDeliveryDate(deliveryOption);
+        const dateString = calculateDeliveryDate(deliveryOption);
     
     //For delivery charge
         const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${priceFormat(deliveryOption.priceCents)}`;
@@ -69,7 +69,7 @@ cart.forEach((item)=>{
         }
     })
 
-    calculateDeliveryDate(deliveryOption);
+    const dateString = calculateDeliveryDate(deliveryOption);
 
     html += `
     <div class="cart-item-container js-item-container-${item.productId}" >

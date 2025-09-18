@@ -1,6 +1,6 @@
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import satSunFunc from './utils/is-weekend.js';
-
+/*
 const today = dayjs();
 
 const futureDate5 = today.add(5, 'days');
@@ -18,3 +18,45 @@ console.log(dateString1MonthP);
 console.log(dateStringDay);
 
 satSunFunc(dateStringDay);
+*/
+
+
+const deliveryOptions = [{
+    id: '1',
+    priceCents: 0,
+    days: 7
+}, {
+    id: '2',
+    priceCents: 499,
+    days: 3
+}, {
+    id: '3',
+    priceCents: 999,
+    days: 1
+}];
+
+console.log(dayjs());
+deliveryOptions.forEach((deliveryOption)=>{
+    const today = dayjs();
+
+    let abcd = deliveryOption.days;
+
+    let deliveryDate = today.add(abcd, 'days').format('dddd');
+
+    // let deliveryDay = deliveryDate;
+
+    
+    console.log(deliveryDate);
+
+
+
+
+
+
+
+
+
+    // const dateString = deliveryDate.format('dddd, MMMM D');
+
+    // return dateString;
+})
