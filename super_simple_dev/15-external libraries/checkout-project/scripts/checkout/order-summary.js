@@ -1,5 +1,5 @@
 /*--- Imports ---*/
-import { cart, updateCartNumFunc, deleteFromCart, updateItemQuantity, updateDeliveryOption } from '../cart.js';
+import '../cart.js';
 import { productsInfo } from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, calculateDeliveryDate } from '../../data/deliveryOptions.js';
@@ -49,7 +49,7 @@ const deliveryOptionHTML = (matchingItem, cartItem)=>{
 
 
 let html = ``;
-cart.forEach((item)=>{
+cartItems.forEach((item)=>{
     const productId = item.productId;
 
     let matchedItem;
@@ -142,7 +142,7 @@ const checkoutQuantityUpdate = (productId)=>{
 
     let abcd = 0;
 
-    cart.forEach((item)=>{
+    forEach((item)=>{
         if(item.productId === productId){
             abcd = item.quantity;
         }

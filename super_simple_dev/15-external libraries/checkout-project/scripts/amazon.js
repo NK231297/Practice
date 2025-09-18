@@ -1,6 +1,6 @@
 /*--- Imports ---*/
 import { productsInfo } from '../data/products.js'; //theise are imported things from other files of there respected work.
-import { addToCartArrFunc, updateCartNumFunc, cart } from './cart.js';
+import './cart.js';
 
 /*--- DOM variables ---*/
 const productGrideElem = document.querySelector('.products-grid'); //this is an container which will contains all the products

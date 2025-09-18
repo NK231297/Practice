@@ -1,7 +1,7 @@
-import { cart } from '../cart.js';
+
 import { productsInfo } from '../../data/products.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
-import { updateCartNumFunc } from '../cart.js';
+import '../cart.js';
 import { priceFormat } from '../utils/priceFormat.js';
 import { formatMoney } from '../../../../13-javascript-amazon-project/scripts/utils/money.js';
 
@@ -12,7 +12,7 @@ export const renderPaymentSummary = ()=>{
     let totalItemPrice = 0;
     let totalShippingPrice = 0;
     
-    cart.forEach((cartItem)=>{
+    cartItems.forEach((cartItem)=>{
         let matchedItem;
         
         const productId = cartItem.productId;

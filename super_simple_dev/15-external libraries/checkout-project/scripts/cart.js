@@ -1,56 +1,57 @@
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-export let cart = JSON.parse(localStorage.getItem('cart')) || [{
-    productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    quantity: 2,
-    deliveryOptionId: '1'
+const cart = {
+  cartItems: undefined,
 
-  }, {
-    productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    quantity: 1,
-    deliveryOptionId: '2'
+  loadFromStorage(){
+    this.cartItems = JSON.parse(localStorage.getItem('cart')) || [{
+      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+      quantity: 2,
+      deliveryOptionId: '1'
 
-  }];
+    }, {
+      productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+      quantity: 1,
+      deliveryOptionId: '2'
 
+    }];
+  },
 
-  
+  saveToStorage(){
+    localStorage.setItem('cart', JSON.stringify(this.cartItems))
+  },
 
-
-const saveToStorage = ()=>{
-  localStorage.setItem('cart', JSON.stringify(cart))
-}
-
-export const addToCartArrFunc = (productId)=>{
+  addToCartArrFunc(productId){
 
     // const quantitySelectorElem = +document.querySelector(`.js-quantity-selector-${productId}`).value;
 
     let matchedItem;
 
-    cart.forEach((item)=>{
+    this.cartItems.forEach((item)=>{
       // matchedItem = item.productId;
 
       if(productId === item.productId){
-        matchedItem = item;
+      matchedItem = item;
       }
     })
-    
+
     if(matchedItem){
       matchedItem.quantity += 1;
     }
     else{
-      cart.push({
-        productId,
-        quantity: 1,
-        deliveryOptionId: '1'
+      this.cartItems.push({
+      productId,
+      quantity: 1,
+      deliveryOptionId: '1'
       })
     }
-    
-    saveToStorage();
-    console.log(cart);
 
-}
+    cart.saveToStorage();
+    console.log(this.cartItems);
 
-export const updateCartNumFunc = ()=>{
+  },
+
+  updateCartNumFunc(){
     let quantity = 0;
 
     let cartFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || [];
@@ -61,27 +62,27 @@ export const updateCartNumFunc = ()=>{
 
     // document.querySelector('.js-cart-quantity').innerHTML = quantity;
     return quantity;
-}
+  },
 
-export const deleteFromCart = (productId)=>{
-        let newCart = [];
+  deleteFromCart(productId){
+    let newCart = [];
 
-        cart.forEach((item)=>{
-            if(item.productId !== productId){
-                newCart.push(item)
-            }
-        })
-        
-        cart = newCart;
+    this.cartItems.forEach((item)=>{
+      if(item.productId !== productId){
+        newCart.push(item)
+      }
+    })
 
-        saveToStorage();
+    this.cartItems = newCart;
 
-        console.log(cart);
-}
+    cart.saveToStorage();
 
-export const updateItemQuantity = (productId, newQuantity)=>{
-        
-    cart.forEach((item)=>{
+    console.log(this.cartItems);
+  },
+
+  updateItemQuantity(productId, newQuantity){
+
+    this.cartItems.forEach((item)=>{
 
     let remainingSpace = 10 - item.quantity;
 
@@ -102,26 +103,26 @@ export const updateItemQuantity = (productId, newQuantity)=>{
       }
       else if(item.quantity === 10 && newQuantity < 10){
         item.quantity = newQuantity;
+      }}
+    })
+
+    cart.saveToStorage();
+
+  },
+
+  updateDeliveryOption(productId, deliveryOptionId){
+    let matchingProduct;
+
+    this.cartItems.forEach((item)=>{
+      if(item.productId === productId){
+        matchingProduct = item
       }
+    })
 
-    }
+    matchingProduct.deliveryOptionId = deliveryOptionId;
 
-})
+    cart.saveToStorage();
+  }
+};
 
-saveToStorage();
-
-}
-
-export const updateDeliveryOption = (productId, deliveryOptionId)=>{
-  let matchingProduct;
-  
-  cart.forEach((item)=>{
-    if(item.productId === productId){
-      matchingProduct = item
-    }
-  })
-
-  matchingProduct.deliveryOptionId = deliveryOptionId;
-
-  saveToStorage();
-}
+cart.loadFromStorage();

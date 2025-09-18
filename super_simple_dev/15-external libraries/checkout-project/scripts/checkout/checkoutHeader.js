@@ -1,4 +1,4 @@
-import { updateCartNumFunc } from "../cart.js";
+import "../cart.js";
 
 export const renderCheckoutHeader = ()=>{
     const html = `
