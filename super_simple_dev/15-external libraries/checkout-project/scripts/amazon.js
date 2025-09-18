@@ -94,6 +94,8 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
     addToCartArrFunc(productId);
 
+    
+
     document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
 
   })
