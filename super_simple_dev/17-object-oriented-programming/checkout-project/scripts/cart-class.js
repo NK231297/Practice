@@ -1,6 +1,6 @@
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-class Cart {
+export class Cart {
     cartItems = undefined;
     #localStorageKey = undefined;
 

@@ -1,5 +1,16 @@
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+};
+
+
+
 export const productsInfo = [
   {
+    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     rating: {
@@ -7,7 +18,6 @@ export const productsInfo = [
       count: 87
     },
     priceCents: 1090,
-    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     keywords: [
       "socks",
       "sports",
@@ -15,6 +25,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     image: "images/products/intermediate-composite-basketball.jpg",
     name: "Intermediate Size Basketball",
     rating: {
@@ -22,13 +33,13 @@ export const productsInfo = [
       count: 127
     },
     priceCents: 2095,
-    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     keywords: [
       "sports",
       "basketballs"
     ]
   },
   {
+    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
     image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
     name: "Adults Plain Cotton T-Shirt - 2 Pack",
     rating: {
@@ -36,7 +47,6 @@ export const productsInfo = [
       count: 56
     },
     priceCents: 799,
-    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
     keywords: [
       "tshirts",
       "apparel",
@@ -46,6 +56,7 @@ export const productsInfo = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
+    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
     image: "images/products/black-2-slot-toaster.jpg",
     name: "2 Slot Toaster - Black",
     rating: {
@@ -53,7 +64,6 @@ export const productsInfo = [
       count: 2197
     },
     priceCents: 1899,
-    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
     keywords: [
       "toaster",
       "kitchen",
@@ -61,6 +71,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
     image: "images/products/6-piece-white-dinner-plate-set.jpg",
     name: "6 Piece White Dinner Plate Set",
     rating: {
@@ -68,7 +79,6 @@ export const productsInfo = [
       count: 37
     },
     priceCents: 2067,
-    id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
     keywords: [
       "plates",
       "kitchen",
@@ -76,6 +86,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
     image: "images/products/6-piece-non-stick-baking-set.webp",
     name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
     rating: {
@@ -83,13 +94,13 @@ export const productsInfo = [
       count: 175
     },
     priceCents: 3499,
-    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
     keywords: [
       "kitchen",
       "cookware"
     ]
   },
   {
+    id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
     image: "images/products/plain-hooded-fleece-sweatshirt-yellow.jpg",
     name: "Plain Hooded Fleece Sweatshirt",
     rating: {
@@ -97,7 +108,6 @@ export const productsInfo = [
       count: 317
     },
     priceCents: 2400,
-    id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
     keywords: [
       "hoodies",
       "sweaters",
@@ -105,6 +115,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
     image: "images/products/luxury-tower-set-6-piece.jpg",
     name: "Luxury Towel Set - Graphite Gray",
     rating: {
@@ -112,7 +123,6 @@ export const productsInfo = [
       count: 144
     },
     priceCents: 3599,
-    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
     keywords: [
       "bathroom",
       "washroom",
@@ -122,6 +132,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
     image: "images/products/liquid-laundry-detergent-plain.jpg",
     name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
     rating: {
@@ -129,13 +140,13 @@ export const productsInfo = [
       count: 305
     },
     priceCents: 2899,
-    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
     keywords: [
       "bathroom",
       "cleaning"
     ]
   },
   {
+    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
     image: "images/products/knit-athletic-sneakers-gray.jpg",
     name: "Waterproof Knit Athletic Sneakers - Gray",
     rating: {
@@ -143,7 +154,6 @@ export const productsInfo = [
       count: 89
     },
     priceCents: 3390,
-    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
     keywords: [
       "shoes",
       "running shoes",
@@ -151,6 +161,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "5968897c-4d27-4872-89f6-5bcb052746d7",
     image: "images/products/women-chiffon-beachwear-coverup-black.jpg",
     name: "Women's Chiffon Beachwear Cover Up - Black",
     rating: {
@@ -158,7 +169,6 @@ export const productsInfo = [
       count: 235
     },
     priceCents: 2070,
-    id: "5968897c-4d27-4872-89f6-5bcb052746d7",
     keywords: [
       "robe",
       "swimsuit",
@@ -170,6 +180,7 @@ export const productsInfo = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
+    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
     image: "images/products/round-sunglasses-black.jpg",
     name: "Round Sunglasses",
     rating: {
@@ -177,13 +188,13 @@ export const productsInfo = [
       count: 30
     },
     priceCents: 1560,
-    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
     keywords: [
       "accessories",
       "shades"
     ]
   },
   {
+    id: "04701903-bc79-49c6-bc11-1af7e3651358",
     image: "images/products/women-beach-sandals.jpg",
     name: "Women's Two Strap Buckle Sandals - Tan",
     rating: {
@@ -191,7 +202,6 @@ export const productsInfo = [
       count: 562
     },
     priceCents: 2499,
-    id: "04701903-bc79-49c6-bc11-1af7e3651358",
     keywords: [
       "footwear",
       "sandals",
@@ -201,6 +211,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
     image: "images/products/blackout-curtain-set-beige.webp",
     name: "Blackout Curtains Set 4-Pack - Beige",
     rating: {
@@ -208,7 +219,6 @@ export const productsInfo = [
       count: 232
     },
     priceCents: 4599,
-    id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
     keywords: [
       "bedroom",
       "curtains",
@@ -216,6 +226,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
     image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
     name: "Men's Slim-Fit Summer Shorts",
     rating: {
@@ -223,7 +234,6 @@ export const productsInfo = [
       count: 160
     },
     priceCents: 1699,
-    id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
     keywords: [
       "shorts",
       "apparel",
@@ -231,6 +241,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
     image: "images/products/electric-glass-and-steel-hot-water-kettle.webp",
     name: "Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter",
     rating: {
@@ -238,7 +249,6 @@ export const productsInfo = [
       count: 846
     },
     priceCents: 3074,
-    id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
     keywords: [
       "water boiler",
       "appliances",
@@ -246,6 +256,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
     image: "images/products/facial-tissue-2-ply-18-boxes.jpg",
     name: "Ultra Soft Tissue 2-Ply - 18 Box",
     rating: {
@@ -253,7 +264,6 @@ export const productsInfo = [
       count: 99
     },
     priceCents: 2374,
-    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
     keywords: [
       "kleenex",
       "tissues",
@@ -263,6 +273,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
     image: "images/products/straw-sunhat.webp",
     name: "Straw Lifeguard Sun Hat",
     rating: {
@@ -270,7 +281,6 @@ export const productsInfo = [
       count: 215
     },
     priceCents: 2200,
-    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
     keywords: [
       "hats",
       "straw hats",
@@ -279,6 +289,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
     image: "images/products/sky-flower-stud-earrings.webp",
     name: "Sterling Silver Sky Flower Stud Earrings",
     rating: {
@@ -286,7 +297,6 @@ export const productsInfo = [
       count: 52
     },
     priceCents: 1799,
-    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
     keywords: [
       "jewelry",
       "accessories",
@@ -294,6 +304,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
     image: "images/products/women-stretch-popover-hoodie-black.jpg",
     name: "Women's Stretch Popover Hoodie",
     rating: {
@@ -301,7 +312,6 @@ export const productsInfo = [
       count: 2465
     },
     priceCents: 1374,
-    id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
     keywords: [
       "hooded",
       "hoodies",
@@ -313,6 +323,7 @@ export const productsInfo = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
+    id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
     image: "images/products/bathroom-rug.jpg",
     name: "Bathroom Bath Rug Mat 20 x 31 Inch - Grey",
     rating: {
@@ -320,7 +331,6 @@ export const productsInfo = [
       count: 119
     },
     priceCents: 1250,
-    id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
     keywords: [
       "bathmat",
       "bathroom",
@@ -328,6 +338,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
     image: "images/products/women-knit-ballet-flat-black.jpg",
     name: "Women's Knit Ballet Flat",
     rating: {
@@ -335,7 +346,6 @@ export const productsInfo = [
       count: 326
     },
     priceCents: 2640,
-    id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
     keywords: [
       "shoes",
       "flats",
@@ -344,6 +354,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
     image: "images/products/men-golf-polo-t-shirt-blue.jpg",
     name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
     rating: {
@@ -351,7 +362,6 @@ export const productsInfo = [
       count: 2556
     },
     priceCents: 1599,
-    id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
     keywords: [
       "tshirts",
       "shirts",
@@ -362,6 +372,7 @@ export const productsInfo = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
+    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
     image: "images/products/trash-can-with-foot-pedal-50-liter.jpg",
     name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
     rating: {
@@ -369,7 +380,6 @@ export const productsInfo = [
       count: 2286
     },
     priceCents: 8300,
-    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
     keywords: [
       "garbage",
       "bins",
@@ -378,6 +388,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
     image: "images/products/duvet-cover-set-blue-twin.jpg",
     name: "Duvet Cover Set with Zipper Closure",
     rating: {
@@ -385,7 +396,6 @@ export const productsInfo = [
       count: 456
     },
     priceCents: 2399,
-    id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
     keywords: [
       "bedroom",
       "bed sheets",
@@ -395,6 +405,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "d2785924-743d-49b3-8f03-ec258e640503",
     image: "images/products/women-chunky-beanie-gray.webp",
     name: "Women's Chunky Cable Beanie - Gray",
     rating: {
@@ -402,7 +413,6 @@ export const productsInfo = [
       count: 83
     },
     priceCents: 1250,
-    id: "d2785924-743d-49b3-8f03-ec258e640503",
     keywords: [
       "hats",
       "winter hats",
@@ -413,6 +423,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
     image: "images/products/men-chino-pants-beige.jpg",
     name: "Men's Classic-fit Pleated Chino Pants",
     rating: {
@@ -420,7 +431,6 @@ export const productsInfo = [
       count: 9017
     },
     priceCents: 2290,
-    id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
     keywords: [
       "pants",
       "apparel",
@@ -428,6 +438,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "1c079479-8586-494f-ab53-219325432536",
     image: "images/products/men-athletic-shoes-green.jpg",
     name: "Men's Athletic Sneaker",
     rating: {
@@ -435,7 +446,6 @@ export const productsInfo = [
       count: 229
     },
     priceCents: 3890,
-    id: "1c079479-8586-494f-ab53-219325432536",
     keywords: [
       "shoes",
       "running shoes",
@@ -444,6 +454,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
     image: "images/products/men-navigator-sunglasses-brown.jpg",
     name: "Men's Navigator Sunglasses Pilot",
     rating: {
@@ -451,7 +462,6 @@ export const productsInfo = [
       count: 42
     },
     priceCents: 1690,
-    id: "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
     keywords: [
       "sunglasses",
       "glasses",
@@ -460,6 +470,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
     image: "images/products/non-stick-cooking-set-15-pieces.webp",
     name: "Non-Stick Cookware Set, Pots, Pans and Utensils - 15 Pieces",
     rating: {
@@ -467,13 +478,13 @@ export const productsInfo = [
       count: 511
     },
     priceCents: 6797,
-    id: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
     keywords: [
       "cooking set",
       "kitchen"
     ]
   },
   {
+    id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
     image: "images/products/vanity-mirror-silver.jpg",
     name: "Vanity Mirror with Heavy Base - Chrome",
     rating: {
@@ -481,7 +492,6 @@ export const productsInfo = [
       count: 130
     },
     priceCents: 1649,
-    id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
     keywords: [
       "bathroom",
       "washroom",
@@ -490,6 +500,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
     image: "images/products/women-french-terry-fleece-jogger-camo.jpg",
     name: "Women's Fleece Jogger Sweatpant",
     rating: {
@@ -497,7 +508,6 @@ export const productsInfo = [
       count: 248
     },
     priceCents: 2400,
-    id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
     keywords: [
       "pants",
       "sweatpants",
@@ -507,6 +517,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "d339adf3-e004-4c20-a120-40e8874c66cb",
     image: "images/products/double-elongated-twist-french-wire-earrings.webp",
     name: "Double Oval Twist French Wire Earrings - Gold",
     rating: {
@@ -514,13 +525,13 @@ export const productsInfo = [
       count: 117
     },
     priceCents: 2400,
-    id: "d339adf3-e004-4c20-a120-40e8874c66cb",
     keywords: [
       "accessories",
       "womens"
     ]
   },
   {
+    id: "d37a651a-d501-483b-aae6-a9659b0757a0",
     image: "images/products/round-airtight-food-storage-containers.jpg",
     name: "Round Airtight Food Storage Containers - 5 Piece",
     rating: {
@@ -528,7 +539,6 @@ export const productsInfo = [
       count: 126
     },
     priceCents: 2899,
-    id: "d37a651a-d501-483b-aae6-a9659b0757a0",
     keywords: [
       "boxes",
       "food containers",
@@ -536,6 +546,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
     image: "images/products/coffeemaker-with-glass-carafe-black.jpg",
     name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
     rating: {
@@ -543,7 +554,6 @@ export const productsInfo = [
       count: 1211
     },
     priceCents: 2250,
-    id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
     keywords: [
       "coffeemakers",
       "kitchen",
@@ -551,6 +561,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
     image: "images/products/blackout-curtains-black.jpg",
     name: "Blackout Curtains Set 42 x 84-Inch - Black, 2 Panels",
     rating: {
@@ -558,13 +569,13 @@ export const productsInfo = [
       count: 363
     },
     priceCents: 3099,
-    id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
     keywords: [
       "bedroom",
       "home"
     ]
   },
   {
+    id: "8a53b080-6d40-4a65-ab26-b24ecf700bce",
     image: "images/products/cotton-bath-towels-teal.webp",
     name: "100% Cotton Bath Towels - 2 Pack, Light Teal",
     rating: {
@@ -572,7 +583,6 @@ export const productsInfo = [
       count: 93
     },
     priceCents: 2110,
-    id: "8a53b080-6d40-4a65-ab26-b24ecf700bce",
     keywords: [
       "bathroom",
       "home",
@@ -580,6 +590,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "10ed8504-57db-433c-b0a3-fc71a35c88a1",
     image: "images/products/knit-athletic-sneakers-pink.webp",
     name: "Waterproof Knit Athletic Sneakers - Pink",
     rating: {
@@ -587,7 +598,6 @@ export const productsInfo = [
       count: 89
     },
     priceCents: 3390,
-    id: "10ed8504-57db-433c-b0a3-fc71a35c88a1",
     keywords: [
       "shoes",
       "running shoes",
@@ -596,6 +606,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "77a845b1-16ed-4eac-bdf9-5b591882113d",
     image: "images/products/countertop-blender-64-oz.jpg",
     name: "Countertop Blender - 64oz, 1400 Watts",
     rating: {
@@ -603,7 +614,6 @@ export const productsInfo = [
       count: 3
     },
     priceCents: 10747,
-    id: "77a845b1-16ed-4eac-bdf9-5b591882113d",
     keywords: [
       "food blenders",
       "kitchen",
@@ -611,6 +621,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
     image: "images/products/floral-mixing-bowl-set.jpg",
     name: "10-Piece Mixing Bowl Set with Lids - Floral",
     rating: {
@@ -618,7 +629,6 @@ export const productsInfo = [
       count: 679
     },
     priceCents: 3899,
-    id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
     keywords: [
       "mixing bowls",
       "baking",
@@ -627,6 +637,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
     image: "images/products/kitchen-paper-towels-30-pack.jpg",
     name: "2-Ply Kitchen Paper Towels - 30 Pack",
     rating: {
@@ -634,7 +645,6 @@ export const productsInfo = [
       count: 1045
     },
     priceCents: 5799,
-    id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
     keywords: [
       "kitchen",
       "kitchen towels",
@@ -642,6 +652,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
     image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
     name: "Men's Full-Zip Hooded Fleece Sweatshirt",
     rating: {
@@ -649,7 +660,6 @@ export const productsInfo = [
       count: 3157
     },
     priceCents: 2400,
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
     keywords: [
       "sweaters",
       "hoodies",
@@ -658,6 +668,7 @@ export const productsInfo = [
     ]
   },
   {
+    id: "599a5df2-79fd-4fb4-bd92-48e797f598da",
     image: "images/products/samsung-tv.jpg",
     name: `Samsung 80 cm (32 inches) HD Ready Smart LED TV`,
     rating: {
@@ -665,9 +676,9 @@ export const productsInfo = [
       count: 3383
     },
     priceCents: 16500,
-    id: "599a5df2-79fd-4fb4-bd92-48e797f598da",
   },
   {
+    id: "1b378e63-151b-4e7c-9ff2-2f65d064a29a",
     image: "images/products/ps5-console.jpg",
     name: `Sony PlayStation5 Gaming Console (Slim)`,
     rating: {
@@ -675,9 +686,9 @@ export const productsInfo = [
       count: 553
     },
     priceCents: 62500,
-    id: "1b378e63-151b-4e7c-9ff2-2f65d064a29a",
   },
   {
+    id: "8b174d03-799e-48de-a8e8-8d0fffbf799e",
     image: "images/products/smart-watch.jpg",
     name: `Noise Twist Round dial Smart Watch`,
     rating: {
@@ -685,9 +696,9 @@ export const productsInfo = [
       count: 16038
     },
     priceCents: 1600,
-    id: "8b174d03-799e-48de-a8e8-8d0fffbf799e",
   },
   {
+    id: "954e611c-40e4-43e1-83cd-49b1d838815a",
     image: "images/products/calculator.jpg",
     name: `Casio MJ-12D 150 Steps Check and Correct Desktop Calculator`,
     rating: {
@@ -695,9 +706,9 @@ export const productsInfo = [
       count: 13203
     },
     priceCents: 540,
-    id: "954e611c-40e4-43e1-83cd-49b1d838815a",
   },
   {
+    id: "fe7b1f85-8089-4ae2-92d8-e01a4ae2235f",
     image: "images/products/2in1-usb.jpg",
     name: `USB-A 3.0 & Type C, Multi-Card Reader Supports All Standard`,
     rating: {
@@ -705,9 +716,9 @@ export const productsInfo = [
       count: 2967
     },
     priceCents: 340,
-    id: "fe7b1f85-8089-4ae2-92d8-e01a4ae2235f",
   },
   {
+    id: "c806e3e1-d7ac-48eb-8e91-e0f68a47594e",
     image: "images/products/mouse-pad.jpg",
     name: `Mouse Pad XXL with Non-Slip Rubber Base`,
     rating: {
@@ -715,6 +726,5 @@ export const productsInfo = [
       count: 4999
     },
     priceCents: 392,
-    id: "c806e3e1-d7ac-48eb-8e91-e0f68a47594e",
   }
 ];
