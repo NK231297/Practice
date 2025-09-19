@@ -1,11 +1,16 @@
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
-function Cart(localStorageKey){
-  const cart = {
-    cartItems: undefined,
-  
+class Cart {
+    cartItems = undefined;
+    #localStorageKey = undefined;
+
+    constructor(localStorageKey){
+        this.#localStorageKey = localStorageKey;
+        this.loadFromStorage();
+    }
+
     loadFromStorage(){
-      this.cartItems = JSON.parse(localStorage.getItem(localStorageKey)) || [{
+      this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey)) || [{
         productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
         quantity: 2,
         deliveryOptionId: '1'
@@ -16,12 +21,12 @@ function Cart(localStorageKey){
         deliveryOptionId: '2'
   
       }];
-    },
-  
+    }
+
     saveToStorage(){
-      localStorage.setItem(localStorageKey, JSON.stringify(this.cartItems))
-    },
-  
+      localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems))
+    }
+
     addToCartArrFunc(productId){
   
       // const quantitySelectorElem = +document.querySelector(`.js-quantity-selector-${productId}`).value;
@@ -50,8 +55,8 @@ function Cart(localStorageKey){
       cart.saveToStorage();
       console.log(this.cartItems);
   
-    },
-  
+    }
+
     updateCartNumFunc(){
       let quantity = 0;
   
@@ -63,8 +68,8 @@ function Cart(localStorageKey){
   
       // document.querySelector('.js-cart-quantity').innerHTML = quantity;
       return quantity;
-    },
-  
+    }
+
     deleteFromCart(productId){
       let newCart = [];
   
@@ -79,8 +84,8 @@ function Cart(localStorageKey){
       cart.saveToStorage();
   
       console.log(this.cartItems);
-    },
-  
+    }
+
     updateItemQuantity(productId, newQuantity){
   
       this.cartItems.forEach((item)=>{
@@ -109,8 +114,8 @@ function Cart(localStorageKey){
   
       cart.saveToStorage();
   
-    },
-  
+    }
+
     updateDeliveryOption(productId, deliveryOptionId){
       let matchingProduct;
   
@@ -124,15 +129,11 @@ function Cart(localStorageKey){
   
       cart.saveToStorage();
     }
-  };
-}
 
-const cart = Cart('cart');
-const cartBussiness = Cart('cart-bussiness');
+};
 
-
-cart.loadFromStorage();
-cartBussiness.loadFromStorage();
+const cart = new Cart('cart');
+const cartBussiness = new Cart('cart-bussiness');
 
 console.log(cart);
 console.log(cartBussiness);

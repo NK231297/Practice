@@ -125,6 +125,7 @@ function Cart(localStorageKey){
       cart.saveToStorage();
     }
   };
+  return cart;
 }
 
 const cart = Cart('cart');
