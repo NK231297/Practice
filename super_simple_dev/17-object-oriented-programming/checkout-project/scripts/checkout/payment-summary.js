@@ -1,7 +1,8 @@
 
 import { productsInfo } from '../../data/products.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
-import {cart} from '../cart.js';
+// import {cart} from '../cart.js';
+import { Cart, cart, cartBussiness } from '../cart-class.js';
 import { priceFormat } from '../utils/priceFormat.js';
 import { formatMoney } from '../../../../13-javascript-amazon-project/scripts/utils/money.js';
 
