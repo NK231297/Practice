@@ -1,6 +1,6 @@
 /*--- Imports ---*/
-import { productsInfo } from '../data/products.js'; //theise are imported things from other files of there respected work.
-import {Cart, cart, cartBussiness} from './cart-class.js';
+import { productsInfo } from '../data/products.js'; '../data/products.js'; //theise are imported things from other files of there respected work.
+import { cart, updateCartNumFunc, addToCartArrFunc } from './cart-class.js';
 import { priceFormat } from './utils/priceFormat.js';
 
 /*--- DOM variables ---*/
@@ -44,14 +44,14 @@ productsInfo.forEach((product)=>{
 
     <div class="product-rating-container">
       <img class="product-rating-stars"
-        src="${product.getStarsUrl()}">
+      src = "../checkout-project/images/ratings/rating-${product.rating.stars * 10}.png">
       <div class="product-rating-count link-primary">
         ${product.rating.count}
       </div>
     </div>
 
     <div class="product-price">
-      ${product.getPrice()}
+      $${priceFormat(product.priceCents)}
     </div>
 
     <div class="product-quantity-container">
@@ -84,7 +84,7 @@ productsInfo.forEach((product)=>{
 })
 productGrideElem.innerHTML = html;
 
-document.querySelector('.js-cart-quantity').innerText = cart.updateCartNumFunc();
+document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
 
 /*Interactive elements*/
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
@@ -93,11 +93,11 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
     addedTextFunc(productId);
 
-    cart.addToCartArrFunc(productId);
+    addToCartArrFunc(productId);
 
     
 
-    document.querySelector('.js-cart-quantity').innerText = cart.updateCartNumFunc();
+    document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
 
   })
 })
