@@ -1,6 +1,6 @@
 /*--- Imports ---*/
 import { productsInfo } from '../data/products.js'; '../data/products.js'; //theise are imported things from other files of there respected work.
-import { cart, updateCartNumFunc, addToCartArrFunc } from './cart-class.js';
+import { cart } from './cart-class.js';
 import { priceFormat } from './utils/priceFormat.js';
 
 /*--- DOM variables ---*/
@@ -84,7 +84,7 @@ productsInfo.forEach((product)=>{
 })
 productGrideElem.innerHTML = html;
 
-document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
+document.querySelector('.js-cart-quantity').innerText = cart.updateCartNumFunc();
 
 /*Interactive elements*/
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
@@ -93,11 +93,11 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
     addedTextFunc(productId);
 
-    addToCartArrFunc(productId);
+    cart.addToCartArrFunc(productId);
 
     
 
-    document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
+    document.querySelector('.js-cart-quantity').innerText = cart.updateCartNumFunc();
 
   })
 })

@@ -1,6 +1,6 @@
 /*--- Imports ---*/
 // import {cart} from '../cart.js';
-import { Cart, cart, cartBussiness } from '../cart-class.js';
+import { cart } from '../cart-class.js';
 import { productsInfo } from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, calculateDeliveryDate } from '../../data/deliveryOptions.js';
