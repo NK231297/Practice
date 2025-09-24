@@ -1,7 +1,6 @@
 /*--- Imports ---*/
-import { productsInfo } from '../data/products.js'; '../data/products.js'; //theise are imported things from other files of there respected work.
-import { cart } from './cart-class.js';
-import { priceFormat } from './utils/priceFormat.js';
+import { productsInfo } from '../data/products.js'; //theise are imported things from other files of there respected work.
+import { addToCartArrFunc, updateCartNumFunc, cart } from './cart.js';
 
 /*--- DOM variables ---*/
 const productGrideElem = document.querySelector('.products-grid'); //this is an container which will contains all the products
@@ -44,14 +43,14 @@ productsInfo.forEach((product)=>{
 
     <div class="product-rating-container">
       <img class="product-rating-stars"
-      src = "../checkout-project/images/ratings/rating-${product.rating.stars * 10}.png">
+        src="images/ratings/rating-${product.rating.stars * 10}.png">
       <div class="product-rating-count link-primary">
         ${product.rating.count}
       </div>
     </div>
 
     <div class="product-price">
-      $${priceFormat(product.priceCents)}
+      $${(product.priceCents / 100).toFixed(2)}
     </div>
 
     <div class="product-quantity-container">
@@ -84,7 +83,7 @@ productsInfo.forEach((product)=>{
 })
 productGrideElem.innerHTML = html;
 
-document.querySelector('.js-cart-quantity').innerText = cart.updateCartNumFunc();
+document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
 
 /*Interactive elements*/
 document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
@@ -93,11 +92,9 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
 
     addedTextFunc(productId);
 
-    cart.addToCartArrFunc(productId);
+    addToCartArrFunc(productId);
 
-    
-
-    document.querySelector('.js-cart-quantity').innerText = cart.updateCartNumFunc();
+    document.querySelector('.js-cart-quantity').innerText = updateCartNumFunc();
 
   })
 })
