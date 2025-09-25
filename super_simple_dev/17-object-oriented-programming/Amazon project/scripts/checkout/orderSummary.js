@@ -1,7 +1,8 @@
 /*--- Imports ---*/
 import { cart, updateCartNumFunc, deleteFromCart, updateItemQuantity, updateDeliveryOption } from '../cart.js';
 import { productsInfo } from '../../data/products.js';
-import { deliveryOptions, renderDeliveryOptions, calculateDeliveryDate, getDeliveryOptionById } from '../utils/deliveryOptions.js';
+import { deliveryOptions, renderDeliveryOptions, getDeliveryOptionById, getDateString } from '../utils/deliveryOptions.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 // import { deliveryOptions } from '../../../15-external libraries/checkout-project/data/deliveryOptions.js';
 
@@ -24,12 +25,12 @@ const renderItemsFunc = ()=>{
             }
         })
 
-
+        let selectedOptionDays = getDeliveryOptionById(item.deliveryOptionId).days;
     
         html += `
         <div class="cart-item-container js-item-container-${item.productId}" >
             <div class="delivery-date">
-                Delivery date: ${calculateDeliveryDate(item)}
+                Delivery date: ${getDateString(selectedOptionDays)}
             </div>
     
             <div class="cart-item-details-grid">
@@ -137,6 +138,7 @@ document.querySelectorAll(`.js-save-link`).forEach((link)=>{
         const productId = link.dataset.productId;
 
         checkoutQuantityUpdate(productId);
+        renderPaymentSummary();
 
     })
 })
@@ -147,6 +149,7 @@ document.querySelectorAll('.js-input-quantity').forEach((link)=>{
 
         if(e.key === 'Enter'){
             checkoutQuantityUpdate(productId);
+            renderPaymentSummary();
         }
 
     })
@@ -161,6 +164,7 @@ document.querySelectorAll('.js-delivery-option').forEach((button)=>{
         updateDeliveryOption(deliveryId, productId);
 
         renderCheckout();
+        renderPaymentSummary();
         
     })
 })

@@ -16,25 +16,42 @@ export const deliveryOptions = [{
     priceCents: 999
 }];
 
+function getDayString(days){
+    let today = dayjs();
+
+    let deliveryDate = today.add(days, 'days');
+
+    let dayString = deliveryDate.format('dddd');
+
+    return dayString;
+};
+
 export function getDateString(days){
     const today = dayjs();
 
-    const deliveryDate = today.add(days, 'days');
+    const deliveryDate =    getDayString(days) === 'Saturday' ? today.add(days + 2, 'days') :
+                            getDayString(days) === 'Sunday' ? today.add(days + 1, 'days') : 
+                            today.add(days, 'days');
 
     const dateString = deliveryDate.format('dddd, MMMM D');
 
     return dateString;
 };
 
+
+
 export function calculateDeliveryDate(cartItem){
     let date;
     deliveryOptions.forEach((option)=>{
         if(option.id === cartItem.deliveryOptionId){
-            date = getDateString(option.days);
+            date =  getDayString(option.days) === 'Saturday' ? getDateString(option.days + 2) :
+                    getDayString(option.days) === 'Sunday' ? getDateString(option.days + 1) : getDateString(option.days);
+
         }
     })
     return date;
 }
+
 
 export function getDeliveryOptionById(deliveryOptionId){
     let selectedOption;

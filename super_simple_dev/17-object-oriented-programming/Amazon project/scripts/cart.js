@@ -1,5 +1,6 @@
-// import { deliveryOptions } from "../../../15-external libraries/checkout-project/data/deliveryOptions.js";
+import { productsInfo } from "../data/products.js";
 import { getDeliveryOptionById } from "./utils/deliveryOptions.js";
+import { formatMoney } from "./utils/money.js";
 
 export let cart = JSON.parse(localStorage.getItem('cart')) || [{
   productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -119,3 +120,78 @@ export function updateDeliveryOption(deliveryId, productId){
   // localStorage.setItem('cart', JSON.stringify(cart));
   saveToStorage();
 }
+
+export function cartItemFullInfo(productId){
+  let matchedItem;
+
+  productsInfo.forEach((product)=>{
+
+      if(productId === product.id){
+          matchedItem = product;
+      }
+
+  })
+
+  return matchedItem;
+};
+
+
+
+
+
+
+
+
+
+
+//This provides amount without including taxes and delivery charges
+export function tic(){
+
+  let total = 0;
+  cart.forEach((cartItem)=>{
+      
+      let productId = cartItem.productId;
+      
+      let matchedItem = cartItemFullInfo(productId);
+
+      let amount = matchedItem.priceCents * cartItem.quantity;
+
+      total += amount;
+  })
+
+  // let priceString = formatMoney(total);
+
+  return total;
+};
+
+//This provides total delivery charges
+export function tdc(){
+
+    let total = 0;
+    cart.forEach((cartItem)=>{
+        let productId = cartItem.productId;
+        let deliveryOptionId = cartItem.deliveryOptionId;
+    
+        let selectedOption = getDeliveryOptionById(deliveryOptionId);
+    
+        total += selectedOption.priceCents;
+    })
+    
+    // let deliveryChargeString = formatMoney(total);
+
+    return total;
+};
+
+export function taxes(){
+  let total = +tic() + +tdc();
+
+  let tax = total * 0.1;
+
+  return tax;
+};
+
+export function orderTotal(){
+  let totalAmount = +tic() + +tdc() + +taxes();
+
+  return totalAmount;
+};
