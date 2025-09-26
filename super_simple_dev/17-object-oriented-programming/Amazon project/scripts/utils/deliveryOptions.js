@@ -8,7 +8,7 @@ export const deliveryOptions = [{
     priceCents: 0
 }, {
     id: '2',
-    days: 3,
+    days: 4,
     priceCents: 499
 }, {
     id: '3',
