@@ -1,6 +1,6 @@
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { formatMoney } from './money.js';
-import { cart } from '../cart.js';
+import { kart } from '../cart.js';
 
 export const deliveryOptions = [{
     id: '1',

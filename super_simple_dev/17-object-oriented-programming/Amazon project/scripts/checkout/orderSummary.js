@@ -1,10 +1,8 @@
 /*--- Imports ---*/
-import { cart, updateCartNumFunc, deleteFromCart, updateItemQuantity, updateDeliveryOption } from '../cart.js';
+import { kart } from '../cart.js';
 import { productsInfo } from '../../data/products.js';
 import { deliveryOptions, renderDeliveryOptions, getDeliveryOptionById, getDateString } from '../utils/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
-
-// import { deliveryOptions } from '../../../15-external libraries/checkout-project/data/deliveryOptions.js';
 
 export function renderOrderSummary(){
 
@@ -15,7 +13,7 @@ function renderCheckout(){
 
 const renderItemsFunc = ()=>{
     let html = ``;
-    cart.forEach((item)=>{
+    kart.cart.forEach((item)=>{
         const productId = item.productId;
     
         let matchedItem;
@@ -84,32 +82,32 @@ const checkoutQuantityUpdate = (productId)=>{
 
     const newQuantity = +document.querySelector(`.js-input-quantity-${productId}`).value;
 
-    updateItemQuantity(productId, newQuantity);
+    kart.updateItemQuantity(productId, newQuantity);
 
     const itemQuantity = document.querySelector(`.js-item-quantity-${productId}`);
 
     let abcd = 0;
 
-    cart.forEach((item)=>{
+    kart.cart.forEach((item)=>{
         if(item.productId === productId){
             abcd = item.quantity;
         }
     })
 
     itemQuantity.innerText = abcd;
-    checkoutNumElem.innerText = `${updateCartNumFunc()} Items`;
+    checkoutNumElem.innerText = `${kart.updateCartNumFunc()} Items`;
 }
 
 renderItemsFunc();
 
-checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+checkoutNumElem.innerText = `${kart.updateCartNumFunc()} Items`
 
 document.querySelectorAll('.js-delete-link').forEach((link)=>{
     link.addEventListener('click', ()=>{
 
         const productId = link.dataset.productId;
 
-        deleteFromCart(productId);
+        kart.deleteFromCart(productId);
        
         // const itemContainer = document.querySelector(`.js-item-container-${productId}`);
 
@@ -117,7 +115,7 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
 
         renderCheckout();
 
-        checkoutNumElem.innerText = `${updateCartNumFunc()} Items`
+        checkoutNumElem.innerText = `${kart.updateCartNumFunc()} Items`
 
     })
 })
@@ -161,7 +159,7 @@ document.querySelectorAll('.js-delivery-option').forEach((button)=>{
         const productId = button.dataset.productId;
         const deliveryId = button.dataset.deliveryId;
 
-        updateDeliveryOption(deliveryId, productId);
+        kart.updateDeliveryOption(deliveryId, productId);
 
         renderCheckout();
         renderPaymentSummary();

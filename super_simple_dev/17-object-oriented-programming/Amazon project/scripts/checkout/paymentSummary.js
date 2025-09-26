@@ -1,4 +1,4 @@
-import { updateCartNumFunc, tic, tdc, taxes, orderTotal} from "../cart.js";
+import { kart } from "../cart.js";
 import { formatMoney } from "../utils/money.js";
 
 export function renderPaymentSummary(){
@@ -10,28 +10,28 @@ export function renderPaymentSummary(){
         </div>
 
         <div class="payment-summary-row">
-        <div>Items (${updateCartNumFunc()}):</div>
-        <div class="payment-summary-money">$${formatMoney(tic())}</div>
+        <div>Items (${kart.updateCartNumFunc()}):</div>
+        <div class="payment-summary-money">$${formatMoney(kart.tic())}</div>
         </div>
 
         <div class="payment-summary-row">
         <div>Shipping &amp; handling:</div>
-        <div class="payment-summary-money">$${formatMoney(tdc())}</div>
+        <div class="payment-summary-money">$${formatMoney(kart.tdc())}</div>
         </div>
 
         <div class="payment-summary-row subtotal-row">
         <div>Total before tax:</div>
-        <div class="payment-summary-money">$${formatMoney(+tic() + +tdc())}</div>
+        <div class="payment-summary-money">$${formatMoney(+kart.tic() + +kart.tdc())}</div>
         </div>
 
         <div class="payment-summary-row">
         <div>Estimated tax (10%):</div>
-        <div class="payment-summary-money">$${formatMoney(taxes())}</div>
+        <div class="payment-summary-money">$${formatMoney(kart.taxes())}</div>
         </div>
 
         <div class="payment-summary-row total-row">
         <div>Order total:</div>
-        <div class="payment-summary-money">${formatMoney(orderTotal())}</div>
+        <div class="payment-summary-money">${formatMoney(kart.orderTotal())}</div>
         </div>
 
         <button class="place-order-button button-primary">
