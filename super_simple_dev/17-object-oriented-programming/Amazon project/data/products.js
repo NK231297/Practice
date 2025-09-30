@@ -1,4 +1,4 @@
-class abcd {
+class Products {
   id;
   image;
   name;
@@ -6,6 +6,65 @@ class abcd {
   priceCents;
   keywords;
 
+  constructor(productDetails){
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+    this.keywords = productDetails.keywords;
+  }
+
+  getStarsUrl(){
+    return `images/ratings/rating-${this.rating.stars * 10}.png`
+  };
+
+  getPrice(){
+    return (this.priceCents / 100).toFixed(2);
+  };
+
+  extraInfoHTML(){
+    return '';
+  };
+
+};
+
+// let defg = new abcd({
+//     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+//     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+//     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
+//     rating: {
+//       stars: 4.5,
+//       count: 87
+//     },
+//     priceCents: 1090,
+//     keywords: [
+//       "socks",
+//       "sports",
+//       "apparel"
+//     ]
+//   });
+
+// defg.id = 1234;
+// defg.name = 'item'
+
+// console.log(defg);
+
+class Clothing extends Products {
+  sizeChartLink;
+
+  constructor(productDetails){
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML(){
+    return `
+    <a href = "${this.sizeChartLink}" target = "_blank">
+      Size chart
+    </a>
+    `
+  }
 };
 
 export const productsInfo = [
@@ -727,4 +786,13 @@ export const productsInfo = [
     },
     priceCents: 392,
   }
-];
+].map((productDetails)=>{
+
+  if(productDetails.type === 'clothing'){
+    return new Clothing(productDetails);
+  }
+
+  return new Products(productDetails);
+});
+
+console.log(productsInfo);

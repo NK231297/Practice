@@ -40,7 +40,7 @@ const renderItemsFunc = ()=>{
                     ${matchedItem.name}
                 </div>
                 <div class="product-price">
-                    $${(matchedItem.priceCents / 100).toFixed(2)}
+                    $${matchedItem.getPrice()}
                 </div>
                 <div class="product-quantity">
                     <span>
