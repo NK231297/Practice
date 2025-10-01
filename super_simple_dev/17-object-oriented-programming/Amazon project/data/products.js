@@ -795,4 +795,4 @@ export const productsInfo = [
   return new Products(productDetails);
 });
 
-console.log(productsInfo);
+// console.log(productsInfo);
