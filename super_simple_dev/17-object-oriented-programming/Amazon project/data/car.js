@@ -2,7 +2,8 @@ export class car {
     brand;
     model;
     speed = 0;
-    isTrunkOpen;
+    isTrunkOpen = false;
+    topSpeed = 200;
 
     constructor(carDetail){
         this.brand = carDetail.brand;
@@ -10,9 +11,11 @@ export class car {
     };
 
     go(){
-        if(this.speed < 200){
+    if(this.isTrunkOpen === false){
+        if(this.speed < this.topSpeed){
             this.speed += 5;
         }
+    }
     };
     
     brake(){
@@ -36,6 +39,26 @@ export class car {
     };
 };
 
+class raceCar extends car {
+    acceleration = 20;
+    topSpeed = 300;
+    isTrunkOpen = false;
+
+    go(){
+        if(this.speed < this.topSpeed){
+            this.speed += this.acceleration;
+        }
+    }
+
+    openTrunk(){};
+    closeTrunk(){};
+
+    displayInfo(){
+        console.log(`${this.brand} ${this.model}, Speed: ${this.speed} km/h`)
+    };
+};
+
+
 const car1 = new car({
     brand: 'Toyota',
     model: 'Corolla'
@@ -46,89 +69,133 @@ const car2 = new car({
     model: 'Model 3'
 });
 
-// console.log(car1, car2);
+const car3 = new raceCar({
+    brand: 'McLaren',
+    model: 'F1',
+    acceleration: 20
+});
 
 car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-car1.go();
-
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-car1.brake();
-
-car2.go();
-car2.go();
-car2.go();
-
 car1.openTrunk();
+
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+car3.go();
+
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+car1.go();
+
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+car2.go();
+
+car3.brake();
+
 
 car1.displayInfo();
 car2.displayInfo();
+car3.displayInfo();
