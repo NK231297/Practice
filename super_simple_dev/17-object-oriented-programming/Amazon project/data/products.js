@@ -83,12 +83,14 @@ class appliance extends Products{
       Instructions
     </a>
     
-    <a href = "${this.warrantyLink}">
+    <a href = "${this.warrantyLink}" target = "_blank">
       Warranty
     </a>
   `}
 };
 
+
+/*
 export const productsInfo = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -337,7 +339,11 @@ export const productsInfo = [
       "water boiler",
       "appliances",
       "kitchen"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
+
   },
   {
     id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
@@ -642,7 +648,10 @@ export const productsInfo = [
       "coffeemakers",
       "kitchen",
       "appliances"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
@@ -702,7 +711,10 @@ export const productsInfo = [
       "food blenders",
       "kitchen",
       "appliances"
-    ]
+    ],
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
@@ -760,16 +772,9 @@ export const productsInfo = [
       count: 3383
     },
     priceCents: 16500,
-  },
-  {
-    id: "1b378e63-151b-4e7c-9ff2-2f65d064a29a",
-    image: "images/products/ps5-console.jpg",
-    name: `Sony PlayStation5 Gaming Console (Slim)`,
-    rating: {
-      stars: 4.5,
-      count: 553
-    },
-    priceCents: 62500,
+    type: "appliance",
+    instructionsLink: "images/appliance-instructions.png",
+    warrantyLink: "images/appliance-warranty.png"
   },
   {
     id: "8b174d03-799e-48de-a8e8-8d0fffbf799e",
@@ -817,7 +822,7 @@ export const productsInfo = [
     return new Clothing(productDetails);
   }
   
-  if(productDetails.type = 'appliance'){
+  if(productDetails.type === 'appliance'){
     return new appliance(productDetails);
   }
   
@@ -825,5 +830,37 @@ export const productsInfo = [
   
 
 });
-
+*/
 // console.log(productsInfo);
+
+
+export let productsInfo = [];
+
+
+export function loadProducts(func){
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('load', ()=>{
+    productsInfo = JSON.parse(xhr.response).map((productDetails)=>{
+
+    if(productDetails.type === 'clothing'){
+      return new Clothing(productDetails);
+    }
+    
+    if(productDetails.type === 'appliance'){
+      return new appliance(productDetails);
+    }
+    
+    return new Products(productDetails);
+    
+  });
+    func();
+  })
+
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+
+  xhr.send();
+
+  
+};

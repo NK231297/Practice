@@ -114,6 +114,7 @@ document.querySelectorAll('.js-delete-link').forEach((link)=>{
         // itemContainer.remove();
 
         renderCheckout();
+        renderPaymentSummary();
 
         checkoutNumElem.innerText = `${kart.updateCartNumFunc()} Items`
 
