@@ -1,3 +1,5 @@
+import { loadCart } from "../scripts/cart.js";
+
 class Products {
   id;
   image;
@@ -836,7 +838,36 @@ export const productsInfo = [
 
 export let productsInfo = [];
 
+export function loadProductsFetch(){
 
+  const promise =  fetch('https://supersimplebackend.dev/products').then((response)=>{
+
+    return response.json()
+
+  }).then((productData)=>{
+
+    productsInfo = productData.map((productDetails)=>{
+      
+      if(productDetails.type === 'clothing'){
+        return new Clothing(productDetails);
+      }
+      else if(productDetails.type === 'appliance'){
+        return new appliance(productDetails);
+      }
+      else{
+        return new Products(productDetails);
+      }
+
+    })
+
+  })
+
+  console.log('products loaded')
+
+  return promise;
+
+};
+/*
 export function loadProducts(func){
 
   const xhr = new XMLHttpRequest();
@@ -864,3 +895,6 @@ export function loadProducts(func){
 
   
 };
+*/
+
+loadCart();

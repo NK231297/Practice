@@ -1,8 +1,10 @@
 /*--- Imports ---*/
-import { productsInfo, loadProducts } from '../data/products.js'; //theise are imported things from other files of there respected work.
+import { productsInfo, loadProductsFetch } from '../data/products.js'; //theise are imported things from other files of there respected work.
 import { kart } from './cart.js';
 
-loadProducts(renderProductsGrid);
+loadProductsFetch().then(()=>{
+  renderProductsGrid();
+});
 
 function renderProductsGrid(){
   const productGrideElem = document.querySelector('.products-grid'); //this is an container which will contains all the products
