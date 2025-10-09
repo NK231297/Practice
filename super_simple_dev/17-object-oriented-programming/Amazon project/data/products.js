@@ -862,7 +862,7 @@ export function loadProductsFetch(){
 
   })
 
-  console.log('products loaded')
+  console.log('load products')
 
   return promise;
 
@@ -896,5 +896,3 @@ export function loadProducts(func){
   
 };
 */
-
-loadCart();

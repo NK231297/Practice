@@ -2,6 +2,7 @@ import { productsInfo } from "../data/products.js";
 import { getDeliveryOptionById } from "./utils/deliveryOptions.js";
 import { formatMoney } from "./utils/money.js";
 
+
 class Cart {
   cart = JSON.parse(localStorage.getItem('cart')) || [];
   
@@ -179,6 +180,7 @@ class Cart {
 
     return totalAmount;
   };
+
 
 };
 
