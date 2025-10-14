@@ -1,9 +1,52 @@
-import { loadCart } from "./cart.js";
-import { renderOrderSummary } from "./checkout/orderSummary.js";
-import { renderPaymentSummary } from './checkout/paymentSummary.js';
-import { loadProductsFetch } from "../data/products.js";
-import { car } from "../data/car.js";
-import '../data/backend-practice.js';
+import { loadCart               } from  "./cart.js";
+import { renderOrderSummary     } from  "./checkout/orderSummary.js";
+import { renderPaymentSummary   } from  "./checkout/paymentSummary.js";
+import { loadProductsFetch      } from  "../data/products.js";
+import { car                    } from  "../data/car.js";
+import                                  "../data/backend-practice.js";
+
+async function quickLoading(){
+    try{
+        //throw 'error1';
+
+        await loadProductsFetch();
+            
+        await new Promise((resolve, reject)=>{
+            //throw 'error2';
+
+            loadCart(()=>{
+                //reject('error3');
+                resolve('value3');
+
+            });
+        });
+    } catch(error){
+        console.log('Unexpected error. Please try again later.')
+    }
+
+    renderOrderSummary();
+    renderPaymentSummary();
+    
+    console.log('render complete');
+        
+};
+
+quickLoading();
+
+/*
+async function loadPage(){
+    console.log('load page');
+    
+    loadProductsFetch();
+};
+
+loadPage().then(()=>{
+    console.log('next step');    
+    
+})
+*/
+
+/*
 
 function stepBystepLoad(){
     new Promise((resolve, reject)=>{
@@ -75,6 +118,8 @@ function quickLoading(){
 };
 
 quickLoading();
+
+*/
 
 /*
 Promise.all([

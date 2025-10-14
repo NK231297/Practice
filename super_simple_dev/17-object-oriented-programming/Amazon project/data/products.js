@@ -860,15 +860,17 @@ export function loadProductsFetch(){
 
     })
 
-  })
+  })/*.catch(()=>{
+    console.log('Unexpected error. Please try again later.')
+  })*/
 
   console.log('load products')
 
   return promise;
 
 };
-/*
-export function loadProducts(func){
+
+function loadProducts(){
 
   const xhr = new XMLHttpRequest();
 
@@ -886,7 +888,11 @@ export function loadProducts(func){
     return new Products(productDetails);
     
   });
-    func();
+    
+  })
+
+  xhr.addEventListener('error', ()=>{
+    console.log('Unexpected error, please try again later.')
   })
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');
@@ -895,4 +901,3 @@ export function loadProducts(func){
 
   
 };
-*/
