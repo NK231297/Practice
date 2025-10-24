@@ -186,8 +186,16 @@ class Cart {
 
 export let kart = new Cart();
 
-export function loadCart(func){
+export async function loadCartFetch(){
 
+  const response = await fetch('https://supersimplebackend.dev/cart');
+
+  const data = await response.text();
+
+  console.log(data);
+  
+
+  /*
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', ()=>{
@@ -200,6 +208,6 @@ export function loadCart(func){
   xhr.open('GET', 'https://supersimplebackend.dev/cart');
 
   xhr.send();
-
+*/
   
 };

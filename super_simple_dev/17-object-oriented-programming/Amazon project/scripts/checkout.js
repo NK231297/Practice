@@ -1,4 +1,4 @@
-import { loadCart               } from  "./cart.js";
+import { loadCartFetch               } from  "./cart.js";
 import { renderOrderSummary     } from  "./checkout/orderSummary.js";
 import { renderPaymentSummary   } from  "./checkout/paymentSummary.js";
 import { loadProductsFetch      } from  "../data/products.js";
@@ -9,17 +9,11 @@ async function quickLoading(){
     try{
         //throw 'error1';
 
-        await loadProductsFetch();
-            
-        await new Promise((resolve, reject)=>{
-            //throw 'error2';
+        await Promise.all([
+            loadProductsFetch(),
+            loadCartFetch()
+        ])
 
-            loadCart(()=>{
-                //reject('error3');
-                resolve('value3');
-
-            });
-        });
     } catch(error){
         console.log('Unexpected error. Please try again later.')
     }
@@ -63,7 +57,7 @@ function stepBystepLoad(){
         return new Promise((resolve, reject)=>{
             console.log('loading cart...')
             setTimeout(()=>{
-                loadCart(()=>{
+                loadCartFetch(()=>{
                     resolve();
                 })
             }, 1000)
@@ -100,7 +94,7 @@ function quickLoading(){
 
         }),
         new Promise((resolve, reject)=>{
-            loadCart(()=>{
+            loadCartFetch(()=>{
                 resolve();
             });
         })
@@ -128,7 +122,7 @@ Promise.all([
 
     }),
     new Promise((resolve, reject)=>{
-        loadCart(()=>{
+        loadCartFetch(()=>{
             resolve();
         });
     })

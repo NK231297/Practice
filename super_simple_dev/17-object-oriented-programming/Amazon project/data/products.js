@@ -1,5 +1,3 @@
-import { loadCart } from "../scripts/cart.js";
-
 class Products {
   id;
   image;

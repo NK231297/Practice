@@ -46,6 +46,11 @@ export function renderPaymentSummary(){
     // console.log(totalCostOfItems());
 
     document.querySelector('.js-place-order').addEventListener('click', async ()=>{
+        if(kart.cart.length === 0){
+            console.log('Empty Cart.');
+            return;
+        }
+
         const response = await fetch('https://supersimplebackend.dev/orders', {
             method: 'POST',
             headers: {
@@ -57,11 +62,10 @@ export function renderPaymentSummary(){
         });
 
         const order = await response.json();
-
+        
         addToOrders(order);
-
+        
         window.location.href = 'orders.html';
-
     })
 
 }
