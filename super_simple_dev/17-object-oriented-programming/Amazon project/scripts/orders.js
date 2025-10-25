@@ -41,19 +41,52 @@ async function renderOrder(){
         </div>
       </div>
   `
+
+  
+
   });
+
+  
+
+  document.querySelector('.js-cart-quantity').innerText = kart.updateCartNumFunc();
 
   document.querySelector('.js-order-grid').innerHTML = html;
 
-  localStorage.removeItem('cart');
+  document.querySelectorAll(`.js-buy-again`).forEach((button)=>{
+    button.addEventListener('click', ()=>{
+      const productId = button.dataset.productId;
 
-  document.querySelector('.js-cart-quantity').innerText = kart.updateCartNumFunc();
+      let matchedItem;
+
+      kart.cart.forEach((cartItem)=>{
+        if(cartItem.productId === productId){
+          matchedItem = cartItem;
+        }
+      })
+
+      if(matchedItem){
+        matchedItem.quantity += 1;
+      } else{
+        kart.cart.push({
+          productId: productId,
+          quantity: 1,
+          deliveryOptionId: '1'
+        })
+      }
+
+      
+
+      kart.saveToStorage();
+
+      document.querySelector('.js-cart-quantity').innerText = kart.updateCartNumFunc();
+      
+      console.log(kart.cart);
+      
+    })
+  })
   
-  document.querySelectorAll('.js-buy-again').forEach((button)=>{
-  button.addEventListener('click', ()=>{
-    console.log('hello');
-  })
-  })
+  
+  
 };
 
 function renderProducts(order){

@@ -62,10 +62,29 @@ export function renderPaymentSummary(){
         });
 
         const order = await response.json();
+        /*
+        new Promise((resolve, reject)=>{
+            addToOrders(order);
+            resolve();
+        }).then(()=>{
+            new Promise((resolve, reject)=>{
+                localStorage.removeItem('cart');
+                resolve();
+            }).then(()=>{
+
+                window.location.href = 'orders.html';
+            })
+            
+        })
+        */
+
         
-        addToOrders(order);
+        await addToOrders(order);
         
+        localStorage.removeItem('cart');
+
         window.location.href = 'orders.html';
+        
     })
 
-}
+};
