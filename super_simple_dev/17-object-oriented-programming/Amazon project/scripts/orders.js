@@ -3,6 +3,7 @@ import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 import { formatMoney } from "./utils/money.js";
 import { kart } from "./cart.js";
 import { loadProductsFetch } from "../data/products.js";
+import { skipWeekend } from "./utils/skipWeekend.js";
 
 
 async function renderOrder(){
@@ -94,7 +95,11 @@ function renderProducts(order){
 
   order.products.forEach((product)=>{
 
-    const dateString = dayjs(product.orderTime).format('MMMM D');
+    const date = dayjs(product.estimatedDeliveryTime);
+
+    const isWeekend = skipWeekend(date);
+
+    const dateString = dayjs(isWeekend).format('dddd MMMM D');
   
     const item = kart.cartItemFullInfo(product.productId);
 
@@ -120,7 +125,7 @@ function renderProducts(order){
       </div>
 
       <div class="product-actions">
-        <a href="tracking.html">
+        <a href="tracking.html?orderId=${order.id}&productId=${product.productId}">
           <button class="track-package-button button-secondary">
             Track package
           </button>
