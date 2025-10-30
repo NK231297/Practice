@@ -71,19 +71,19 @@ async function renderTracking(){
         <img class="product-image" src=${product.image}>
 
         <div class="progress-labels-container">
-          <div class="progress-label">
+          <div class="progress-label ${deliveryProgress <= 49 ? "current-status" : ""}">
             Preparing
           </div>
-          <div class="progress-label current-status">
+          <div class="progress-label ${deliveryProgress <= 99 && deliveryProgress > 49 ? "current-status" : ""}">
             Shipped
           </div>
-          <div class="progress-label">
+          <div class="progress-label ${deliveryProgress >= 100 ? "current-status" : ""}">
             Delivered
           </div>
         </div>
 
         <div class="progress-bar-container">
-          <div class="progress-bar"></div>
+          <div class="progress-bar" style="width:${deliveryProgress}%"></div>
         </div>
       </div>
     `
