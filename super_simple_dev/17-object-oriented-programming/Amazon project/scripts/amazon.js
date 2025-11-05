@@ -7,6 +7,7 @@ loadProductsFetch().then(()=>{
 });
 
 function renderProductsGrid(){
+
   const productGrideElem = document.querySelector('.products-grid'); //this is an container which will contains all the products
 
   let timeOutIdObj = {};
@@ -29,7 +30,9 @@ function renderProductsGrid(){
   }
 
   let html = ``;
+  
   productsInfo.forEach((product)=>{
+
     html += 
     `
     <div class="product-container">
@@ -83,7 +86,8 @@ function renderProductsGrid(){
       </button>
     </div>
     `
-  })
+  });
+
   productGrideElem.innerHTML = html;
 
   document.querySelector('.js-cart-quantity').innerText = kart.updateCartNumFunc();
@@ -103,7 +107,18 @@ function renderProductsGrid(){
   })
 };
 
-document.querySelector('.js-search-button').addEventListener('click', ()=>{
+function searchFunc(){
   const search = document.querySelector('.js-search-bar').value;
+
   window.location.href = `amazon.html?search=${search}`;
+};
+
+document.querySelector('.js-search-button').addEventListener('click', ()=>{
+  searchFunc();
+});
+
+document.querySelector('.js-search-bar').addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){
+    searchFunc();
+  }
 });
