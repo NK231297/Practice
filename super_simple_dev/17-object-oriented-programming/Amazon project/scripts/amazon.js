@@ -30,8 +30,29 @@ function renderProductsGrid(){
   }
 
   let html = ``;
+ 
+  let filteredProducts;
   
+  const url = new URL(window.location.href);
+
+  const search = url.searchParams.get('search');
+
+  
+
   productsInfo.forEach((product)=>{
+    
+    filteredProducts = productsInfo;
+    
+    if(search){
+      filteredProducts = productsInfo.filter((product)=>{
+        return product.name.toLowerCase().includes(search.toLowerCase());
+      })
+    };
+
+  });
+
+
+  filteredProducts.forEach((product)=>{
 
     html += 
     `
