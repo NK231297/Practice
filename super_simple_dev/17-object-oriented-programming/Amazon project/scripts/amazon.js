@@ -45,7 +45,16 @@ function renderProductsGrid(){
     
     if(search){
       filteredProducts = productsInfo.filter((product)=>{
-        return product.name.toLowerCase().includes(search.toLowerCase());
+        // return product.name.toLowerCase().includes(search.toLowerCase());
+        let matchingKeyword = false;
+
+        product.keywords.forEach((keyword)=>{
+          if(keyword === search.toLowerCase()){
+            matchingKeyword = true;
+          }
+        });
+
+        return matchingKeyword || product.name.toLowerCase().includes(search.toLowerCase());
       })
     };
 
