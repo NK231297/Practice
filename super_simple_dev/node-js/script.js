@@ -140,7 +140,7 @@ const personAge25 = people.find((person)=>{
 
 console.log(personAge25);
 */
-
+/*
 const products = [
   { name: "Mechanical Keyboard", price: 3000 },
   { name: "Gaming Mouse", price: 2000 },
@@ -174,3 +174,116 @@ const prodWithPrice1000 = products.find((product)=>{
 });
 
 console.log(prodWithPrice1000);
+*/
+/*
+const nums = [1, 3, 5, 7, 8];
+
+const evenNum = nums.some((num)=>{
+    return num % 2 === 0;
+});
+
+console.log(evenNum);
+*/
+/*
+const students = [
+    { name: "Om", isPass: false },
+    { name: "Dev", isPass: false },
+    { name: "Rishabh", isPass: false },
+    { name: "Yash", isPass: false },
+    { name: "Nirav", isPass: false }
+];
+
+const passed = students.some((student)=>{
+    return student.isPass === true;
+});
+
+console.log(passed);
+*/
+/*
+const products = [
+    { name: "VR Headset", stock: 0 },
+    { name: "Microphone", stock: 0 },
+    { name: "Mouse Bungee", stock: 0 },
+    { name: "USB Hub", stock: 0 },
+    { name: "Headphone Stand", stock: 0 }
+];
+
+const available = products.some((product)=>{
+    return product.stock > 0;
+});
+
+console.log(available);
+*/
+/*
+const nums = [1, 2, 3, 4];
+
+const isPositive = nums.every((num)=>{
+    return num > 0;
+});
+
+console.log(isPositive);
+*/
+/*
+const persons = [
+  { name: "Om", age: 23 },
+  { name: "Dev", age: 25 },
+  { name: "Rishabh", age: 18 },
+  { name: "Yash", age: 22 },
+  { name: "Nirav", age: 30 }
+];
+
+const isAdult = persons.every((person)=>{
+    return person.age >= 18;
+});
+
+console.log(isAdult);
+*/
+/*
+const products = [
+  { name: "VR Headset", price: 5000 },
+  { name: "Microphone", price: 5000 },
+  { name: "Mouse Bungee", price: 5000 },
+  { name: "USB Hub", price: 2000 },
+  { name: "Headphone Stand", price: 5000 }
+];
+
+const priceAvailable = products.every((product)=>{
+    return product.price;
+});
+
+console.log(priceAvailable);
+*/
+/*
+const nums = [1, 2, 3, 4, 5];
+
+const initialValue = 0;
+
+const sum = nums.reduce((accumulator, currentValue)=>{
+    return accumulator + currentValue},
+initialValue);
+
+console.log(sum);
+*/
+/*
+const products = [
+  { name: "VR Headset", price: 5000 },
+  { name: "Microphone", price: 5000 },
+  { name: "Mouse Bungee", price: 5000 },
+  { name: "USB Hub", price: 2000 },
+  { name: "Headphone Stand", price: 5000 }
+];
+
+const initialValue = 0;
+
+const totalPrice = products.reduce((accumulator, currentValue)=>{
+    return accumulator + currentValue.price;
+}, initialValue);
+
+console.log(totalPrice);
+*/
+
+const fruits = ['apple', 'banana', 'guava', 'apple', 'guava', 'guava'];
+
+const result = fruits.reduce((accumulator, item)=>{
+    if(accumulator[])
+}, {})
