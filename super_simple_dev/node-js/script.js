@@ -282,10 +282,16 @@ const totalPrice = products.reduce((accumulator, currentValue)=>{
 console.log(totalPrice);
 */
 
-const fruits = ['apple', 'banana', 'guava', 'apple', 'guava', 'guava'];
 
-const result = fruits.reduce((accumulator, item)=>{
-    if(accumulator[])
-}, {})
+const fruits = ['apple', 'mangoe', 'pineapple', 'banana', 'grapes', 'mangoe', 'pineapple', 'apple', 'mangoe'];
 
-//Hello0
+const result = fruits.reduce((acc, currentValue)=>{
+    if(acc[currentValue]){
+        acc[currentValue]++;
+    }else{
+        acc[currentValue] = 1;
+    }
+    return acc;
+}, {});
+
+console.log(result);
