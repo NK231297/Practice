@@ -287,3 +287,5 @@ const fruits = ['apple', 'banana', 'guava', 'apple', 'guava', 'guava'];
 const result = fruits.reduce((accumulator, item)=>{
     if(accumulator[])
 }, {})
+
+//Hello0
