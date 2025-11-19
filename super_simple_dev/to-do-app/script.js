@@ -1,10 +1,35 @@
-let html = ``;
+function renderTodo(){
+  let todos = JSON.parse(localStorage.getItem('todo')) || [];
 
-let id = 0;
-document.querySelector('.js-add-bt').addEventListener('click', ()=>{
+  let id = 0;
+  document.querySelector('.js-add-bt').addEventListener('click', ()=>{
   
   id++;
 
+  let todoData = document.querySelector('.js-todo').value;
+
+  todos.push({
+    todo: todoData
+  })
+
+  localStorage.setItem('todo', JSON.stringify(todos));
+
+  console.log(todos);
+
+  
+  
+  });
+
+
+};
+
+let html = ``;
+
+
+
+console.log(id);
+
+/*
   let todoData = document.querySelector('.js-todo').value;
 
   html += `
@@ -19,5 +44,5 @@ document.querySelector('.js-add-bt').addEventListener('click', ()=>{
 
   
   console.log(id);
-});
+  */
 
