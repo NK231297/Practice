@@ -1,4 +1,4 @@
-function renderTodo(){
+function createTodo(){
   let todos = JSON.parse(localStorage.getItem('todo')) || [];
 
   let id = 0;
@@ -9,6 +9,7 @@ function renderTodo(){
   let todoData = document.querySelector('.js-todo').value;
 
   todos.push({
+    todoId: id,
     todo: todoData
   })
 
@@ -16,18 +17,52 @@ function renderTodo(){
 
   console.log(todos);
 
-  
+  renderTodo();
   
   });
 
 
 };
 
-let html = ``;
+function renderTodo(){
+  let todos = JSON.parse(localStorage.getItem('todo')) || []; //Array
+  
+  let html = ``;
+
+  todos.forEach((todo)=>{
+    
+    console.log(todo.todoId);
+    console.log(todo.todo);
+    
+    
+    html += `
+      <div class="js-part-todo" data-todo-id="">
+        <span>${todo.todo}</span> <button class = "js-delete-bt">delete</button>
+      </div>    
+    `
+    
+  })
+  document.querySelector('.js-todoContainer').innerHTML = html;
+};
+
+function deleteTodo(){
+  document.querySelectorAll('.js-delete-bt').addEventListener('click', ()=>{
+
+  })
+};
 
 
 
-console.log(id);
+
+
+
+
+createTodo();
+renderTodo();
+
+
+
+// console.log(id);
 
 /*
   let todoData = document.querySelector('.js-todo').value;
