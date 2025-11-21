@@ -2,6 +2,11 @@ function createTodo(){
   let todos = JSON.parse(localStorage.getItem('todo')) || [];
 
   let id = 0;
+
+  todos.forEach((todo)=>{
+    id = todo.todoId;
+  })
+
   document.querySelector('.js-add-bt').addEventListener('click', ()=>{
   
   id++;
@@ -36,8 +41,8 @@ function renderTodo(){
     
     
     html += `
-      <div class="js-part-todo" data-todo-id="">
-        <span>${todo.todo}</span> <button class = "js-delete-bt">delete</button>
+      <div class="js-part-todo">
+        <span>${todo.todo}</span> <button class = "js-delete-bt" data-todo-id="${todo.todoId}">delete</button>
       </div>    
     `
     
@@ -46,9 +51,29 @@ function renderTodo(){
 };
 
 function deleteTodo(){
-  document.querySelectorAll('.js-delete-bt').addEventListener('click', ()=>{
+  document.querySelectorAll('.js-delete-bt').forEach((button)=>{
+    button.addEventListener('click', ()=>{
 
-  })
+    let todos = JSON.parse(localStorage.getItem('todo'));
+
+    let todoId = button.dataset.todoId;
+
+    let matchArr;
+
+    todos.forEach((todo)=>{
+      if(todo.todoId === todoId){
+        matchArr = todo;
+      }
+    })
+
+    
+
+    localStorage.setItem('todo', JSON.stringify(arr));
+
+    renderTodo();
+
+    })
+  }) 
 };
 
 
@@ -59,7 +84,7 @@ function deleteTodo(){
 
 createTodo();
 renderTodo();
-
+deleteTodo();
 
 
 // console.log(id);
