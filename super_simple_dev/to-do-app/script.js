@@ -1,13 +1,17 @@
 function createTodo(){
   let todos = JSON.parse(localStorage.getItem('todo')) || [];
 
-  let id = 0;
+  let id = todos.length > 0 ? todos[todos.length - 1].todoId : 0;
 
+  /*
   todos.forEach((todo)=>{
     id = todo.todoId;
   })
+  */
 
   document.querySelector('.js-add-bt').addEventListener('click', ()=>{
+
+  let todos = JSON.parse(localStorage.getItem('todo')) || [];
   
   id++;
 
@@ -26,6 +30,28 @@ function createTodo(){
   
   });
 
+  document.querySelector('.js-todo').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+
+      let todos = JSON.parse(localStorage.getItem('todo')) || [];
+
+      let todoData = document.querySelector('.js-todo').value;
+
+      id++;
+
+      todos.push({
+        todoId: id,
+        todo: todoData
+      });
+
+      saveToStorage('todo', todos);
+
+      console.log(todos);
+
+      renderTodo();
+    }
+  });
+
 
 };
 
@@ -42,12 +68,14 @@ function renderTodo(){
     
     html += `
       <div class="js-part-todo">
-        <span>${todo.todo}</span> <button class = "js-delete-bt" data-todo-id="${todo.todoId}">delete</button>
+        <span>${todo.todo}</span> <button class = "js-delete-bt" data-todo-id="${todo.todoId}">Delete</button>
       </div>    
     `
     
   })
   document.querySelector('.js-todoContainer').innerHTML = html;
+
+  deleteTodo();
 };
 
 function deleteTodo(){
@@ -58,17 +86,15 @@ function deleteTodo(){
 
     let todoId = button.dataset.todoId;
 
-    let matchArr;
-
-    todos.forEach((todo)=>{
-      if(todo.todoId === todoId){
-        matchArr = todo;
-      }
+    let newArr = todos.filter((todo)=>{
+      return todo.todoId != todoId;
     })
 
-    
+    todos = newArr;
 
-    localStorage.setItem('todo', JSON.stringify(arr));
+    console.log(todos);
+
+    saveToStorage('todo', todos);
 
     renderTodo();
 
@@ -76,8 +102,9 @@ function deleteTodo(){
   }) 
 };
 
-
-
+function saveToStorage(key, data){
+  localStorage.setItem(key, JSON.stringify(data));
+};
 
 
 
@@ -85,24 +112,4 @@ function deleteTodo(){
 createTodo();
 renderTodo();
 deleteTodo();
-
-
-// console.log(id);
-
-/*
-  let todoData = document.querySelector('.js-todo').value;
-
-  html += `
-  <div class="js-part-todo-${id}">
-    <span>${todoData}</span> <button class = "js-delete-bt-${id}">delete</button>
-  </div>
-  `;
-
-  document.querySelector('.js-todoContainer').innerHTML = html;
-
-  document.querySelector('.js-todo').value = '';
-
-  
-  console.log(id);
-  */
 
