@@ -13,18 +13,23 @@ const server = http.createServer((req, res)=>{
                         <title> Home </title>
                     </header>
                     <body>
-                        <h1> Enter your details </h1>
-                        <h3>Enter your Name</h3>
-                        </br>
-                        <input type="text" name="" id="" placeholder="Enter your name">
-                        </br>
-                        </br>
-                        <h3>Enter your gender</h3>
-                        </br>
-                        <input type="text" id="" name="">
-                        </br>
-                        </br>
-                        <button> Submit </button>
+                    <h1> Enter your details </h1>
+                        <form action="/submit-details" method="POST">
+                            <h3>Enter your Name</h3>
+                            <input type="text" name="name" id="name" placeholder="Enter your name">
+                            </br>
+                            </br>
+                            <h3>Enter your gender</h3>
+                            <label for="male">Male</label>
+                            <input type="radio" id="male" name="male" value="male"/>
+
+                            <label for="female">Female</label>
+                            <input type="radio" id="female" name="female" value="female"/>
+                            </br>
+                            </br>
+                            <input type="submit">
+                        </form>
+
                     </body>
                 </html>
             `)
@@ -59,8 +64,6 @@ const server = http.createServer((req, res)=>{
             </html>
         `)
 
-    
-    
 });
 
 const PORT = 3001;
@@ -68,29 +71,3 @@ const PORT = 3001;
 server.listen(PORT, ()=>{
     console.log(`Server running on address http://localhost:${PORT}`);
 });
-
-/*
-res.write(`
-            <!DOCTYPE html>
-            <html lang="en">
-            <header>
-                <title> Home </title>
-            </header>
-            <body>
-                <h1>Enter your details</h1>
-                <form>
-                    <h3>Name:</h3>
-                    </br>
-                    <input type="text" placeholder="Enter your name">
-                    </br>
-                    </br>
-                    <h3>Gender:</h3>
-                    </br>
-                    <input type="text" placeholder="Enter your gender">
-                </form>
-            </body>
-            </html>
-        `)
-        */
-
-//hello3
