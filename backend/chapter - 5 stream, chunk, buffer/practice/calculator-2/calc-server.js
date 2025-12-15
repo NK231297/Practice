@@ -1,11 +1,11 @@
-const calculator = require('./calculator');
+const http = require ('http');
 
-const http = require('http');
+const {requestHandler} = require('./request-handler');
 
-const server = http.createServer(calculator);
+const server = http.createServer(requestHandler);
 
-const PORT = 3002;
+const PORT = 3001;
 
 server.listen(PORT, ()=>{
-  console.log(`Server running on URL: http//localhost:${PORT}`);
+  console.log(`Server running on: http://localhost:${PORT}`);
 });
