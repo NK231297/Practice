@@ -6,7 +6,7 @@ const saleResult = (req, res)=>{
   });
 
   req.on('end', ()=>{
-    const chunkToText = data.concat().toString();
+    const chunkToText = Buffer.concat(data).toString();
 
     const parsedText = new URLSearchParams(chunkToText);
 
@@ -15,7 +15,9 @@ const saleResult = (req, res)=>{
     const firstPaisa = (dataObj.first) * 100;
     const secondPerc = dataObj.second;
 
-    const result = firstPaisa - secondPerc/100 * firstPaisa;
+    const result = ((firstPaisa - secondPerc/100 * firstPaisa) / 100).toFixed(2);
+
+    // const result = resultPaisa.toFixed(2);
 
     console.log(secondPerc);
 
@@ -26,14 +28,16 @@ const saleResult = (req, res)=>{
       <!DOCTYPE html>
       <html lang = "en">
         <head>
-          <title>404</title>
+          <title>Result</title>
         </head>
 
         <body>
 
-          <h1>First value: ${}</h1>
-          <h1>${secondPerc}</h1>
-          <h1>${secondPerc}</h1>
+          <h1>First value: ${firstPaisa / 100}Rs</h1>
+          <h1>Second value:  ${secondPerc}%</h1>
+          <h1>Result: ${result}</h1>
+          </br>
+          <a href = "/sale-calc">Back to sale price calc.</a>
 
         </body>
 

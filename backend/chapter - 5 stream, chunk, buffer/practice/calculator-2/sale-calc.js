@@ -16,14 +16,18 @@ const saleCalc = (req, res)=>{
 
       <form action = "/sale-result" method = "POST">
 
-        <input type = "number" name = "first" placeholder = "First"/>
+        <input type = "number" name = "first" placeholder = "First" step = "0.01"/> <span>Rs</span>
         <br/>
-        <input type = "number" name = "second" placeholder = "Second" step = "0.01"/>
+        <input type = "number" name = "second" placeholder = "Second" step = "0.01"/> <span>%</span>
         <br/>
         <input type = "submit"/>
         
 
       </form>
+
+      <a href = "/">home</a>
+
+      
 
     </body>
     </html>  

@@ -19,13 +19,15 @@ const discCalc = (req, res)=>{
 
         <form action = "/disc-result" method = "POST">
 
-          <input type = "number" name = "first" placeholder = "First"/> <span>₹</span>
+          <input type = "number" name = "first" placeholder = "First"/ step = "0.01"> <span>₹</span>
           <br/>
-          <input type = "number" name = "second" placeholder = "Second"/><span>₹</span>
+          <input type = "number" name = "second" placeholder = "Second" step = "0.01"/><span>₹</span>
           <br/>
           <input type = "submit"/>
         
         </form>
+
+        <a href = "/">home</a>
         
       </body>
 

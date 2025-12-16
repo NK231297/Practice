@@ -7,7 +7,7 @@ const discResult = (req, res)=>{
 
   req.on('end', ()=>{
 
-    const chunkToText = data.concat().toString();
+    const chunkToText = Buffer.concat(data).toString();
 
     const parsedText = new URLSearchParams(chunkToText);
 
@@ -35,7 +35,7 @@ const discResult = (req, res)=>{
 
           
 
-          <a href = "/disc-calc">Go to calculator.</a>
+          <a href = "/disc-calc">Back to dicount calc.</a>
 
         </body>
 
