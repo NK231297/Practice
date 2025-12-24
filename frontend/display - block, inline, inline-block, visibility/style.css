@@ -1,0 +1,16 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.box{
+  background-color: lightgreen;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+
+#box1{
+  /* visibility: hidden; */
+  display: none;
+}
