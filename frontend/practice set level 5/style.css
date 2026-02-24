@@ -5,8 +5,9 @@
 }
 
 .header{
-  /* border: 2px solid black; */
+  border: 2px dashed black;
   padding: 10px 5px;
+  border-radius: 10px;
 }
 
 .navbar{
@@ -40,4 +41,49 @@ a{
 .nav-link{
   display: inline;
   /* flex-direction: row; */
+}
+
+
+.container{
+  /* border: 2px dashed black; */
+  height: 600px;
+  margin: 10px 0px 0px 0px;
+  display: flex;
+  /* padding: 10px; */
+}
+
+.main{
+  border: 2px dashed black;
+  width: 70%;
+  margin: 0px 5px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.side{
+  border: 2px dashed black;
+  width: 30%;
+  margin: 0px 0px 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.footer{
+  border: 2px dashed black;
+  height: 100px;
+  margin: 10px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 600;
+  border-radius: 10px;
 }
